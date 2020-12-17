@@ -148,7 +148,7 @@ client.on('message', async(msg) => {
         var reason = args.splice(1).join(' ');
         if(!reason) return msg.reply('You need to give a reason!');
     
-        var channel = msg.guild.channels.cache.find(c => c.name === 'potato');
+        var channel = msg.guild.channels.cache.get('778889714001510400');
     
         var log = new Discord.MessageEmbed()
         .setTitle('User Warned')
@@ -190,7 +190,7 @@ client.on('message', async(msg) => {
         var reason = args.splice(1).join(' ');
         if(!reason) return msg.reply('You need to give a reason!');
     
-        var channel = msg.guild.channels.cache.find(c => c.name === 'potato');
+        var channel = msg.guild.channels.cache.get('778889714001510400');
     
         var log = new Discord.MessageEmbed()
         .setTitle('User Kicked')
