@@ -16,6 +16,7 @@ const gottenMsg10 = new Set();
 const gottenMsg11 = new Set();
 const gottenMsg12 = new Set();
 const gottenMsg13 = new Set();
+const isMuted = new Set();
 var ms = require('ms');
 
 
@@ -71,7 +72,7 @@ client.on('message', async(msg) => {
     var cmd = args.shift().slice(prefix.length).toLowerCase();
 
     if(cmd === "mute"){
-        if(!msg.member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You can\'t use that!');
+        if(!msg.member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You can\'t even use that, maybe try when u actually HAVE mod abilities...');
 
         var user = msg.mentions.users.first();
         if(!user) return msg.reply('You didn\'t mention anyone!');
@@ -81,15 +82,15 @@ client.on('message', async(msg) => {
         try {
             member = await msg.guild.members.fetch(user);
         } catch(err) {
-        member = null;
+            member = null;
         }
 
-        if(!member) return msg.reply('They aren\'t in the server!');
-        if(member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You cannot mute that person!');
+        if(!member) return msg.reply('They aren\'t even in the server!, stop messing with me boi!');
+        if(member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You cannot mute that person!, so yea...stop trying');
 
-        var rawTime = args[1];
+        /*var rawTime = args[1];
         var time = ms(rawTime);
-        if(!time) return msg.reply('You didn\'t specify a time!');
+        if(!time) return msg.reply('You didn\'t specify a time!');*/
 
         var reason = args.splice(2).join(' ');
         if(!reason) return msg.reply('You need to give a reason!');
@@ -100,13 +101,11 @@ client.on('message', async(msg) => {
         .setTitle('User Muted')
         .addField('User:', user, true)
         .addField('By:', msg.author, true)
-        .addField('Expires:', rawTime)
         .addField('Reason:', reason)
         channel.send(log);
 
         var embed = new Discord.MessageEmbed()
         .setTitle('You were muted!')
-        .addField('Expires:', rawTime, true)
         .addField('Reason:', reason, true);
 
         try {
@@ -116,18 +115,48 @@ client.on('message', async(msg) => {
         }
 
         var role = msg.guild.roles.cache.find(r => r.name === 'Muted');
-
+        isMuted.add(`${member}`);
         member.roles.add(role);
 
-        setTimeout(async() => {
+        /*setTimeout(async() => {
          member.roles.remove(role);
-        }, time);
+        }, time);*/
 
         msg.channel.send(`**${user}** has been muted by **${msg.author}** for **${rawTime}**!`);
     }
 
+    if(cmd === "unmute"){
+        if(!msg.member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You can\'t use that!');
+
+        var user = msg.mentions.users.first();
+
+
+        var member;
+        try {
+            member = await msg.guild.members.fetch(user);
+        } catch(err) {
+            member = null;
+        }
+
+        if(!isMuted.has(`${member}`)) return msg.reply('Yo they are not even muted, stfu.'); 
+
+        if(!member) return msg.reply('They aren\'t even in the server!, stop messing with me boi!');
+        if(member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You cannot unmute that person!, so yea...stop trying');
+
+        var role = msg.guild.roles.cache.find(r => r.name === 'Muted');
+        member.roles.remove(role);
+
+        var log = new Discord.MessageEmbed()
+        .setTitle('User Unmuted')
+        .addField('User:', user, true)
+        .addField('By (Mod):', msg.author, true)
+        channel.send(log);
+
+
+    }
+
     if(cmd === "ping"){
-        msg.channel.send(`Pong! ${client.ws.ping}ms`);
+        msg.channel.send(`Yo ping!! ${client.ws.ping}ms`);
     }
 
     if(cmd === "warn"){
@@ -230,7 +259,7 @@ client.on('message', async(msg) => {
         }
     
         if(member){
-            if(member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You cannot ban this person!');
+            if(member.hasPermission('ADMINISTRATOR')) return msg.reply('You cannot ban this person!');
         }
     
         var reason = args.splice(1).join(' ');
