@@ -144,6 +144,8 @@ client.on('message', async(msg) => {
         var role = msg.guild.roles.cache.find(r => r.name === 'Muted');
         member.roles.remove(role);
 
+        var channel = msg.guild.channels.cache.get("778889714001510400");
+
         var log = new Discord.MessageEmbed()
         .setTitle('User Unmuted')
         .addField('User:', user, true)
