@@ -31,7 +31,8 @@ var ShinyNcounter = 0
 var DanNcounter = 0
 var OJNcounter = 0
 var OGNcounter = 0
-var TotalNcounter = ShinyNcounter + DanNcounter + OJNcounter + OGNcounter
+var CARENcounter = 0
+var TotalNcounter = ShinyNcounter + DanNcounter + OJNcounter + OGNcounter + CARENcounter
 
 const emoji = client.emojis.cache.get("782957768545665074")
 //let myRole = message.guild.roles.cache.find(role => role.name === "{Role Name}");
@@ -43,18 +44,18 @@ client.once('ready', () => {
 });
 
 
-const { writeFileSync } = require("fs");
-const data = require("C:/Users/Akash/Documents/GitHub/DiscordBot/app/bot.js/bot.myNCounterData.json");
-const secretdata = require("C:/Users/Akash/Documents/GitHub/DiscordBot/app/bot.js/KeysandUnlocks.json");
-//data["Shiny_Ncounter"] += 1 
-console.log(data["Shiny_Ncounter"] + " ---> Shiny")
-console.log(data["Dan_Ncounter"] + " ---> Dan")
-console.log(data["OJ_Ncounter"] + " ---> OJ")
-console.log(data["OG_Ncounter"] + " ---> OG")
-console.log(data["CARE_Ncounter"] + " ---> Care")
+//const { writeFileSync } = require("fs");
+//const data = require("C:/Users/Akash/Documents/GitHub/DiscordBot/app/bot.js");
+//const secretdata = require("C:/Users/Akash/Documents/GitHub/DiscordBot/app/bot.js");
+//ShinyNcounter += 1 
+console.log(ShinyNcounter + " ---> Shiny")
+console.log(DanNcounter + " ---> Dan")
+console.log(OJNcounter + " ---> OJ")
+console.log(OGNcounter + " ---> OG")
+console.log(CARENcounter + " ---> Care")
 console.log("======")
-data["Total_Ncounter"] = data["Shiny_Ncounter"] + data["Dan_Ncounter"] + data["OG_Ncounter"] + data["OJ_Ncounter"] + data["CARE_Ncounter"]
-console.log(data["Total_Ncounter"])
+TotalNcounter = ShinyNcounter + DanNcounter + OGNcounter + OJNcounter + CARENcounter
+console.log(TotalNcounter)
 
 
 
@@ -105,12 +106,7 @@ client.on('message', msg => {
 
 
                 msg.channel.send(`+1 to your nigga counter ${msg.author}`);
-                data["Shiny_Ncounter"] += 1;
-                writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/bot.myNCounterData.json", JSON.stringify(data), err => {
-                    data["Shiny_Ncounter"] = data["Shiny_Ncounter"];
-                    data["Total_Ncounter"] = data["Shiny_Ncounter"] + data["Dan_Ncounter"] + data["OJ_Ncounter"] + data["OG_Ncounter"] + data["CARE_Ncounter"];
-                    if (err) console.error(err);
-                })
+                ShinyNcounter += 1;
 
                 talkedRecently.add(msg.author.id);
                 setTimeout(() => {
@@ -127,12 +123,8 @@ client.on('message', msg => {
 
                 // the user can type the command ... your command code goes here :)
                 msg.channel.send(`+1 to your nigga counter ${msg.author}`);
-                data["Dan_Ncounter"] += 1;
-                writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/bot.myNCounterData.json", JSON.stringify(data), err => {
-                    data["Dan_Ncounter"] = data["Dan_Ncounter"];
-                    data["Total_Ncounter"] = data["Shiny_Ncounter"] + data["Dan_Ncounter"] + data["OJ_Ncounter"] + data["OG_Ncounter"] + data["CARE_Ncounter"];
-                    if (err) console.error(err);
-                })
+                DanNcounter += 1;
+                
                 // Adds the user to the set so that they can't talk for a minute
                 talkedRecently.add(msg.author.id);
                 setTimeout(() => {
@@ -148,12 +140,8 @@ client.on('message', msg => {
 
                 // the user can type the command ... your command code goes here :)
                 msg.channel.send(`+1 to your nigga counter ${msg.author}`);
-                data["CARE_Ncounter"] += 1;
-                writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/bot.myNCounterData.json", JSON.stringify(data), err => {
-                    data["CARE_Ncounter"] = data["CARE_Ncounter"];
-                    data["Total_Ncounter"] = data["Shiny_Ncounter"] + data["Dan_Ncounter"] + data["OJ_Ncounter"] + data["OG_Ncounter"] + data["CARE_Ncounter"];
-                    if (err) console.error(err);
-                })
+                CARENcounter += 1;
+                
                 // Adds the user to the set so that they can't talk for a minute
                 talkedRecently.add(msg.author.id);
                 setTimeout(() => {
@@ -169,12 +157,8 @@ client.on('message', msg => {
 
                 // the user can type the command ... your command code goes here :)
                 msg.channel.send(`+1 to your nigga counter ${msg.author}`);
-                data["OJ_Ncounter"] += 1;
-                writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/bot.myNCounterData.json", JSON.stringify(data), err => {
-                    data["OJ_Ncounter"] = data["OJ_Ncounter"];
-                    data["Total_Ncounter"] = data["Shiny_Ncounter"] + data["Dan_Ncounter"] + data["OJ_Ncounter"] + data["OG_Ncounter"] + data["CARE_Ncounter"];
-                    if (err) console.error(err);
-                })
+                OJNcounter += 1;
+               
                 // Adds the user to the set so that they can't talk for a minute
                 talkedRecently.add(msg.author.id);
                 setTimeout(() => {
@@ -191,12 +175,8 @@ client.on('message', msg => {
 
                 // the user can type the command ... your command code goes here :)
                 msg.channel.send(`+1 to your nigga counter ${msg.author}`);
-                data["OG_Ncounter"] += 1;
-                writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/bot.myNCounterData.json", JSON.stringify(data), err => {
-                    data["OG_Ncounter"] = data["OG_Ncounter"];
-                    data["Total_Ncounter"] = data["Shiny_Ncounter"] + data["Dan_Ncounter"] + data["OJ_Ncounter"] + data["OG_Ncounter"] + data["CARE_Ncounter"];
-                    if (err) console.error(err);
-                })
+                OGNcounter += 1;
+                
                 // Adds the user to the set so that they can't talk for a minute
                 talkedRecently.add(msg.author.id);
                 setTimeout(() => {
@@ -208,44 +188,24 @@ client.on('message', msg => {
     }
     else if (msg.content === '!n') {
         if (msg.author.username === 'ShinyACash') {
-            msg.channel.send(`${msg.author}, your nigga counter is at ` + data["Shiny_Ncounter"] + `. Good Job!`);
-            writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/bot.myNCounterData.json", JSON.stringify(data), err => {
-                data["Shiny_Ncounter"] = data["Shiny_Ncounter"];
-                data["Total_Ncounter"] = data["Shiny_Ncounter"] + data["Dan_Ncounter"] + data["OJ_Ncounter"] + data["OG_Ncounter"] + data["CARE_Ncounter"];
-                if (err) console.error(err);
-            })
+            msg.channel.send(`${msg.author}, your nigga counter is at ` + ShinyNcounter + `. Good Job!`);
+            
         }
         else if (msg.author.username === 'Zero Two') {
-            msg.channel.send(`${msg.author}, your nigga counter is at ` + data["Dan_Ncounter"] + `. Good Job!`);
-            writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/bot.myNCounterData.json", JSON.stringify(data), err => {
-                data["Dan_Ncounter"] = data["Dan_Ncounter"];
-                data["Total_Ncounter"] = data["Shiny_Ncounter"] + data["Dan_Ncounter"] + data["OJ_Ncounter"] + data["OG_Ncounter"] + data["CARE_Ncounter"];
-                if (err) console.error(err);
-            })
+            msg.channel.send(`${msg.author}, your nigga counter is at ` + DanNcounter + `. Good Job!`);
+            
         }
         else if (msg.author.username === 'IMCARE') {
-            msg.channel.send(`${msg.author}, your nigga counter is at ` + data["CARE_Ncounter"] + `. Good Job!`);
-            writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/bot.myNCounterData.json", JSON.stringify(data), err => {
-                data["CARE_Ncounter"] = data["CARE_Ncounter"];
-                data["Total_Ncounter"] = data["Shiny_Ncounter"] + data["Dan_Ncounter"] + data["OJ_Ncounter"] + data["OG_Ncounter"] + data["CARE_Ncounter"];
-                if (err) console.error(err);
-            })
+            msg.channel.send(`${msg.author}, your nigga counter is at ` + CARENcounter + `. Good Job!`);
+           
         }
         else if (msg.author.username === 'Dogey DooD') {
-            msg.channel.send(`${msg.author}, your nigga counter is at ` + data["OJ_Ncounter"] + `. Good Job!`);
-            writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/bot.myNCounterData.json", JSON.stringify(data), err => {
-                data["OJ_Ncounter"] = data["OJ_Ncounter"];
-                data["Total_Ncounter"] = data["Shiny_Ncounter"] + data["Dan_Ncounter"] + data["OJ_Ncounter"] + data["OG_Ncounter"] + data["CARE_Ncounter"];
-                if (err) console.error(err);
-            })
+            msg.channel.send(`${msg.author}, your nigga counter is at ` + OJNcounter + `. Good Job!`);
+            
         }
         else if (msg.author.username === 'blindbutnotblind') {
-            msg.channel.send(`${msg.author}, your nigga counter is at ` + data["OG_Ncounter"] + `. Good Job!`);
-            writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/bot.myNCounterData.json", JSON.stringify(data), err => {
-                data["OG_Ncounter"] = data["OG_Ncounter"];
-                data["Total_Ncounter"] = data["Shiny_Ncounter"] + data["Dan_Ncounter"] + data["OJ_Ncounter"] + data["OG_Ncounter"] + data["CARE_Ncounter"];
-                if (err) console.error(err);
-            })
+            msg.channel.send(`${msg.author}, your nigga counter is at ` + OGNcounter + `. Good Job!`);
+            
         }
     }
     else if (msg.content.includes('FUCK')) {
@@ -265,8 +225,8 @@ client.on('message', msg => {
         }
     }
     else if (msg.content === "!nTotal") {
-        data["Total_Ncounter"] = data["Shiny_Ncounter"] + data["Dan_Ncounter"] + data["OJ_Ncounter"] + data["OG_Ncounter"] + data["CARE_Ncounter"];
-        msg.channel.send("Our total n-word count is at " + data["Total_Ncounter"] + ". DAYUM BOIS!");
+        TotalNcounter = ShinyNcounter + DanNcounter + OJNcounter + OGNcounter + CARENcounter;
+        msg.channel.send("Our total n-word count is at " + TotalNcounter + ". DAYUM BOIS!");
     }
 
 })
@@ -276,434 +236,6 @@ client.on('message', msg => {
 
     if (msg.content === '!bot online?') {
         msg.reply('yes sir!');
-    }
-    else if (msg.content.includes("les gucci")) {
-        if (gottenMsg1.has(msg.author.id)) {
-            //client.users.cache.get(`${msg.author.id}`).send("you are already done with this code...");
-        }
-        else {
-            if (msg.author.id === "695513111414964225") {
-                secretdata["Shiny_unlock1"] = 1;
-                writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
-                    secretdata["Shiny_unlock1"] = secretdata["Shiny_unlock1"];
-                    if (err) console.error(err);
-                })
-                gottenMsg1.add(msg.author.id);
-            }
-            if (msg.author.id === "774874294999580672") {
-                secretdata["Dan_unlock1"] = 1;
-                writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
-                    secretdata["Dan_unlock1"] = secretdata["Dan_unlock1"];
-                    if (err) console.error(err);
-                })
-                gottenMsg1.add(msg.author.id);
-            }
-            client.users.cache.get(`${msg.author.id}`).send("You felt as if u triggered an event...");
-            //gottenMsg1.add(msg.author.id);
-        }
-    }
-    else if (msg.content.includes("road to a hundred niggas")) {
-        //client.users.cache.get(`${msg.author.id}`).send("code 2 of 10 found");
-        if (gottenMsg2.has(msg.author.id)) {
-            //client.users.cache.get(`${msg.author.id}`).send("you are already done with this code...");
-        }
-        else {
-            if (msg.author.id === "695513111414964225") {
-                if (secretdata["Shiny_unlock1"] === 1) {
-                    secretdata["Shiny_unlock2"] = 1;
-                    client.users.cache.get(`${msg.author.id}`).send("You found a key fragment of a certain key, maybe you can use it with something...");
-                    writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
-                        secretdata["Shiny_unlock2"] = secretdata["Shiny_unlock2"];
-                        if (err) console.error(err);
-                    })
-                    gottenMsg2.add(msg.author.id);
-                }
-            }
-            if (msg.author.id === "774874294999580672") {
-                if (secretdata["Dan_unlock1"] === 1) {
-                    secretdata["Dan_unlock2"] = 1;
-                    client.users.cache.get(`${msg.author.id}`).send("You found a key fragment of a certain key, maybe you can use it with something...");
-                    writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
-                        secretdata["Dan_unlock2"] = secretdata["Dan_unlock2"];
-                        if (err) console.error(err);
-                    })
-                    gottenMsg2.add(msg.author.id);
-                }
-            }
-            //client.users.cache.get(`${msg.author.id}`).send("You found a key fragment of a certain key, maybe you can use it with something...");
-            //gottenMsg2.add(msg.author.id);
-        }
-    }
-    else if (msg.content === "key fragment") {
-        //client.users.cache.get(`${msg.author.id}`).send("code 3 of 10 found, quite an ez one huh?");
-        if (gottenMsg3.has(msg.author.id)) {
-            //client.users.cache.get(`${msg.author.id}`).send("you are already done with this code...");
-        }
-        else {
-
-            if (msg.author.id === "695513111414964225") {
-                if (secretdata["Shiny_unlock2"] === 1) {
-                    secretdata["Shiny_RedKey"] = 1;
-                    client.users.cache.get(`${msg.author.id}`).send("You found something glowy, I think it made you a key! You found the Red Key. I wonder wut it may be used for...");
-                    writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
-                        secretdata["Shiny_RedKey"] = secretdata["Shiny_RedKey"];
-                        if (err) console.error(err);
-                    })
-                    gottenMsg3.add(msg.author.id);
-                }
-            }
-            if (msg.author.id === "774874294999580672") {
-                if (secretdata["Dan_unlock2"] === 1) {
-                    secretdata["Dan_RedKey"] = 1;
-                    client.users.cache.get(`${msg.author.id}`).send("You found something glowy, I think it made you a key! You found the Red Key. I wonder wut it may be used for...");
-                    writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
-                        secretdata["Dan_RedKey"] = secretdata["Dan_RedKey"];
-                        if (err) console.error(err);
-                    })
-                    gottenMsg3.add(msg.author.id);
-                }
-            }
-            //gottenMsg3.add(msg.author.id);
-        }
-    }
-    else if (msg.content === "ctrl.alt.delete.") {
-        //client.users.cache.get(`${msg.author.id}`).send("code 4 of 10 found, pretty ez eh?");
-        if (gottenMsg4.has(msg.author.id)) {
-            //client.users.cache.get(`${msg.author.id}`).send("you are already done with this code...");
-        }
-        else {
-            client.users.cache.get(`${msg.author.id}`).send("you found a code fragment, hmmmm....");
-            if (msg.author.id === "695513111414964225") {
-                secretdata["Shiny_unlock3"] = 1;
-                writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
-                    secretdata["Shiny_unlock3"] = secretdata["Shiny_unlock3"];
-                    if (err) console.error(err);
-                })
-                gottenMsg4.add(msg.author.id);
-            }
-            if (msg.author.id === "774874294999580672") {
-                secretdata["Dan_unlock3"] = 1;
-                writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
-                    secretdata["Dan_unlock3"] = secretdata["Dan_unlock3"];
-                    if (err) console.error(err);
-                })
-                gottenMsg4.add(msg.author.id);
-            }
-            //gottenMsg4.add(msg.author.id);
-        }
-    }
-    else if (msg.content === "code fragment") {
-        //client.users.cache.get(`${msg.author.id}`).send("code 5 of 10 found");
-        if (gottenMsg5.has(msg.author.id)) {
-            //client.users.cache.get(`${msg.author.id}`).send("you are already done with this code...");
-        }
-        else {
-            if (msg.author.id === "695513111414964225") {
-                if (secretdata["Shiny_unlock3"] === 1) {
-                    secretdata["Shiny_GreenKey"] = 1;
-                    client.users.cache.get(`${msg.author.id}`).send("damn you just went for it, welp u found the ezest key, You found the Green Key.");
-                    //client.users.cache.get(`${msg.author.id}`).send("You found something glowy, I think it made you a key! You found the Red Key. I wonder wut it may be used for...");
-                    writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
-                        secretdata["Shiny_GreenKey"] = secretdata["Shiny_GreenKey"];
-                        if (err) console.error(err);
-                    })
-                    gottenMsg5.add(msg.author.id);
-                }
-            }
-            if (msg.author.id === "774874294999580672") {
-                if (secretdata["Dan_unlock3"] === 1) {
-                    secretdata["Dan_GreenKey"] = 1;
-                    client.users.cache.get(`${msg.author.id}`).send("damn you just went for it, welp u found the ezest key, You found the Green Key.");
-                    //client.users.cache.get(`${msg.author.id}`).send("You found something glowy, I think it made you a key! You found the Red Key. I wonder wut it may be used for...");
-                    writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
-                        secretdata["Dan_GreenKey"] = secretdata["Dan_GreenKey"];
-                        if (err) console.error(err);
-                    })
-                    gottenMsg5.add(msg.author.id);
-                }
-            }
-
-            //gottenMsg5.add(msg.author.id);
-        }
-    }
-    else if (msg.content.includes("roblox")) {
-        //client.users.cache.get(`${msg.author.id}`).send("code 6 of 10 found");
-        if (gottenMsg6.has(msg.author.id)) {
-            //client.users.cache.get(`${msg.author.id}`).send("you are already done with this code...");
-        }
-        else {
-            if (msg.author.id === "695513111414964225") {
-                secretdata["Shiny_unlock4"] = 1;
-                writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
-                    secretdata["Shiny_unlock4"] = secretdata["Shiny_unlock4"];
-                    if (err) console.error(err);
-                })
-                gottenMsg6.add(msg.author.id);
-            }
-            if (msg.author.id === "774874294999580672") {
-                secretdata["Dan_unlock4"] = 1;
-                writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
-                    secretdata["Dan_unlock4"] = secretdata["Dan_unlock4"];
-                    if (err) console.error(err);
-                })
-                gottenMsg6.add(msg.author.id);
-            }
-            client.users.cache.get(`${msg.author.id}`).send(`You found this paper which says /(*  `);
-            //gottenMsg6.add(msg.author.id);
-        }
-    }
-    else if (msg.content === "ape") {
-        //client.users.cache.get(`${msg.author.id}`).send("code 7 of 10 found");
-        if (gottenMsg7.has(msg.author.id)) {
-            //client.users.cache.get(`${msg.author.id}`).send("you are already done with this code...");
-        }
-        else {
-            if (msg.author.id === "695513111414964225") {
-                if (secretdata["Shiny_unlock4"] === 1) {
-                    secretdata["Shiny_BlueKey"] = 1;
-                    client.users.cache.get(`${msg.author.id}`).send("You beat the ape and you now apparently have the Blue Key!!");
-                    //client.users.cache.get(`${msg.author.id}`).send("damn you just went for it, welp u found the ezest key, You found the Green Key.");
-                    //client.users.cache.get(`${msg.author.id}`).send("You found something glowy, I think it made you a key! You found the Red Key. I wonder wut it may be used for...");
-                    writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
-                        secretdata["Shiny_BlueKey"] = secretdata["Shiny_BlueKey"];
-                        if (err) console.error(err);
-                    })
-                    gottenMsg7.add(msg.author.id);
-                }
-            }
-            if (msg.author.id === "774874294999580672") {
-                if (secretdata["Dan_unlock4"] === 1) {
-                    secretdata["Dan_BlueKey"] = 1;
-                    client.users.cache.get(`${msg.author.id}`).send("You beat the ape and you now apparently have the Blue Key!!");
-                    //client.users.cache.get(`${msg.author.id}`).send("damn you just went for it, welp u found the ezest key, You found the Green Key.");
-                    //client.users.cache.get(`${msg.author.id}`).send("You found something glowy, I think it made you a key! You found the Red Key. I wonder wut it may be used for...");
-                    writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
-                        secretdata["Dan_BlueKey"] = secretdata["Dan_BlueKey"];
-                        if (err) console.error(err);
-                    })
-                    gottenMsg7.add(msg.author.id);
-                }
-            }
-
-            //gottenMsg7.add(msg.author.id);
-        }
-    }
-    else if (msg.content === "fuse keys") {
-        //client.users.cache.get(`${msg.author.id}`).send("code 8 of 10 found");
-        if (gottenMsg8.has(msg.author.id)) {
-            //client.users.cache.get(`${msg.author.id}`).send("you are already done with this code...");
-        }
-        else {
-            if (msg.author.id === "695513111414964225") {
-                if (secretdata["Shiny_RedKey"] === 1) {
-                    if (secretdata["Shiny_BlueKey"] === 1) {
-                        if (secretdata["Shiny_GreenKey"] === 1) {
-                            secretdata["Shiny_Portal"] = 1;
-                            writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
-                                secretdata["Shiny_Portal"] = secretdata["Shiny_Portal"];
-                                if (err) console.error(err);
-                            })
-                            gottenMsg8.add(msg.author.id);
-                            client.users.cache.get(`${msg.author.id}`).send("The portal to the pixel has opened up, try finding all 3 pieces of a pixel, first think about resolution");
-                        }
-                    }
-                }
-            }
-            if (msg.author.id === "774874294999580672") {
-                if (secretdata["Dan_RedKey"] === 1) {
-                    if (secretdata["Dan_BlueKey"] === 1) {
-                        if (secretdata["Dan_GreenKey"] === 1) {
-                            secretdata["Dan_Portal"] = 1;
-                            writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
-                                secretdata["Dan_Portal"] = secretdata["Dan_Portal"];
-                                if (err) console.error(err);
-                            })
-                            gottenMsg8.add(msg.author.id);
-                            client.users.cache.get(`${msg.author.id}`).send("The portal to the pixel has opened up, try finding all 3 pieces of a pixel, first think about resolution");
-                        }
-                    }
-                }
-            }
-
-            //gottenMsg8.add(msg.author.id);
-        }
-    }
-    else if (msg.content === "1080p") {
-        //client.users.cache.get(`${msg.author.id}`).send("code 9 of 10 found");
-        if (gottenMsg9.has(msg.author.id)) {
-            //client.users.cache.get(`${msg.author.id}`).send("you are already done with this code...");
-        }
-        else {
-            if (msg.author.id === "695513111414964225") {
-                if (secretdata["Shiny_Portal"] === 1) {
-                    secretdata["Shiny_Pixel1"] = 1;
-                    client.users.cache.get(`${msg.author.id}`).send("u found the ezest pixel part, gg. You found the R part.");
-                    //client.users.cache.get(`${msg.author.id}`).send("damn you just went for it, welp u found the ezest key, You found the Green Key.");
-                    //client.users.cache.get(`${msg.author.id}`).send("You found something glowy, I think it made you a key! You found the Red Key. I wonder wut it may be used for...");
-                    writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
-                        secretdata["Shiny_Pixel1"] = secretdata["Shiny_Pixel1"];
-                        if (err) console.error(err);
-                    })
-                    gottenMsg9.add(msg.author.id);
-                }
-            }
-            if (msg.author.id === "774874294999580672") {
-                if (secretdata["Dan_Portal"] === 1) {
-                    secretdata["Dan_Pixel1"] = 1;
-                    client.users.cache.get(`${msg.author.id}`).send("u found the ezest pixel part, gg. You found the R part.");
-                    //client.users.cache.get(`${msg.author.id}`).send("damn you just went for it, welp u found the ezest key, You found the Green Key.");
-                    //client.users.cache.get(`${msg.author.id}`).send("You found something glowy, I think it made you a key! You found the Red Key. I wonder wut it may be used for...");
-                    writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
-                        secretdata["Dan_Pixel1"] = secretdata["Dan_Pixel1"];
-                        if (err) console.error(err);
-                    })
-                    gottenMsg9.add(msg.author.id);
-                }
-            }
-            //client.users.cache.get(`${msg.author.id}`).send("u found the ezest pixel part, gg. You found the R part.");
-            //gottenMsg9.add(msg.author.id);
-        }
-    }
-    else if (msg.content === "i need money") {
-        //client.users.cache.get(`${msg.author.id}`).send("code 10 of 10 found");
-        if (gottenMsg10.has(msg.author.id)) {
-            //client.users.cache.get(`${msg.author.id}`).send("you are already done with this code...");
-        }
-        else {
-            if (msg.author.id === "695513111414964225") {
-                if (secretdata["Shiny_Portal"] === 1) {
-                    secretdata["Shiny_Pixel2"] = 1;
-                    client.users.cache.get(`${msg.author.id}`).send("You found a green fragment... i wonder wut could u do with it, nvm You found the G part. Now u probably need the other 3, 2, or maybe 1 more part. You need the B part");
-                    //client.users.cache.get(`${msg.author.id}`).send("damn you just went for it, welp u found the ezest key, You found the Green Key.");
-                    //client.users.cache.get(`${msg.author.id}`).send("You found something glowy, I think it made you a key! You found the Red Key. I wonder wut it may be used for...");
-                    writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
-                        secretdata["Shiny_Pixel2"] = secretdata["Shiny_Pixel2"];
-                        if (err) console.error(err);
-                    })
-                    gottenMsg10.add(msg.author.id);
-                }
-            }
-            if (msg.author.id === "774874294999580672") {
-                if (secretdata["Dan_Portal"] === 1) {
-                    secretdata["Dan_Pixel2"] = 1;
-                    client.users.cache.get(`${msg.author.id}`).send("You found a green fragment... i wonder wut could u do with it, nvm You found the G part. Now u probably need the other 3, 2, or maybe 1 more part. You need the B part");
-                    //client.users.cache.get(`${msg.author.id}`).send("damn you just went for it, welp u found the ezest key, You found the Green Key.");
-                    //client.users.cache.get(`${msg.author.id}`).send("You found something glowy, I think it made you a key! You found the Red Key. I wonder wut it may be used for...");
-                    writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
-                        secretdata["Dan_Pixel2"] = secretdata["Dan_Pixel2"];
-                        if (err) console.error(err);
-                    })
-                    gottenMsg10.add(msg.author.id);
-                }
-            }
-            //client.users.cache.get(`${msg.author.id}`).send("You found a green fragment... i wonder wut could u do with it, nvm You found the G part. Now u probably need the other 3, 2, or maybe 1 more part. You need the B part");
-            //gottenMsg10.add(msg.author.id);
-        }
-    }
-    else if (msg.content === "i need B part") {
-        if (gottenMsg11.has(msg.author.id)) {
-            //client.users.cache.get(`${msg.author.id}`).send("you are already done with this code...");
-        }
-        else {
-            if (msg.author.id === "695513111414964225") {
-                if (secretdata["Shiny_Portal"] === 1) {
-                    secretdata["Shiny_Pixel3"] = 1;
-                    client.users.cache.get(`${msg.author.id}`).send("You found the B part, maybe this was the easiest...");
-                    //client.users.cache.get(`${msg.author.id}`).send("You found a green fragment... i wonder wut could u do with it, nvm You found the G part. Now u probably need the other 3, 2, or maybe 1 more part. You need the B part");
-                    //client.users.cache.get(`${msg.author.id}`).send("damn you just went for it, welp u found the ezest key, You found the Green Key.");
-                    //client.users.cache.get(`${msg.author.id}`).send("You found something glowy, I think it made you a key! You found the Red Key. I wonder wut it may be used for...");
-                    writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
-                        secretdata["Shiny_Pixel3"] = secretdata["Shiny_Pixel3"];
-                        if (err) console.error(err);
-                    })
-                    gottenMsg11.add(msg.author.id);
-                }
-            }
-            if (msg.author.id === "774874294999580672") {
-                if (secretdata["Dan_Portal"] === 1) {
-                    secretdata["Dan_unlock5"] = 1;
-                    client.users.cache.get(`${msg.author.id}`).send("Ik you do but u gotta find stuff, blue is supposed to be hard....");
-                    //client.users.cache.get(`${msg.author.id}`).send("You found a green fragment... i wonder wut could u do with it, nvm You found the G part. Now u probably need the other 3, 2, or maybe 1 more part. You need the B part");
-                    //client.users.cache.get(`${msg.author.id}`).send("damn you just went for it, welp u found the ezest key, You found the Green Key.");
-                    //client.users.cache.get(`${msg.author.id}`).send("You found something glowy, I think it made you a key! You found the Red Key. I wonder wut it may be used for...");
-                    writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
-                        secretdata["Dan_unlock5"] = secretdata["Dan_unlock5"];
-                        if (err) console.error(err);
-                    })
-                    gottenMsg11.add(msg.author.id);
-                }
-            }
-            //client.users.cache.get(`${msg.author.id}`).send("You found the B part, maybe this was the easiest...");
-            //gottenMsg11.add(msg.author.id);
-        }
-    }
-    else if (msg.content === "fuse parts") {
-        if (gottenMsg12.has(msg.author.id)) {
-            //client.users.cache.get(`${msg.author.id}`).send("you are already done with this code...");
-        }
-        else {
-            if (msg.author.id === "774874294999580672") {
-                if (secretdata["Dan_Pixel1"] === 1) {
-                    if (secretdata["Dan_Pixel2"] === 1) {
-                        if (secretdata["Dan_Pixel3"] === 1) {
-                            //secretdata["Dan_Portal"] = 1;
-                            /*writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
-                                secretdata["Dan_Portal"] = secretdata["Dan_Portal"];
-                                if(err) console.error(err);
-                            })*/
-                            client.users.cache.get(`${msg.author.id}`).send("The pixel has been completed!! If you have completed this before or on your b'day then you have now earned your free 3 months of VIP Moderator");
-                        }
-                    }
-                }
-            }
-        }
-    }
-    else if (msg.content === "india sucks") {
-        if (gottenMsg13.has(msg.author.id)) {
-            //client.users.cache.get(`${msg.author.id}`).send("you are already done with this code...");
-        }
-        else {
-            if (msg.author.id === "774874294999580672") {
-                if (secretdata["Dan_Portal"] === 1) {
-                    secretdata["Dan_Pixel3"] = 1;
-                    client.users.cache.get(`${msg.author.id}`).send("You found the B part, maybe this was the easiest...eh?");
-                    //client.users.cache.get(`${msg.author.id}`).send("You found a green fragment... i wonder wut could u do with it, nvm You found the G part. Now u probably need the other 3, 2, or maybe 1 more part. You need the B part");
-                    //client.users.cache.get(`${msg.author.id}`).send("damn you just went for it, welp u found the ezest key, You found the Green Key.");
-                    //client.users.cache.get(`${msg.author.id}`).send("You found something glowy, I think it made you a key! You found the Red Key. I wonder wut it may be used for...");
-                    writeFileSync("C:/Users/Akash/Documents/GitHub/GitHub/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
-                        secretdata["Dan_Pixel3"] = secretdata["Dan_Pixel3"];
-                        if (err) console.error(err);
-                    })
-                    gottenMsg13.add(msg.author.id);
-                }
-            }
-            /*else if (msg.content === "fuse parts") {
-                if (gottenMsg12.has(msg.author.id)) {
-                    //client.users.cache.get(`${msg.author.id}`).send("you are already done with this code...");
-                }
-                else {
-                    if (msg.author.id === "774874294999580672") {
-                        if (secretdata["Dan_Pixel1"] === 1) {
-                            if (secretdata["Dan_Pixel2"] === 1) {
-                                if (secretdata["Dan_Pixel3"] === 1) {
-                                    //secretdata["Dan_Portal"] = 1;
-                                    /*writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
-                                        secretdata["Dan_Portal"] = secretdata["Dan_Portal"];
-                                        if(err) console.error(err);
-                                    })
-                                    client.users.cache.get(`${msg.author.id}`).send("The pixel has been completed!! If you have completed this before or on your b'day then you have now earned your free 3 months of VIP Moderator");
-                                }
-                            }
-                        }
-                    }
-                    else if (secretdata["Dan_Pixel1"] === 0) {
-                        client.users.cache.get(`${msg.author.id}`).send("Sorry but you seem to not have all three parts yet");
-                    }
-                    //client.users.cache.get(`${msg.author.id}`).send("You found the B part, maybe this was the easiest...");
-                    //gottenMsg12.add(msg.author.id);
-                }
-            }*/
-        }
     }
     else if (msg.content === '!bot offline?') {
         msg.reply('no sir!');
@@ -733,13 +265,7 @@ client.on('message', msg => {
     
 })
 
-writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/bot.myNCounterData.json", JSON.stringify(data), err => {
-    data["Shiny_Ncounter"] = data["Shiny_Ncounter"];
-    data["Dan_Ncounter"] = data["Dan_Ncounter"];
-    data["OJ_Ncounter"] = data["OJ_Ncounter"];
-    data["OG_Ncounter"] = data["OG_Ncounter"];
-    if (err) console.error(err);
-})
+
 
 
 
