@@ -44,8 +44,8 @@ client.once('ready', () => {
 
 
 const { writeFileSync } = require("fs");
-const data = require("C:/Users/Akash/Documents/DiscordBot/bot.myNCounterData.json");
-const secretdata = require("C:/Users/Akash/Documents/DiscordBot/KeysandUnlocks.json");
+const data = require("C:/Users/Akash/Documents/GitHub/DiscordBot/bot.myNCounterData.json");
+const secretdata = require("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json");
 //data["Shiny_Ncounter"] += 1 
 console.log(data["Shiny_Ncounter"] + " ---> Shiny")
 console.log(data["Dan_Ncounter"] + " ---> Dan")
@@ -106,7 +106,7 @@ client.on('message', msg => {
 
                 msg.channel.send(`+1 to your nigga counter ${msg.author}`);
                 data["Shiny_Ncounter"] += 1;
-                writeFileSync("C:/Users/Akash/Documents/DiscordBot/bot.myNCounterData.json", JSON.stringify(data), err => {
+                writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/bot.myNCounterData.json", JSON.stringify(data), err => {
                     data["Shiny_Ncounter"] = data["Shiny_Ncounter"];
                     data["Total_Ncounter"] = data["Shiny_Ncounter"] + data["Dan_Ncounter"] + data["OJ_Ncounter"] + data["OG_Ncounter"] + data["CARE_Ncounter"];
                     if (err) console.error(err);
@@ -128,7 +128,7 @@ client.on('message', msg => {
                 // the user can type the command ... your command code goes here :)
                 msg.channel.send(`+1 to your nigga counter ${msg.author}`);
                 data["Dan_Ncounter"] += 1;
-                writeFileSync("C:/Users/Akash/Documents/DiscordBot/bot.myNCounterData.json", JSON.stringify(data), err => {
+                writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/bot.myNCounterData.json", JSON.stringify(data), err => {
                     data["Dan_Ncounter"] = data["Dan_Ncounter"];
                     data["Total_Ncounter"] = data["Shiny_Ncounter"] + data["Dan_Ncounter"] + data["OJ_Ncounter"] + data["OG_Ncounter"] + data["CARE_Ncounter"];
                     if (err) console.error(err);
@@ -149,7 +149,7 @@ client.on('message', msg => {
                 // the user can type the command ... your command code goes here :)
                 msg.channel.send(`+1 to your nigga counter ${msg.author}`);
                 data["CARE_Ncounter"] += 1;
-                writeFileSync("C:/Users/Akash/Documents/DiscordBot/bot.myNCounterData.json", JSON.stringify(data), err => {
+                writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/bot.myNCounterData.json", JSON.stringify(data), err => {
                     data["CARE_Ncounter"] = data["CARE_Ncounter"];
                     data["Total_Ncounter"] = data["Shiny_Ncounter"] + data["Dan_Ncounter"] + data["OJ_Ncounter"] + data["OG_Ncounter"] + data["CARE_Ncounter"];
                     if (err) console.error(err);
@@ -170,7 +170,7 @@ client.on('message', msg => {
                 // the user can type the command ... your command code goes here :)
                 msg.channel.send(`+1 to your nigga counter ${msg.author}`);
                 data["OJ_Ncounter"] += 1;
-                writeFileSync("C:/Users/Akash/Documents/DiscordBot/bot.myNCounterData.json", JSON.stringify(data), err => {
+                writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/bot.myNCounterData.json", JSON.stringify(data), err => {
                     data["OJ_Ncounter"] = data["OJ_Ncounter"];
                     data["Total_Ncounter"] = data["Shiny_Ncounter"] + data["Dan_Ncounter"] + data["OJ_Ncounter"] + data["OG_Ncounter"] + data["CARE_Ncounter"];
                     if (err) console.error(err);
@@ -192,7 +192,7 @@ client.on('message', msg => {
                 // the user can type the command ... your command code goes here :)
                 msg.channel.send(`+1 to your nigga counter ${msg.author}`);
                 data["OG_Ncounter"] += 1;
-                writeFileSync("C:/Users/Akash/Documents/DiscordBot/bot.myNCounterData.json", JSON.stringify(data), err => {
+                writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/bot.myNCounterData.json", JSON.stringify(data), err => {
                     data["OG_Ncounter"] = data["OG_Ncounter"];
                     data["Total_Ncounter"] = data["Shiny_Ncounter"] + data["Dan_Ncounter"] + data["OJ_Ncounter"] + data["OG_Ncounter"] + data["CARE_Ncounter"];
                     if (err) console.error(err);
@@ -209,7 +209,7 @@ client.on('message', msg => {
     else if (msg.content === '!n') {
         if (msg.author.username === 'ShinyACash') {
             msg.channel.send(`${msg.author}, your nigga counter is at ` + data["Shiny_Ncounter"] + `. Good Job!`);
-            writeFileSync("C:/Users/Akash/Documents/DiscordBot/bot.myNCounterData.json", JSON.stringify(data), err => {
+            writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/bot.myNCounterData.json", JSON.stringify(data), err => {
                 data["Shiny_Ncounter"] = data["Shiny_Ncounter"];
                 data["Total_Ncounter"] = data["Shiny_Ncounter"] + data["Dan_Ncounter"] + data["OJ_Ncounter"] + data["OG_Ncounter"] + data["CARE_Ncounter"];
                 if (err) console.error(err);
@@ -217,7 +217,7 @@ client.on('message', msg => {
         }
         else if (msg.author.username === 'Zero Two') {
             msg.channel.send(`${msg.author}, your nigga counter is at ` + data["Dan_Ncounter"] + `. Good Job!`);
-            writeFileSync("C:/Users/Akash/Documents/DiscordBot/bot.myNCounterData.json", JSON.stringify(data), err => {
+            writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/bot.myNCounterData.json", JSON.stringify(data), err => {
                 data["Dan_Ncounter"] = data["Dan_Ncounter"];
                 data["Total_Ncounter"] = data["Shiny_Ncounter"] + data["Dan_Ncounter"] + data["OJ_Ncounter"] + data["OG_Ncounter"] + data["CARE_Ncounter"];
                 if (err) console.error(err);
@@ -225,7 +225,7 @@ client.on('message', msg => {
         }
         else if (msg.author.username === 'IMCARE') {
             msg.channel.send(`${msg.author}, your nigga counter is at ` + data["CARE_Ncounter"] + `. Good Job!`);
-            writeFileSync("C:/Users/Akash/Documents/DiscordBot/bot.myNCounterData.json", JSON.stringify(data), err => {
+            writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/bot.myNCounterData.json", JSON.stringify(data), err => {
                 data["CARE_Ncounter"] = data["CARE_Ncounter"];
                 data["Total_Ncounter"] = data["Shiny_Ncounter"] + data["Dan_Ncounter"] + data["OJ_Ncounter"] + data["OG_Ncounter"] + data["CARE_Ncounter"];
                 if (err) console.error(err);
@@ -233,7 +233,7 @@ client.on('message', msg => {
         }
         else if (msg.author.username === 'Dogey DooD') {
             msg.channel.send(`${msg.author}, your nigga counter is at ` + data["OJ_Ncounter"] + `. Good Job!`);
-            writeFileSync("C:/Users/Akash/Documents/DiscordBot/bot.myNCounterData.json", JSON.stringify(data), err => {
+            writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/bot.myNCounterData.json", JSON.stringify(data), err => {
                 data["OJ_Ncounter"] = data["OJ_Ncounter"];
                 data["Total_Ncounter"] = data["Shiny_Ncounter"] + data["Dan_Ncounter"] + data["OJ_Ncounter"] + data["OG_Ncounter"] + data["CARE_Ncounter"];
                 if (err) console.error(err);
@@ -241,7 +241,7 @@ client.on('message', msg => {
         }
         else if (msg.author.username === 'blindbutnotblind') {
             msg.channel.send(`${msg.author}, your nigga counter is at ` + data["OG_Ncounter"] + `. Good Job!`);
-            writeFileSync("C:/Users/Akash/Documents/DiscordBot/bot.myNCounterData.json", JSON.stringify(data), err => {
+            writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/bot.myNCounterData.json", JSON.stringify(data), err => {
                 data["OG_Ncounter"] = data["OG_Ncounter"];
                 data["Total_Ncounter"] = data["Shiny_Ncounter"] + data["Dan_Ncounter"] + data["OJ_Ncounter"] + data["OG_Ncounter"] + data["CARE_Ncounter"];
                 if (err) console.error(err);
@@ -284,7 +284,7 @@ client.on('message', msg => {
         else {
             if (msg.author.id === "695513111414964225") {
                 secretdata["Shiny_unlock1"] = 1;
-                writeFileSync("C:/Users/Akash/Documents/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
+                writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
                     secretdata["Shiny_unlock1"] = secretdata["Shiny_unlock1"];
                     if (err) console.error(err);
                 })
@@ -292,7 +292,7 @@ client.on('message', msg => {
             }
             if (msg.author.id === "774874294999580672") {
                 secretdata["Dan_unlock1"] = 1;
-                writeFileSync("C:/Users/Akash/Documents/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
+                writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
                     secretdata["Dan_unlock1"] = secretdata["Dan_unlock1"];
                     if (err) console.error(err);
                 })
@@ -312,7 +312,7 @@ client.on('message', msg => {
                 if (secretdata["Shiny_unlock1"] === 1) {
                     secretdata["Shiny_unlock2"] = 1;
                     client.users.cache.get(`${msg.author.id}`).send("You found a key fragment of a certain key, maybe you can use it with something...");
-                    writeFileSync("C:/Users/Akash/Documents/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
+                    writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
                         secretdata["Shiny_unlock2"] = secretdata["Shiny_unlock2"];
                         if (err) console.error(err);
                     })
@@ -323,7 +323,7 @@ client.on('message', msg => {
                 if (secretdata["Dan_unlock1"] === 1) {
                     secretdata["Dan_unlock2"] = 1;
                     client.users.cache.get(`${msg.author.id}`).send("You found a key fragment of a certain key, maybe you can use it with something...");
-                    writeFileSync("C:/Users/Akash/Documents/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
+                    writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
                         secretdata["Dan_unlock2"] = secretdata["Dan_unlock2"];
                         if (err) console.error(err);
                     })
@@ -345,7 +345,7 @@ client.on('message', msg => {
                 if (secretdata["Shiny_unlock2"] === 1) {
                     secretdata["Shiny_RedKey"] = 1;
                     client.users.cache.get(`${msg.author.id}`).send("You found something glowy, I think it made you a key! You found the Red Key. I wonder wut it may be used for...");
-                    writeFileSync("C:/Users/Akash/Documents/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
+                    writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
                         secretdata["Shiny_RedKey"] = secretdata["Shiny_RedKey"];
                         if (err) console.error(err);
                     })
@@ -356,7 +356,7 @@ client.on('message', msg => {
                 if (secretdata["Dan_unlock2"] === 1) {
                     secretdata["Dan_RedKey"] = 1;
                     client.users.cache.get(`${msg.author.id}`).send("You found something glowy, I think it made you a key! You found the Red Key. I wonder wut it may be used for...");
-                    writeFileSync("C:/Users/Akash/Documents/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
+                    writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
                         secretdata["Dan_RedKey"] = secretdata["Dan_RedKey"];
                         if (err) console.error(err);
                     })
@@ -375,7 +375,7 @@ client.on('message', msg => {
             client.users.cache.get(`${msg.author.id}`).send("you found a code fragment, hmmmm....");
             if (msg.author.id === "695513111414964225") {
                 secretdata["Shiny_unlock3"] = 1;
-                writeFileSync("C:/Users/Akash/Documents/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
+                writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
                     secretdata["Shiny_unlock3"] = secretdata["Shiny_unlock3"];
                     if (err) console.error(err);
                 })
@@ -383,7 +383,7 @@ client.on('message', msg => {
             }
             if (msg.author.id === "774874294999580672") {
                 secretdata["Dan_unlock3"] = 1;
-                writeFileSync("C:/Users/Akash/Documents/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
+                writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
                     secretdata["Dan_unlock3"] = secretdata["Dan_unlock3"];
                     if (err) console.error(err);
                 })
@@ -403,7 +403,7 @@ client.on('message', msg => {
                     secretdata["Shiny_GreenKey"] = 1;
                     client.users.cache.get(`${msg.author.id}`).send("damn you just went for it, welp u found the ezest key, You found the Green Key.");
                     //client.users.cache.get(`${msg.author.id}`).send("You found something glowy, I think it made you a key! You found the Red Key. I wonder wut it may be used for...");
-                    writeFileSync("C:/Users/Akash/Documents/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
+                    writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
                         secretdata["Shiny_GreenKey"] = secretdata["Shiny_GreenKey"];
                         if (err) console.error(err);
                     })
@@ -415,7 +415,7 @@ client.on('message', msg => {
                     secretdata["Dan_GreenKey"] = 1;
                     client.users.cache.get(`${msg.author.id}`).send("damn you just went for it, welp u found the ezest key, You found the Green Key.");
                     //client.users.cache.get(`${msg.author.id}`).send("You found something glowy, I think it made you a key! You found the Red Key. I wonder wut it may be used for...");
-                    writeFileSync("C:/Users/Akash/Documents/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
+                    writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
                         secretdata["Dan_GreenKey"] = secretdata["Dan_GreenKey"];
                         if (err) console.error(err);
                     })
@@ -434,7 +434,7 @@ client.on('message', msg => {
         else {
             if (msg.author.id === "695513111414964225") {
                 secretdata["Shiny_unlock4"] = 1;
-                writeFileSync("C:/Users/Akash/Documents/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
+                writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
                     secretdata["Shiny_unlock4"] = secretdata["Shiny_unlock4"];
                     if (err) console.error(err);
                 })
@@ -442,7 +442,7 @@ client.on('message', msg => {
             }
             if (msg.author.id === "774874294999580672") {
                 secretdata["Dan_unlock4"] = 1;
-                writeFileSync("C:/Users/Akash/Documents/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
+                writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
                     secretdata["Dan_unlock4"] = secretdata["Dan_unlock4"];
                     if (err) console.error(err);
                 })
@@ -464,7 +464,7 @@ client.on('message', msg => {
                     client.users.cache.get(`${msg.author.id}`).send("You beat the ape and you now apparently have the Blue Key!!");
                     //client.users.cache.get(`${msg.author.id}`).send("damn you just went for it, welp u found the ezest key, You found the Green Key.");
                     //client.users.cache.get(`${msg.author.id}`).send("You found something glowy, I think it made you a key! You found the Red Key. I wonder wut it may be used for...");
-                    writeFileSync("C:/Users/Akash/Documents/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
+                    writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
                         secretdata["Shiny_BlueKey"] = secretdata["Shiny_BlueKey"];
                         if (err) console.error(err);
                     })
@@ -477,7 +477,7 @@ client.on('message', msg => {
                     client.users.cache.get(`${msg.author.id}`).send("You beat the ape and you now apparently have the Blue Key!!");
                     //client.users.cache.get(`${msg.author.id}`).send("damn you just went for it, welp u found the ezest key, You found the Green Key.");
                     //client.users.cache.get(`${msg.author.id}`).send("You found something glowy, I think it made you a key! You found the Red Key. I wonder wut it may be used for...");
-                    writeFileSync("C:/Users/Akash/Documents/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
+                    writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
                         secretdata["Dan_BlueKey"] = secretdata["Dan_BlueKey"];
                         if (err) console.error(err);
                     })
@@ -499,7 +499,7 @@ client.on('message', msg => {
                     if (secretdata["Shiny_BlueKey"] === 1) {
                         if (secretdata["Shiny_GreenKey"] === 1) {
                             secretdata["Shiny_Portal"] = 1;
-                            writeFileSync("C:/Users/Akash/Documents/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
+                            writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
                                 secretdata["Shiny_Portal"] = secretdata["Shiny_Portal"];
                                 if (err) console.error(err);
                             })
@@ -514,7 +514,7 @@ client.on('message', msg => {
                     if (secretdata["Dan_BlueKey"] === 1) {
                         if (secretdata["Dan_GreenKey"] === 1) {
                             secretdata["Dan_Portal"] = 1;
-                            writeFileSync("C:/Users/Akash/Documents/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
+                            writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
                                 secretdata["Dan_Portal"] = secretdata["Dan_Portal"];
                                 if (err) console.error(err);
                             })
@@ -540,7 +540,7 @@ client.on('message', msg => {
                     client.users.cache.get(`${msg.author.id}`).send("u found the ezest pixel part, gg. You found the R part.");
                     //client.users.cache.get(`${msg.author.id}`).send("damn you just went for it, welp u found the ezest key, You found the Green Key.");
                     //client.users.cache.get(`${msg.author.id}`).send("You found something glowy, I think it made you a key! You found the Red Key. I wonder wut it may be used for...");
-                    writeFileSync("C:/Users/Akash/Documents/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
+                    writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
                         secretdata["Shiny_Pixel1"] = secretdata["Shiny_Pixel1"];
                         if (err) console.error(err);
                     })
@@ -553,7 +553,7 @@ client.on('message', msg => {
                     client.users.cache.get(`${msg.author.id}`).send("u found the ezest pixel part, gg. You found the R part.");
                     //client.users.cache.get(`${msg.author.id}`).send("damn you just went for it, welp u found the ezest key, You found the Green Key.");
                     //client.users.cache.get(`${msg.author.id}`).send("You found something glowy, I think it made you a key! You found the Red Key. I wonder wut it may be used for...");
-                    writeFileSync("C:/Users/Akash/Documents/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
+                    writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
                         secretdata["Dan_Pixel1"] = secretdata["Dan_Pixel1"];
                         if (err) console.error(err);
                     })
@@ -576,7 +576,7 @@ client.on('message', msg => {
                     client.users.cache.get(`${msg.author.id}`).send("You found a green fragment... i wonder wut could u do with it, nvm You found the G part. Now u probably need the other 3, 2, or maybe 1 more part. You need the B part");
                     //client.users.cache.get(`${msg.author.id}`).send("damn you just went for it, welp u found the ezest key, You found the Green Key.");
                     //client.users.cache.get(`${msg.author.id}`).send("You found something glowy, I think it made you a key! You found the Red Key. I wonder wut it may be used for...");
-                    writeFileSync("C:/Users/Akash/Documents/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
+                    writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
                         secretdata["Shiny_Pixel2"] = secretdata["Shiny_Pixel2"];
                         if (err) console.error(err);
                     })
@@ -589,7 +589,7 @@ client.on('message', msg => {
                     client.users.cache.get(`${msg.author.id}`).send("You found a green fragment... i wonder wut could u do with it, nvm You found the G part. Now u probably need the other 3, 2, or maybe 1 more part. You need the B part");
                     //client.users.cache.get(`${msg.author.id}`).send("damn you just went for it, welp u found the ezest key, You found the Green Key.");
                     //client.users.cache.get(`${msg.author.id}`).send("You found something glowy, I think it made you a key! You found the Red Key. I wonder wut it may be used for...");
-                    writeFileSync("C:/Users/Akash/Documents/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
+                    writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
                         secretdata["Dan_Pixel2"] = secretdata["Dan_Pixel2"];
                         if (err) console.error(err);
                     })
@@ -612,7 +612,7 @@ client.on('message', msg => {
                     //client.users.cache.get(`${msg.author.id}`).send("You found a green fragment... i wonder wut could u do with it, nvm You found the G part. Now u probably need the other 3, 2, or maybe 1 more part. You need the B part");
                     //client.users.cache.get(`${msg.author.id}`).send("damn you just went for it, welp u found the ezest key, You found the Green Key.");
                     //client.users.cache.get(`${msg.author.id}`).send("You found something glowy, I think it made you a key! You found the Red Key. I wonder wut it may be used for...");
-                    writeFileSync("C:/Users/Akash/Documents/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
+                    writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
                         secretdata["Shiny_Pixel3"] = secretdata["Shiny_Pixel3"];
                         if (err) console.error(err);
                     })
@@ -626,7 +626,7 @@ client.on('message', msg => {
                     //client.users.cache.get(`${msg.author.id}`).send("You found a green fragment... i wonder wut could u do with it, nvm You found the G part. Now u probably need the other 3, 2, or maybe 1 more part. You need the B part");
                     //client.users.cache.get(`${msg.author.id}`).send("damn you just went for it, welp u found the ezest key, You found the Green Key.");
                     //client.users.cache.get(`${msg.author.id}`).send("You found something glowy, I think it made you a key! You found the Red Key. I wonder wut it may be used for...");
-                    writeFileSync("C:/Users/Akash/Documents/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
+                    writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
                         secretdata["Dan_unlock5"] = secretdata["Dan_unlock5"];
                         if (err) console.error(err);
                     })
@@ -647,7 +647,7 @@ client.on('message', msg => {
                     if (secretdata["Dan_Pixel2"] === 1) {
                         if (secretdata["Dan_Pixel3"] === 1) {
                             //secretdata["Dan_Portal"] = 1;
-                            /*writeFileSync("C:/Users/Akash/Documents/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
+                            /*writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
                                 secretdata["Dan_Portal"] = secretdata["Dan_Portal"];
                                 if(err) console.error(err);
                             })*/
@@ -670,7 +670,7 @@ client.on('message', msg => {
                     //client.users.cache.get(`${msg.author.id}`).send("You found a green fragment... i wonder wut could u do with it, nvm You found the G part. Now u probably need the other 3, 2, or maybe 1 more part. You need the B part");
                     //client.users.cache.get(`${msg.author.id}`).send("damn you just went for it, welp u found the ezest key, You found the Green Key.");
                     //client.users.cache.get(`${msg.author.id}`).send("You found something glowy, I think it made you a key! You found the Red Key. I wonder wut it may be used for...");
-                    writeFileSync("C:/Users/Akash/Documents/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
+                    writeFileSync("C:/Users/Akash/Documents/GitHub/GitHub/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
                         secretdata["Dan_Pixel3"] = secretdata["Dan_Pixel3"];
                         if (err) console.error(err);
                     })
@@ -687,7 +687,7 @@ client.on('message', msg => {
                             if (secretdata["Dan_Pixel2"] === 1) {
                                 if (secretdata["Dan_Pixel3"] === 1) {
                                     //secretdata["Dan_Portal"] = 1;
-                                    /*writeFileSync("C:/Users/Akash/Documents/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
+                                    /*writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json", JSON.stringify(secretdata), err => {
                                         secretdata["Dan_Portal"] = secretdata["Dan_Portal"];
                                         if(err) console.error(err);
                                     })
@@ -733,7 +733,7 @@ client.on('message', msg => {
     
 })
 
-writeFileSync("C:/Users/Akash/Documents/DiscordBot/bot.myNCounterData.json", JSON.stringify(data), err => {
+writeFileSync("C:/Users/Akash/Documents/GitHub/DiscordBot/bot.myNCounterData.json", JSON.stringify(data), err => {
     data["Shiny_Ncounter"] = data["Shiny_Ncounter"];
     data["Dan_Ncounter"] = data["Dan_Ncounter"];
     data["OJ_Ncounter"] = data["OJ_Ncounter"];
