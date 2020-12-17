@@ -44,8 +44,8 @@ client.once('ready', () => {
 
 
 const { writeFileSync } = require("fs");
-const data = require("C:/Users/Akash/Documents/GitHub/DiscordBot/bot.myNCounterData.json");
-const secretdata = require("C:/Users/Akash/Documents/GitHub/DiscordBot/KeysandUnlocks.json");
+const data = require("C:/Users/Akash/Documents/GitHub/DiscordBot/app/bot.js/bot.myNCounterData.json");
+const secretdata = require("C:/Users/Akash/Documents/GitHub/DiscordBot/app/bot.js/KeysandUnlocks.json");
 //data["Shiny_Ncounter"] += 1 
 console.log(data["Shiny_Ncounter"] + " ---> Shiny")
 console.log(data["Dan_Ncounter"] + " ---> Dan")
