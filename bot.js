@@ -16,6 +16,7 @@ const gottenMsg10 = new Set();
 const gottenMsg11 = new Set();
 const gottenMsg12 = new Set();
 const gottenMsg13 = new Set();
+var ms = require('ms');
 
 
 
@@ -58,8 +59,23 @@ TotalNcounter = ShinyNcounter + DanNcounter + OGNcounter + OJNcounter + CARENcou
 console.log(TotalNcounter)
 
 
+client.on('message', async(msg) => {
+    if(msg.author.bot) return;
+    if(!msg.guild) return;
 
+    var prefix = ".";
+    if(!msg.content.toLowerCase().startsWith(prefix)) return;
 
+    var args = msg.content.split(' ');
+    var cmd = args.shift().slice(prefix.length).toLowerCase();
+
+    try {
+        var file = require(`./commands/${cmd}.js`);
+        file.run(client, msg, args);
+    } catch(err) {
+        console.warn(err);
+    }
+});
 
 client.on('message', mg => {
     if (mg.content === '!privServer') {
