@@ -96,6 +96,7 @@ client.on('message', async(msg) => {
         var channel = msg.guild.channels.cache.get("778889714001510400");
 
         var log = new Discord.MessageEmbed()
+        .setColor('#02FE97')
         .setTitle('User Muted')
         .addField('User:', user, true)
         .addField('By:', msg.author, true)
@@ -120,7 +121,7 @@ client.on('message', async(msg) => {
          member.roles.remove(role);
         }, time);*/
 
-        client.channels.cache.get('775564519233028099').send(`**${user}** has been muted by **${msg.author}**!`);
+        client.channels.cache.get('775608981451702302').send(`**${user}** has been muted by **${msg.author}**!`);
     }
 
     if(cmd === "unmute"){
@@ -147,16 +148,28 @@ client.on('message', async(msg) => {
         var channel = msg.guild.channels.cache.get("778889714001510400");
 
         var log = new Discord.MessageEmbed()
+        .setColor('#02FE97')
         .setTitle('User Unmuted')
         .addField('User:', user, true)
         .addField('By (Mod):', msg.author, true)
         channel.send(log);
 
+        isMuted.remove(`${member}`);
+
 
     }
 
     if(cmd === "ping"){
-        msg.channel.send(`Yo ping!! ${client.ws.ping}ms`);
+
+        var ping = client.ws.ping;
+
+        var log = new Discord.MessageEmbed()
+        .setColor('#02FE97')
+        .setTitle('Ping Check')
+        .addField('Yo ping!! ', ping, true)
+        msg.channel.send(log);
+
+        //msg.channel.send(`Yo ping!! ${client.ws.ping}ms`);
     }
 
     if(cmd === "warn"){
@@ -181,6 +194,7 @@ client.on('message', async(msg) => {
         var channel = msg.guild.channels.cache.get('778889714001510400');
     
         var log = new Discord.MessageEmbed()
+        .setColor('#02FE97')
         .setTitle('User Warned')
         .addField('User:', user, true)
         .addField('By:', msg.author, true)
@@ -188,7 +202,7 @@ client.on('message', async(msg) => {
         channel.send(log);
     
         var embed = new Discord.MessageEmbed()
-        .setTitle('You were warned!')
+        .setTitle('You were warned!, better listen to the moderator...')
         .setDescription(reason);
     
         try {
@@ -223,6 +237,7 @@ client.on('message', async(msg) => {
         var channel = msg.guild.channels.cache.get('778889714001510400');
     
         var log = new Discord.MessageEmbed()
+        .setColor('#02FE97')
         .setTitle('User Kicked')
         .addField('User:', user, true)
         .addField('By:', msg.author, true)
@@ -268,6 +283,7 @@ client.on('message', async(msg) => {
         var channel = msg.guild.channels.cache.find(c => c.name === 'potato');
     
         var log = new Discord.MessageEmbed()
+        .setColor('#02FE97')
         .setTitle('User Banned')
         .addField('User:', user, true)
         .addField('By:', msg.author, true)
