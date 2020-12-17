@@ -719,7 +719,7 @@ client.on('message', msg => {
         let rand_two = two[Math.floor(Math.random() * two.length)];
         while (rand_one === rand_two) {
             let rand_two = two[Math.floor(Math.random() * two.length)];
-               if (rand_one !== rand_two) {
+            if (rand_one !== rand_two) {
                 break;
             }
         }
