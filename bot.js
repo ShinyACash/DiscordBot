@@ -120,7 +120,7 @@ client.on('message', async(msg) => {
          member.roles.remove(role);
         }, time);*/
 
-        msg.channel.send(`**${user}** has been unmuted by **${msg.author}**!`);
+        client.channels.cache.get('775564519233028099').send(`**${user}** has been muted by **${msg.author}**!`);
     }
 
     if(cmd === "unmute"){
