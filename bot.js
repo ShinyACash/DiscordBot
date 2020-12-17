@@ -69,12 +69,196 @@ client.on('message', async(msg) => {
     var args = msg.content.split(' ');
     var cmd = args.shift().slice(prefix.length).toLowerCase();
 
-    try {
-        var file = require(`./commands/${cmd}.js`);
-        file.run(client, msg, args);
-    } catch(err) {
+    if(cmd === "mute"){
+        if(!msg.member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You can\'t use that!');
+
+        var user = msg.mentions.users.first();
+        if(!user) return msg.reply('You didn\'t mention anyone!');
+
+        var member;
+
+        try {
+            member = await msg.guild.members.fetch(user);
+        } catch(err) {
+        member = null;
+        }
+
+        if(!member) return msg.reply('They aren\'t in the server!');
+        if(member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You cannot mute that person!');
+
+        var rawTime = args[1];
+        var time = ms(rawTime);
+        if(!time) return msg.reply('You didn\'t specify a time!');
+
+        var reason = args.splice(2).join(' ');
+        if(!reason) return msg.reply('You need to give a reason!');
+
+        var channel = msg.guild.channels.cache.get("778889714001510400");
+
+        var log = new Discord.MessageEmbed()
+        .setTitle('User Muted')
+        .addField('User:', user, true)
+        .addField('By:', msg.author, true)
+        .addField('Expires:', rawTime)
+        .addField('Reason:', reason)
+        channel.send(log);
+
+        var embed = new Discord.MessageEmbed()
+        .setTitle('You were muted!')
+        .addField('Expires:', rawTime, true)
+        .addField('Reason:', reason, true);
+
+        try {
+            user.send(embed);
+        } catch(err) {
         console.warn(err);
+        }
+
+        var role = msg.guild.roles.cache.find(r => r.name === 'Muted');
+
+        member.roles.add(role);
+
+        setTimeout(async() => {
+         member.roles.remove(role);
+        }, time);
+
+        msg.channel.send(`**${user}** has been muted by **${msg.author}** for **${rawTime}**!`);
     }
+
+    if(cmd === "ping"){
+        msg.channel.send(`Pong! ${client.ws.ping}ms`);
+    }
+
+    if(cmd === "warn"){
+        if(!msg.member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You can\'t use that!');
+
+        var user = msg.mentions.users.first();
+        if(!user) return msg.reply('You didn\'t mention anyone!');
+    
+        var member;
+    
+        try {
+            member = await msg.guild.members.fetch(user);
+        } catch(err) {
+            member = null;
+        }
+    
+        if(!member) return msg.reply('They aren\'t in the server!');
+    
+        var reason = args.splice(1).join(' ');
+        if(!reason) return msg.reply('You need to give a reason!');
+    
+        var channel = msg.guild.channels.cache.find(c => c.name === 'potato');
+    
+        var log = new Discord.MessageEmbed()
+        .setTitle('User Warned')
+        .addField('User:', user, true)
+        .addField('By:', msg.author, true)
+        .addField('Reason:', reason)
+        channel.send(log);
+    
+        var embed = new Discord.MessageEmbed()
+        .setTitle('You were warned!')
+        .setDescription(reason);
+    
+        try {
+            user.send(embed);
+        } catch(err) {
+            console.warn(err);
+        }
+    
+        msg.channel.send(`**${user}** has been warned by **${msg.author}**!`);
+    }
+
+    if(cmd === "kick"){
+        if(!msg.member.hasPermission('KICK_MEMBERS')) return msg.reply('You can\'t use that!');
+
+        var user = msg.mentions.users.first();
+        if(!user) return msg.reply('You didn\'t mention anyone!');
+    
+        var member;
+    
+        try {
+            member = await msg.guild.members.fetch(user);
+        } catch(err) {
+            member = null;
+        }
+    
+        if(!member) return msg.reply('They aren\'t in the server!');
+        if(member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You cannot kick this person!');
+    
+        var reason = args.splice(1).join(' ');
+        if(!reason) return msg.reply('You need to give a reason!');
+    
+        var channel = msg.guild.channels.cache.find(c => c.name === 'potato');
+    
+        var log = new Discord.MessageEmbed()
+        .setTitle('User Kicked')
+        .addField('User:', user, true)
+        .addField('By:', msg.author, true)
+        .addField('Reason:', reason)
+        channel.send(log);
+    
+        var embed = new Discord.MessageEmbed()
+        .setTitle('You were kicked!')
+        .setDescription(reason);
+    
+        try {
+            await user.send(embed);
+        } catch(err) {
+            console.warn(err);
+        }
+    
+        member.kick(reason);
+    
+        msg.channel.send(`**${user}** has been kicked by **${msg.author}**!`);
+    }
+
+    if(cmd === "ban"){
+        if(!msg.member.hasPermission('BAN_MEMBERS')) return msg.reply('You can\'t use that!');
+
+        var user = msg.mentions.users.first();
+        if(!user) return msg.reply('You didn\'t mention anyone!');
+    
+        var member;
+    
+        try {
+            member = await msg.guild.members.fetch(user);
+        } catch(err) {
+            member = null;
+        }
+    
+        if(member){
+            if(member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You cannot ban this person!');
+        }
+    
+        var reason = args.splice(1).join(' ');
+        if(!reason) return msg.reply('You need to give a reason!');
+    
+        var channel = msg.guild.channels.cache.find(c => c.name === 'potato');
+    
+        var log = new Discord.MessageEmbed()
+        .setTitle('User Banned')
+        .addField('User:', user, true)
+        .addField('By:', msg.author, true)
+        .addField('Reason:', reason)
+        channel.send(log);
+    
+        var embed = new Discord.MessageEmbed()
+        .setTitle('You were banned!')
+        .setDescription(reason);
+    
+        try {
+            await user.send(embed);
+        } catch(err) {
+            console.warn(err);
+        }
+    
+        msg.guild.members.ban(user); // This should not be user.id like I said in my video. I made a mistake. Sorry! :)
+    
+        msg.channel.send(`**${user}** has been banned by **${msg.author}**!`);
+    }
+    
 });
 
 client.on('message', mg => {
