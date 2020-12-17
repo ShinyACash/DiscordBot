@@ -16,7 +16,7 @@ const gottenMsg10 = new Set();
 const gottenMsg11 = new Set();
 const gottenMsg12 = new Set();
 const gottenMsg13 = new Set();
-const ms = require('ms');
+var ms = require('ms');
 
 
 
