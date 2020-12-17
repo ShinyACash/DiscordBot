@@ -16,7 +16,7 @@ const gottenMsg10 = new Set();
 const gottenMsg11 = new Set();
 const gottenMsg12 = new Set();
 const gottenMsg13 = new Set();
-var ms = require('ms');
+const ms = require('ms');
 
 
 
@@ -60,6 +60,7 @@ console.log(TotalNcounter)
 
 
 client.on('message', async(msg) => {
+    //var ms = require('ms');
     if(msg.author.bot) return;
     if(!msg.guild) return;
 
