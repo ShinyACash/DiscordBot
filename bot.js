@@ -135,7 +135,7 @@ client.on('message', async(msg) => {
     }
 
     if(cmd === 'game'){
-        if(msg.channel === "775986767705669662"){
+        if(msg.channel.id === "775986767705669662"){
             //isInGame.add(`${msg.author.id}`)
 
             msg.channel.send(`Yo ${msg.author} started a mafia game, type .join to enter the game!!`);
