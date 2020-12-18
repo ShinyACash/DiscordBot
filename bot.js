@@ -17,6 +17,16 @@ const gottenMsg11 = new Set();
 const gottenMsg12 = new Set();
 const gottenMsg13 = new Set();
 const isMuted = new Set();
+
+//const Gameon = new Set();
+const isInGame = new Set();
+const isDed = new Set();
+const isWinner = new Set();
+const isImp = new Set();
+const isHealer = new Set();
+const isNormie = new Set();
+
+
 var ms = require('ms');
 
 
@@ -123,6 +133,23 @@ client.on('message', async(msg) => {
 
         client.channels.cache.get('775608981451702302').send(`**${user}** has been muted by **${msg.author}**!`);
     }
+
+    if(msg.channel === '775986767705669662'){
+        if(cmd === "game"){
+            //isInGame.add(`${msg.author.id}`)
+
+            msg.channel.send(`Yo ${msg.author} started a mafia game, type .join to enter the game!!`);
+                if(cmd === "join"){
+                    isInGame.add(msg.author.id);
+                }
+            setTimeout(() => {
+                isInGame.add(msg.author.id);
+                msg.channel.send(`${isInGame.values}`);
+            }, 1200000);
+        }
+    }
+
+    
 
     if(cmd === "unmute"){
         if(!msg.member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You can\'t use that!');
