@@ -166,7 +166,7 @@ client.on('message', async(msg) => {
         var log = new Discord.MessageEmbed()
         .setColor('#02FE97')
         .setTitle('Ping Check')
-        .addField('Yo ping!! ', ping, true)
+        .addField('Yo ping!! ', ping + 'ms', true)
         msg.channel.send(log);
 
         //msg.channel.send(`Yo ping!! ${client.ws.ping}ms`);
