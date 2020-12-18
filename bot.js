@@ -150,8 +150,8 @@ client.on('message', async(msg) => {
                 }
             setTimeout(() => {
                 isInGame.add(msg.author.id);
-                msg.channel.send(`${isInGame.values}`);
-            }, 10000);
+                msg.channel.send(`${isInGame.values.toString}`);
+            }, 30000);
         }
         else{
             msg.channel.send(`yo nigga ${msg.author}, at least do it in the right channel.`);
