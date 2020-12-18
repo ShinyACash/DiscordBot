@@ -140,7 +140,13 @@ client.on('message', async(msg) => {
 
             msg.channel.send(`Yo ${msg.author} started a mafia game, type .join to enter the game!!`);
                 if(cmd === "join"){
-                    isInGame.add(msg.author.id);
+                    if(isInGame.has(`${msg.author.id}`)){
+                        msg.reply("listen up bud u already joined..")
+                    }
+                    else{
+                        isInGame.add(msg.author.id);
+                    }
+                    //isInGame.add(msg.author.id);
                 }
             setTimeout(() => {
                 isInGame.add(msg.author.id);
