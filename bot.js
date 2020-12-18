@@ -134,8 +134,8 @@ client.on('message', async(msg) => {
         client.channels.cache.get('775608981451702302').send(`**${user}** has been muted by **${msg.author}**!`);
     }
 
-    if(msg.channel === '775986767705669662'){
-        if(cmd === "game"){
+    if(cmd === 'game'){
+        if(msg.channel === "775986767705669662"){
             //isInGame.add(`${msg.author.id}`)
 
             msg.channel.send(`Yo ${msg.author} started a mafia game, type .join to enter the game!!`);
@@ -146,6 +146,9 @@ client.on('message', async(msg) => {
                 isInGame.add(msg.author.id);
                 msg.channel.send(`${isInGame.values}`);
             }, 1200000);
+        }
+        else{
+            msg.channel.send(`yo nigga ${msg.author}, at least do it in the right channel.`);
         }
     }
 
