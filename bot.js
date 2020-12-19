@@ -18,13 +18,12 @@ const gottenMsg12 = new Set();
 const gottenMsg13 = new Set();
 const isMuted = new Set();
 
-//const Gameon = new Set();
+const Gameon = new Boolean();
 const isInGame = new Set();
-const isDed = new Set();
 const isWinner = new Set();
 const isImp = new Set();
-const isHealer = new Set();
 const isNormie = new Set();
+const isGuard = new Set();
 
 
 var ms = require('ms');
@@ -136,29 +135,39 @@ client.on('message', async(msg) => {
 
     if(cmd === 'game'){
         if(msg.channel.id === "775986767705669662"){
-            //isInGame.add(`${msg.author.id}`)
+            isInGame.add(msg.author.id);
+            Gameon = true;
 
-            msg.channel.send(`Yo ${msg.author} started a mafia game, type .join to enter the game!!`);
-                if(cmd === "join"){
-                    if(isInGame.has(`${msg.author.id}`)){
-                        msg.reply("listen up bud u already joined..")
-                    }
-                    else{
-                        isInGame.add(msg.author.id);
-                    }
-                    //isInGame.add(msg.author.id);
-                }
-            setTimeout(() => {
-                isInGame.add(msg.author.id);
-                msg.channel.send(`${isInGame.values.toString}`);
-            }, 30000);
+
+            msg.channel.send(`Yo ${msg.author} started a "Call The Invited" game, type .join to enter the game!!`);
+           
         }
         else{
             msg.channel.send(`yo nigga ${msg.author}, at least do it in the right channel.`);
         }
     }
 
-    
+    if(cmd === "join"){
+        if(Gameon === true){
+
+            if(isInGame.has(`${msg.author.id}`)){
+                msg.channel.send("listen up bud u already joined..")
+            }
+            else{
+                isInGame.add(msg.author.id);
+            }
+            setTimeout(() => {
+                //isInGame.add(msg.author.id);
+                msg.channel.send("So, The rules are simple, There is one guard who has 5 min to ask other ppl questions on who the king (me ofc) has invited for a treat, if the guard guesses the person wrong (as in he chooses the imposter..), he loses the round and the other ppl get 1 point and the imposter gets 2 points, BUT if the guard get's it right, the imposter gets 0 points AND the other ppl get 1 point. The person who gets the most points out of a certain amount of rounds wins the game!!")
+                let imp = [isInGame.values];
+                let result = Math.floor(Math.random() * imp.length);
+                msg.channel.send(result);
+            }, 30000);
+        }
+        else{
+            msg.reply("join wut nigga?");
+        }
+    }    
 
     if(cmd === "unmute"){
         if(!msg.member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You can\'t use that!');
