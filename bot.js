@@ -171,6 +171,7 @@ client.on('message', async(msg) => {
                 }, 30000);
             }else{
                 msg.channel.send(`test failure ${msg.author}`);
+                console.log('yup it failed');
             }
         }
         else{
