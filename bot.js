@@ -20,6 +20,7 @@ const isMuted = new Set();
 
 var Gameon = 0;
 const isInGame = new Set();
+var startingMSG = 0;
 const isWinner = new Set();
 const isImp = new Set();
 const isNormie = new Set();
@@ -159,8 +160,9 @@ client.on('message', async(msg) => {
             setTimeout(() => {
                 //isInGame.add(msg.author.id);
                 msg.channel.send("So, The rules are simple, There is one guard who has 5 min to ask other ppl questions on who the king (me ofc) has invited for a treat, if the guard guesses the person wrong (as in he chooses the imposter..), he loses the round and the other ppl get 1 point and the imposter gets 2 points, BUT if the guard get's it right, the imposter gets 0 points AND the other ppl get 1 point. The person who gets the most points out of a certain amount of rounds wins the game!!")
-                let imp = [isInGame.values];
-                let result = Math.floor(Math.random() * imp.length);
+                startingMSG = 1;
+                let imp = [isInGame.entries];
+                let result = imp[Math.floor(Math.random() * imp.length)];
                 msg.channel.send(result);
             }, 30000);
         }
