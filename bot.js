@@ -166,7 +166,7 @@ client.on('message', async(msg) => {
                     let result = imp[Math.floor(Math.random() * imp.length)];
                     msg.channel.send(result);
                     GameProg = 1;
-                    Gameon = 0;
+                    //Gameon = 0;
                     
                 }, 30000);
             }else{
