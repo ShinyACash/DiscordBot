@@ -18,7 +18,7 @@ const gottenMsg12 = new Set();
 const gottenMsg13 = new Set();
 const isMuted = new Set();
 
-const Gameon = new Boolean();
+var Gameon = 0;
 const isInGame = new Set();
 const isWinner = new Set();
 const isImp = new Set();
@@ -136,7 +136,7 @@ client.on('message', async(msg) => {
     if(cmd === 'game'){
         if(msg.channel.id === "775986767705669662"){
             isInGame.add(msg.author.id);
-            Gameon = true;
+            Gameon = 1;
 
 
             msg.channel.send(`Yo ${msg.author} started a "Call The Invited" game, type .join to enter the game!!`);
@@ -148,7 +148,7 @@ client.on('message', async(msg) => {
     }
 
     if(cmd === "join"){
-        if(Gameon === true){
+        if(Gameon === 1){
 
             if(isInGame.has(`${msg.author.id}`)){
                 msg.channel.send("listen up bud u already joined..")
