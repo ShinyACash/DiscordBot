@@ -181,13 +181,13 @@ client.on('message', async(msg) => {
         }
     }   
     
-    if(isInGame.has(result)){
+    /*if(isInGame.has(result)){
         client.users.get(`${result}`).send(`You are the imposter`);
     }
     else if(!isInGame.has(result)){
         let imp = ['774874294999580672', '714021486243086388', '695513111414964225'] - result;
         let result = imp[Math.floor(Math.random() * imp.length)];
-    }
+    }*/
 
     if(cmd === "unmute"){
         if(!msg.member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You can\'t use that!');
