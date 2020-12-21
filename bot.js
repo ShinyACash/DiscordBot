@@ -60,14 +60,7 @@ client.once('ready', () => {
 //const data = require("C:/Users/Akash/Documents/GitHub/DiscordBot/app/bot.js");
 //const secretdata = require("C:/Users/Akash/Documents/GitHub/DiscordBot/app/bot.js");
 //ShinyNcounter += 1 
-console.log(ShinyNcounter + " ---> Shiny")
-console.log(DanNcounter + " ---> Dan")
-console.log(OJNcounter + " ---> OJ")
-console.log(OGNcounter + " ---> OG")
-console.log(CARENcounter + " ---> Care")
-console.log("======")
-TotalNcounter = ShinyNcounter + DanNcounter + OGNcounter + OJNcounter + CARENcounter
-console.log(TotalNcounter)
+
 
 
 const usersMap = new Map();
