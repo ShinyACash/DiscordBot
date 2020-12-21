@@ -324,7 +324,7 @@ client.on('message', async(msg) => {
         let mission_msg = ['success', 'success', 'success', 'failure', 'failure', 'success', 'success', 'success', 'failure', 'success', 'success', 'failure', 'success', 'failure'];
         let rand_mission_msg = mission_msg[Math.floor(Math.random() * mission_msg.length)];
         let mission_msg2 = ['And u had to kill 2 so u gained 250 chakra lvl, but u lost 5 health.', 'And u had to kill 2 so u gained 250 chakra lvl, but u lost 5 health.','And u had to kill 2 so u gained 250 chakra lvl, but u lost 5 health.', 'And u had to kill 2 so u gained 250 chakra lvl but u lost 10 health.', 'And u had to kill 3 so u gained 500 chakra lvl.', 'And u had to kill 4 so u gained 1000 chakra lvl but u lost 25 health.'];
-        let rand_mission_msg2 = rand_mission_msg2[Math.floor(Math.random() * mission_msg2.length)];
+        let rand_mission_msg2 = mission_msg2[Math.floor(Math.random() * mission_msg2.length)];
         
         if(mission.has(msg.author.id)){
             let missionwaitlog = new Discord.MessageEmbed()
