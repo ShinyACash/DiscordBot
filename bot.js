@@ -34,6 +34,10 @@ var S_Chakra = 50;
 var D_Chakra = 50;
 var O_Chakra = 50;
 
+var tS_Chakra = S_Chakra;
+var tD_Chakra = D_Chakra;
+var tO_Chakra = O_Chakra;
+
 
 
 
@@ -313,14 +317,14 @@ client.on('message', async(msg) => {
             let D_chakralog = new Discord.MessageEmbed()
             .setTitle('Chakra Count')
             .setColor('#02FE97')
-            .addField('Your Chakra: ', S_Chakra, true)
+            .addField('Your Chakra: ', D_Chakra, true)
             msg.channel.send(D_chakralog);
         }
         if(msg.author.id === '714021486243086388'){
             let O_chakralog = new Discord.MessageEmbed()
             .setTitle('Chakra Count')
             .setColor('#02FE97')
-            .addField('Your Chakra: ', S_Chakra, true)
+            .addField('Your Chakra: ', O_Chakra, true)
             msg.channel.send(O_chakralog);
         }
     }
