@@ -117,7 +117,7 @@ client.on('message', async(message) => {
                 }
                 message.member.roles.add(muterole);
                 //message.channel.send('You have been muted!');
-                var channel = msg.guild.channels.cache.get("778889714001510400");
+                var channel = message.guild.channels.cache.get("778889714001510400");
 
                 var logAuto = new Discord.MessageEmbed()
                 .setColor('#02FE97')
