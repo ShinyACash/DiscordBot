@@ -71,7 +71,7 @@ console.log(TotalNcounter)
 
 
 client.on('messageDelete', async msg =>{
-    let deletelog = new Discord.RichEmbed()
+    let deletelog = new Discord.MessageEmbed()
     .setTitle('Yo a msg was deleted, nigga!')
     .setColor('red')
     .setThumbnail(msg.avatarURL)
