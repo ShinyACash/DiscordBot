@@ -74,12 +74,10 @@ client.on('messageDelete', async msg =>{
     let deletelog = new Discord.MessageEmbed()
     .setTitle('Yo a msg was deleted, nigga!')
     .setColor('#ff0000')
-    .setThumbnail(msg.author.avatarURL)
-    .addField('Deleted by: ', msg.author.tag)
+    .setThumbnail(msg.author.displayAvatarURL())
     .addField('Deleted from: ', msg.channel)
     .addField('Deleted msg: ', msg.content)
     .addField('Who\'s msg was it?: ', msg.author.tag)
-    .setImage(msg.author.displayAvatarURL())
     .setFooter('what a scrub');
 
     let deletelogging = client.channels.cache.get('775608981451702302');
