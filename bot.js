@@ -236,8 +236,8 @@ client.on('message', async(msg) => {
             let waitlog = new Discord.MessageEmbed()
             .setTitle('Chill out')
             .setColor('#02FE97')
-            .addField(`Yo ${msg.author.username}, chill out, training and everyday activities require chakra and u can die if u run out...`)
-            .addField('just relax for 1 min \'tebayuo...')
+            .setDescription(`Yo ${msg.author.username}, chill out, training and everyday activities require chakra and u can die if u run out...`)
+            .setDescription('just relax for 1 min \'tebayuo...')
             msg.channel.send(waitlog);
         }
         else{
