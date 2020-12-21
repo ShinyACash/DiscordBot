@@ -70,6 +70,22 @@ TotalNcounter = ShinyNcounter + DanNcounter + OGNcounter + OJNcounter + CARENcou
 console.log(TotalNcounter)
 
 
+client.on('messageDelete', async msg =>{
+    let deletelog = new Discord.RichEmbed()
+    .setTitle('Yo a msg was deleted, nigga!')
+    .setColor('red')
+    .setThumbnail(msg.avatarURL)
+    .addField('Deleted by: ', msg.author.tag)
+    .addField('Deleted from: ', msg.channel)
+    .addField('Deleted at: ', msg.createdAt)
+    .setFooter('what a scrub');
+
+    let deletelogging = msg.guild.channels.get('775576767930171402');
+
+    deletelogging.send(deletelog);
+})
+
+
 client.on('message', async(msg) => {
     //var ms = require('ms');
     if(msg.author.bot) return;
