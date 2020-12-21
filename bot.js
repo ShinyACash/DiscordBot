@@ -308,6 +308,30 @@ client.on('message', async(msg) => {
         }
     }
 
+    if(cmd === "chakra"){
+        if(msg.author.id === '695513111414964225'){
+            let S_chakralog = new Discord.MessageEmbed()
+            .setTitle('Chakra Count')
+            .setColor('#02FE97')
+            .addField('Your Chakra: ', S_Chakra, true)
+            msg.channel.send(S_chakralog);
+        }
+        if(msg.author.id === '774874294999580672'){
+            let D_chakralog = new Discord.MessageEmbed()
+            .setTitle('Chakra Count')
+            .setColor('#02FE97')
+            .addField('Your Chakra: ', S_Chakra, true)
+            msg.channel.send(D_chakralog);
+        }
+        if(msg.author.id === '714021486243086388'){
+            let O_chakralog = new Discord.MessageEmbed()
+            .setTitle('Chakra Count')
+            .setColor('#02FE97')
+            .addField('Your Chakra: ', S_Chakra, true)
+            msg.channel.send(O_chakralog);
+        }
+    }
+
     if(cmd === "unmute"){
         if(!msg.member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You can\'t use that!');
 
