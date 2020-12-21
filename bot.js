@@ -241,7 +241,7 @@ client.on('message', async(msg) => {
             msg.channel.send(waitlog);
         }
         else{
-            msg.channel.send('You trained and your chakra count went up ' + rand_train_msg + ` ${msg.author.id}`);
+            msg.channel.send('You trained and your chakra count went up ' + rand_train_msg + ` ${msg.author}`);
             if(msg.author.id === '695513111414964225'){
                 if(rand_train_msg === 'by 1'){
                     S_Chakra += 1;
