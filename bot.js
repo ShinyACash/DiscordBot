@@ -3,6 +3,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client;
 
 const trainedRecently = new Set();
+const mission = new Set();
 const gottenMsg1 = new Set();
 const gottenMsg2 = new Set();
 const gottenMsg3 = new Set();
@@ -28,6 +29,19 @@ const isGuard = new Set();
 
 
 var ms = require('ms');
+
+var S_Health = 100;
+var D_Health = 100;
+var O_Health = 100;
+
+
+var S_tomoe = 0;
+var D_tomoe = 0;
+var O_tomoe = 0;
+
+var S_tailscount = 0;
+var D_tailscount = 0;
+var O_tailscount = 0;
 
 
 var S_Chakra = 50;
@@ -302,6 +316,108 @@ client.on('message', async(msg) => {
             setTimeout(async() => {
                 trainedRecently.delete(msg.author.id);
             }, 60000)
+        }
+    }
+    
+    if(cmd === 'mission'){
+        let mission_msg = ['success', 'success', 'success', 'failure', 'failure', 'success', 'success', 'success', 'failure', 'success', 'success', 'failure', 'success', 'failure'];
+        let rand_mission_msg = mission_msg[Math.floor(Math.random() * mission_msg.length)];
+        let mission_msg2 = ['And u had to kill 2 so u gained 250 chakra lvl, but u lost 5 health.', 'And u had to kill 2 so u gained 250 chakra lvl, but u lost 5 health.','And u had to kill 2 so u gained 250 chakra lvl, but u lost 5 health.', 'And u had to kill 2 so u gained 250 chakra lvl but u lost 10 health.', 'And u had to kill 3 so u gained 500 chakra lvl.', 'And u had to kill 4 so u gained 1000 chakra lvl but u lost 25 health.'];
+        let rand_mission_msg2 = rand_mission_msg2[Math.floor(Math.random() * mission_msg2.length)];
+        
+        if(mission.has(msg.author.id)){
+            let missionwaitlog = new Discord.MessageEmbed()
+            .setTitle('Chill out')
+            .setColor('#02FE97')
+            .setDescription(`Yo ${msg.author.username}, chill out, training and everyday activities require chakra and u can die if u run out...`)
+            .setDescription('just relax for 10 min \'tebayuo...')
+            msg.channel.send(missionwaitlog);
+        }
+        else{
+            if(rand_mission_msg === 'failure'){
+                msg.channel.send(`Your mission failed and u used up 20 chakra (current chakra not total amount)`);
+                if(msg.author.id === '695513111414964225'){
+                    tS_Chakra -= 20;
+                }
+                if(msg.author.id === '774874294999580672'){
+                    tD_Chakra -= 20;
+                }
+                if(msg.author.id === '714021486243086388'){
+                    tO_Chakra -= 20;
+                }
+
+            }
+            else if(rand_mission_msg === 'success'){
+                if(msg.author.id === '695513111414964225'){
+                    if(rand_mission_msg2 === 'And u had to kill 2 so u gained 250 chakra lvl, but u lost 10 health.'){
+                        S_Chakra += 250;
+                        S_Health -= 10;
+                    }
+                    if(rand_mission_msg2 === 'And u had to kill 3 so u gained 500 chakra lvl.'){
+                        S_Chakra += 500;
+                    }
+                    if(rand_mission_msg2 === 'And u had to kill 4 so u gained 1000 chakra lvl, but u lost 25 health.'){
+                        S_Chakra += 1000;
+                        S_Health -= 25;
+                    }
+                }
+                if(msg.author.id === '774874294999580672'){
+                    if(rand_mission_msg2 === 'And u had to kill 2 so u gained 250 chakra lvl, but u lost 10 health.'){
+                        D_Chakra += 250;
+                        D_Health -= 10;
+                    }
+                    if(rand_mission_msg2 === 'And u had to kill 3 so u gained 500 chakra lvl.'){
+                        D_Chakra += 500;
+                    }
+                    if(rand_mission_msg2 === 'And u had to kill 4 so u gained 1000 chakra lvl, but u lost 25 health.'){
+                        D_Chakra += 1000;
+                        D_Health -= 25;
+                    }
+                }
+                if(msg.author.id === '714021486243086388'){
+                    if(rand_mission_msg2 === 'And u had to kill 2 so u gained 250 chakra lvl, but u lost 10 health.'){
+                        O_Chakra += 250;
+                        O_Health -= 10;
+                    }
+                    if(rand_mission_msg2 === 'And u had to kill 3 so u gained 500 chakra lvl.'){
+                        O_Chakra += 500;
+                    }
+                    if(rand_mission_msg2 === 'And u had to kill 4 so u gained 1000 chakra lvl, but u lost 25 health.'){
+                        O_Chakra += 1000;
+                        O_Health -= 25;
+                    }
+                }
+                let missionlog = new Discord.MessageEmbed()
+                .setTitle('Mission Success!')
+                .setColor('#02FE97')
+                .addField('You passed your mission with a ', rand_mission_msg, true)
+                .addField(rand_mission_msg2, 'Good Job!! - Hokage', true)
+                msg.channel.send(missionlog);
+
+                mission.add(msg.author.id)
+
+                setTimeout(async() => {
+                    mission.delete(msg.author.id);
+                }, 600000)
+            }
+        }
+    }
+
+    if(cmd === 'ramen'){
+        if(msg.author.id === '695513111414964225'){
+            tS_Chakra = S_Chakra;
+            S_Health = 100;
+            msg.channel.send('You ate some ramen and now u are full health and chakra!!');
+        }
+        if(msg.author.id === '774874294999580672'){
+            tD_Chakra = D_Chakra;
+            D_Health = 100;
+            msg.channel.send('You ate some ramen and now u are full health and chakra!!');
+        }
+        if(msg.author.id === '714021486243086388'){
+            tO_Chakra = S_Chakra;
+            O_Health = 100;
+            msg.channel.send('You ate some ramen and now u are full health and chakra!!');
         }
     }
 
