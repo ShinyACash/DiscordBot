@@ -80,7 +80,7 @@ client.on('messageDelete', async msg =>{
     .addField('Deleted msg: ', msg.content)
     .setFooter('what a scrub');
 
-    let deletelogging = client.channels.cache.get('775576767930171402');
+    let deletelogging = client.channels.cache.get('775608981451702302');
 
     deletelogging.send(deletelog);
 })
