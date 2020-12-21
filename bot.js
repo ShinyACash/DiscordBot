@@ -128,7 +128,7 @@ client.on('message', async(message) => {
                 channel.send(logAuto);
                 setTimeout(() => {
                     message.member.roles.remove(muterole);
-                    message.channel.send('You have been unmuted!')
+                    //message.channel.send('You have been unmuted!')
                     var logAutounmute = new Discord.MessageEmbed()
                     .setColor('#02FE97')
                     .setTitle('User Unmuted')
