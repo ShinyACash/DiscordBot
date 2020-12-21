@@ -125,7 +125,7 @@ client.on('message', async(message) => {
                 .setTitle('User Muted (Spam Detected)')
                 .setThumbnail(message.author.displayAvatarURL())
                 .addField('User:', message.author.username, true)
-                .addField('Time muted for: 5 mins')
+                .addField('Time muted for: ', '5 min', true)
                 channel.send(logAuto);
                 setTimeout(() => {
                     message.member.roles.remove(muterole);
@@ -133,6 +133,7 @@ client.on('message', async(message) => {
                     var logAutounmute = new Discord.MessageEmbed()
                     .setColor('#02FE97')
                     .setTitle('User Unmuted')
+                    .setThumbnail(message.author.displayAvatarURL())
                     .addField('User:', message.author.username, true)
                     channel.send(logAutounmute);
                 }, TIME);
