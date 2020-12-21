@@ -4,6 +4,7 @@ const client = new Discord.Client;
 
 const trainedRecently = new Set();
 const mission = new Set();
+const ramen = new Set();
 const gottenMsg1 = new Set();
 const gottenMsg2 = new Set();
 const gottenMsg3 = new Set();
@@ -404,21 +405,31 @@ client.on('message', async(msg) => {
     }
 
     if(cmd === 'ramen'){
-        if(msg.author.id === '695513111414964225'){
-            tS_Chakra = S_Chakra;
-            S_Health = 100;
-            msg.channel.send('You ate some ramen and now u are full health and chakra!!');
+        if(ramen.has(msg.author.id)){
+            msg.channel.send('YO! u JUST ate ramen, take care of your stomach...');
         }
-        if(msg.author.id === '774874294999580672'){
-            tD_Chakra = D_Chakra;
-            D_Health = 100;
-            msg.channel.send('You ate some ramen and now u are full health and chakra!!');
+        else{
+            if(msg.author.id === '695513111414964225'){
+                tS_Chakra = S_Chakra;
+                S_Health = 100;
+                msg.channel.send('You ate some ramen and now u are full health and chakra!!');
+            }
+            if(msg.author.id === '774874294999580672'){
+                tD_Chakra = D_Chakra;
+                D_Health = 100;
+                msg.channel.send('You ate some ramen and now u are full health and chakra!!');
+            }
+            if(msg.author.id === '714021486243086388'){
+                tO_Chakra = S_Chakra;
+                O_Health = 100;
+                msg.channel.send('You ate some ramen and now u are full health and chakra!!');
+            }
+            ramen.add(msg.author.id);
+            setTimeout(async() => {
+                ramen.delete(msg.author.id);
+            }, 60000)
         }
-        if(msg.author.id === '714021486243086388'){
-            tO_Chakra = S_Chakra;
-            O_Health = 100;
-            msg.channel.send('You ate some ramen and now u are full health and chakra!!');
-        }
+        
     }
 
     if(cmd === "chakra"){
