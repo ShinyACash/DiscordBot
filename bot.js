@@ -78,7 +78,8 @@ client.on('messageDelete', async msg =>{
     .addField('Deleted by: ', msg.author.tag)
     .addField('Deleted from: ', msg.channel)
     .addField('Deleted msg: ', msg.content)
-    .addField('Who\'s msg was it?: ', msg.author.avatarURL)
+    .addField('Who\'s msg was it?: ')
+    .setImage(msg.author.avatarURL)
     .setFooter('what a scrub');
 
     let deletelogging = client.channels.cache.get('775608981451702302');
