@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 const client = new Discord.Client;
 
-const talkedRecently = new Set();
+const trainedRecently = new Set();
 const gottenMsg1 = new Set();
 const gottenMsg2 = new Set();
 const gottenMsg3 = new Set();
@@ -30,6 +30,11 @@ const isGuard = new Set();
 var ms = require('ms');
 
 
+var S_Chakra = 50;
+var D_Chakra = 50;
+var O_Chakra = 50;
+
+
 
 
 //var Shiny_fcounter = 0
@@ -39,12 +44,7 @@ var ms = require('ms');
 var GameProg = 0;
 
 
-var ShinyNcounter = 0
-var DanNcounter = 0
-var OJNcounter = 0
-var OGNcounter = 0
-var CARENcounter = 0
-var TotalNcounter = ShinyNcounter + DanNcounter + OJNcounter + OGNcounter + CARENcounter
+
 
 const emoji = client.emojis.cache.get("782957768545665074")
 //let myRole = message.guild.roles.cache.find(role => role.name === "{Role Name}");
@@ -236,60 +236,77 @@ client.on('message', async(msg) => {
         client.channels.cache.get('775608981451702302').send(`**${user}** has been muted by **${msg.author}**!`);
     }
 
-    if(cmd === 'game'){
-        if(msg.channel.id === "775986767705669662"){
-            isInGame.add(msg.author.id);
-            Gameon = 1;
-
-
-            msg.channel.send(`Yo ${msg.author} started a "Call The Invited" game, type .join to enter the game!!`);
-           
+    if(cmd === "train"){
+        let train_msg = ['by 1', 'by 10', 'by 1', 'by 10', 'by 1', 'by 10', 'by 10', 'by 1', 'by 10', 'by 1', 'by 10', 'by 100', 'by 50', 'by 50', 'by 50', 'by 50', 'by 50', 'by 50', 'by 1000', 'by 100', 'by 10', 'by 10', 'by 10', 'by 10', 'by 10'];
+        let rand_train_msg = train_msg[Math.floor(Math.random() * train_msg.length)];
+        if(trainedRecently.has(msg.author.id)){
+            let waitlog = new Discord.MessageEmbed()
+            .setTitle('Chill out')
+            .setColor('#02FE97')
+            .addField(`Yo ${msg.author}, chill out, training and everyday activities require chakra and u can die if u run out...`, true)
+            .addField('just relax for 1 min \'tebayuo...', true)
+            msg.channel.send(waitlog);
         }
         else{
-            msg.channel.send(`yo nigga ${msg.author}, at least do it in the right channel.`);
+            msg.channel.send('You trained and your chakra count went up ' + rand_train_msg + ` ${msg.author.id}`);
+            if(msg.author.id === '695513111414964225'){
+                if(rand_train_msg === 'by 1'){
+                    S_Chakra += 1;
+                }
+                else if(rand_train_msg === 'by 10'){
+                    S_Chakra += 10;
+                }
+                else if(rand_train_msg === 'by 100'){
+                    S_Chakra += 100;
+                }
+                else if(rand_train_msg === 'by 50'){
+                    S_Chakra += 50;
+                }
+                else if(rand_train_msg === 'by 1000'){
+                    S_Chakra += 1000;
+                }
+            }
+            else if(msg.author.id === '774874294999580672'){
+                if(rand_train_msg === 'by 1'){
+                    D_Chakra += 1;
+                }
+                else if(rand_train_msg === 'by 10'){
+                    D_Chakra += 10;
+                }
+                else if(rand_train_msg === 'by 100'){
+                    D_Chakra += 100;
+                }
+                else if(rand_train_msg === 'by 50'){
+                    D_Chakra += 50;
+                }
+                else if(rand_train_msg === 'by 1000'){
+                    D_Chakra += 1000;
+                }
+            }
+            else if(msg.author.id === '714021486243086388'){
+                if(rand_train_msg === 'by 1'){
+                    O_Chakra += 1;
+                }
+                else if(rand_train_msg === 'by 10'){
+                    O_Chakra += 10;
+                }
+                else if(rand_train_msg === 'by 100'){
+                    O_Chakra += 100;
+                }
+                else if(rand_train_msg === 'by 50'){
+                    O_Chakra += 50;
+                }
+                else if(rand_train_msg === 'by 1000'){
+                    O_Chakra += 1000;
+                }
+            }
+
+            trainedRecently.add(msg.author.id)
+            setTimeout(async() => {
+                trainedRecently.delete(msg.author.id);
+            }, 60000)
         }
     }
-
-    if(cmd === "join"){
-        if(Gameon === 1){
-
-            if(isInGame.has(`${msg.author.id}`)){
-                msg.channel.send("listen up bud u already joined..")
-            }
-            else{
-                isInGame.add(msg.author.id);
-            }
-
-            //let imp = ['774874294999580672', '714021486243086388', '695513111414964225'];
-            //let result = imp[Math.floor(Math.random() * imp.length)];
-            
-            if(startingMSG < 1){
-                setTimeout(() => {
-                    msg.channel.send("So, The rules are simple, There is one guard who has 5 min to ask other ppl questions on who the king (me ofc) has invited for a treat, if the guard guesses the person wrong (as in he chooses the imposter..), he loses the round and the other ppl get 1 point and the imposter gets 2 points, BUT if the guard get's it right, the imposter gets 0 points AND the other ppl get 1 point. The person who gets the most points out of a certain amount of rounds wins the game!!")
-                    let imp = ['774874294999580672', '714021486243086388', '695513111414964225'];
-                    let result = imp[Math.floor(Math.random() * imp.length)];
-                    msg.channel.send(result);
-                    GameProg = 1;
-                    
-                }, 30000);
-            }
-            else{
-                msg.channel.send(`test failure ${msg.author}`);
-                ///console.log('yup it failed');
-            }
-        }
-        else{
-            msg.reply("join wut nigga?");
-        }
-    }   
-    
-    /*if(isInGame.has(result)){
-        client.users.get(`${result}`).send(`You are the imposter`);
-    }
-    else if(!isInGame.has(result)){
-        let imp = ['774874294999580672', '714021486243086388', '695513111414964225'] - result;
-        let result = imp[Math.floor(Math.random() * imp.length)];
-    }*/
 
     if(cmd === "unmute"){
         if(!msg.member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You can\'t use that!');
@@ -513,117 +530,6 @@ client.on('message', msg => {
     if(msg.content.includes('entertain me')){
         msg.reply('git entertained. :pepega:');
     }
-    else if (msg.content.includes('nigga')) {
-        if (msg.author.username === 'ShinyACash') {
-            if (talkedRecently.has(msg.author.id)) {
-                msg.channel.send(`Wait 30s before getting a +1 nigga, ${msg.author}.`);
-            }
-            else {
-
-
-                msg.channel.send(`+1 to your nigga counter ${msg.author}`);
-                ShinyNcounter += 1;
-
-                talkedRecently.add(msg.author.id);
-                setTimeout(() => {
-
-                    talkedRecently.delete(msg.author.id);
-                }, 30000);
-            }
-        }
-        else if (msg.author.username === 'Zero Two') {
-            if (talkedRecently.has(msg.author.id)) {
-                msg.channel.send(`Wait 30s before getting a +1 nigga, ${msg.author}.`);
-            }
-            else {
-
-                // the user can type the command ... your command code goes here :)
-                msg.channel.send(`+1 to your nigga counter ${msg.author}`);
-                DanNcounter += 1;
-                
-                // Adds the user to the set so that they can't talk for a minute
-                talkedRecently.add(msg.author.id);
-                setTimeout(() => {
-                    // Removes the user from the set after a minute
-                    talkedRecently.delete(msg.author.id);
-                }, 30000);
-            }
-        }
-        else if (msg.author.username === 'IMCARE') {
-            if (talkedRecently.has(msg.author.id)) {
-                msg.channel.send(`Wait 30s before getting a +1 nigga, ${msg.author}.`);
-            } else {
-
-                // the user can type the command ... your command code goes here :)
-                msg.channel.send(`+1 to your nigga counter ${msg.author}`);
-                CARENcounter += 1;
-                
-                // Adds the user to the set so that they can't talk for a minute
-                talkedRecently.add(msg.author.id);
-                setTimeout(() => {
-                    // Removes the user from the set after a minute
-                    talkedRecently.delete(msg.author.id);
-                }, 30000);
-            }
-        }
-        else if (msg.author.username === 'Dogey DooD') {
-            if (talkedRecently.has(msg.author.id)) {
-                msg.channel.send(`Wait 30s before getting a +1 nigga, ${msg.author}.`);
-            } else {
-
-                // the user can type the command ... your command code goes here :)
-                msg.channel.send(`+1 to your nigga counter ${msg.author}`);
-                OJNcounter += 1;
-               
-                // Adds the user to the set so that they can't talk for a minute
-                talkedRecently.add(msg.author.id);
-                setTimeout(() => {
-                    // Removes the user from the set after a minute
-                    talkedRecently.delete(msg.author.id);
-                }, 30000);
-            }
-
-        }
-        else if (msg.author.username === 'blindbutnotblind') {
-            if (talkedRecently.has(msg.author.id)) {
-                msg.channel.send(`Wait 30s before getting a +1 nigga, ${msg.author}.`);
-            } else {
-
-                // the user can type the command ... your command code goes here :)
-                msg.channel.send(`+1 to your nigga counter ${msg.author}`);
-                OGNcounter += 1;
-                
-                // Adds the user to the set so that they can't talk for a minute
-                talkedRecently.add(msg.author.id);
-                setTimeout(() => {
-                    // Removes the user from the set after a minute
-                    talkedRecently.delete(msg.author.id);
-                }, 30000);
-            }
-        }
-    }
-    else if (msg.content === '!n') {
-        if (msg.author.username === 'ShinyACash') {
-            msg.channel.send(`${msg.author}, your nigga counter is at ` + ShinyNcounter + `. Good Job!`);
-            
-        }
-        else if (msg.author.username === 'Zero Two') {
-            msg.channel.send(`${msg.author}, your nigga counter is at ` + DanNcounter + `. Good Job!`);
-            
-        }
-        else if (msg.author.username === 'IMCARE') {
-            msg.channel.send(`${msg.author}, your nigga counter is at ` + CARENcounter + `. Good Job!`);
-           
-        }
-        else if (msg.author.username === 'Dogey DooD') {
-            msg.channel.send(`${msg.author}, your nigga counter is at ` + OJNcounter + `. Good Job!`);
-            
-        }
-        else if (msg.author.username === 'blindbutnotblind') {
-            msg.channel.send(`${msg.author}, your nigga counter is at ` + OGNcounter + `. Good Job!`);
-            
-        }
-    }
     else if (msg.content.includes('FUCK')) {
         msg.reply('Do you wanna get banned? jk lol. Use abbreviations');
     }
@@ -639,10 +545,6 @@ client.on('message', msg => {
         if (msg.content.includes('a hole' || 'asshole')) {
             msg.reply('F off BITCH');
         }
-    }
-    else if (msg.content === "!nTotal") {
-        TotalNcounter = ShinyNcounter + DanNcounter + OJNcounter + OGNcounter + CARENcounter;
-        msg.channel.send("Our total n-word count is at " + TotalNcounter + ". DAYUM BOIS!");
     }
 
 })
