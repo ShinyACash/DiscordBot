@@ -72,7 +72,7 @@ console.log(TotalNcounter)
 
 const usersMap = new Map();
 const LIMIT = 5;
-const TIME = 7000;
+const TIME = 30000;
 const DIFF = 3000;
 
 client.on('message', async(message) => {
@@ -116,6 +116,7 @@ client.on('message', async(message) => {
                     }
                 }
                 message.member.roles.add(muterole);
+                isMuted.add(message.author.id);
                 //message.channel.send('You have been muted!');
                 var channel = message.guild.channels.cache.get("778889714001510400");
 
