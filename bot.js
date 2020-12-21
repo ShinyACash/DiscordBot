@@ -72,7 +72,7 @@ console.log(TotalNcounter)
 
 const usersMap = new Map();
 const LIMIT = 5;
-const TIME = 30000;
+const TIME = 3000000;
 const DIFF = 3000;
 
 client.on('message', async(message) => {
@@ -125,6 +125,7 @@ client.on('message', async(message) => {
                 .setTitle('User Muted (Spam Detected)')
                 .setThumbnail(message.author.displayAvatarURL())
                 .addField('User:', message.author.username, true)
+                .addField('Time muted for: 5 mins')
                 channel.send(logAuto);
                 setTimeout(() => {
                     message.member.roles.remove(muterole);
