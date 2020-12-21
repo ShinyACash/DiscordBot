@@ -70,6 +70,89 @@ TotalNcounter = ShinyNcounter + DanNcounter + OGNcounter + OJNcounter + CARENcou
 console.log(TotalNcounter)
 
 
+const usersMap = new Map();
+const LIMIT = 5;
+const TIME = 7000;
+const DIFF = 3000;
+
+client.on('message', async(message) => {
+    if(message.author.bot) return;
+    if(usersMap.has(message.author.id)) {
+        const userData = usersMap.get(message.author.id);
+        const { lastMessage, timer } = userData;
+        const difference = message.createdTimestamp - lastMessage.createdTimestamp;
+        let msgCount = userData.msgCount;
+        console.log(difference);
+
+        if(difference > DIFF) {
+            clearTimeout(timer);
+            console.log('Cleared Timeout');
+            userData.msgCount = 1;
+            userData.lastMessage = message;
+            userData.timer = setTimeout(() => {
+                usersMap.delete(message.author.id);
+                console.log('Removed from map.')
+            }, TIME);
+            usersMap.set(message.author.id, userData)
+        }
+        else {
+            ++msgCount;
+            if(parseInt(msgCount) === LIMIT) {
+                let muterole = message.guild.roles.cache.find(role => role.name === 'Muted');
+                if(!muterole) {
+                    try{
+                        muterole = await message.guild.roles.create({
+                            name : "Muted",
+                            permissions: []
+                        })
+                        message.guild.channels.cache.forEach(async (channel, id) => {
+                            await channel.createOverwrite(muterole, {
+                                SEND_MESSAGES: false,
+                                ADD_REACTIONS : false
+                            })
+                        })
+                    }catch (e) {
+                        console.log(e)
+                    }
+                }
+                message.member.roles.add(muterole);
+                //message.channel.send('You have been muted!');
+                var channel = msg.guild.channels.cache.get("778889714001510400");
+
+                var logAuto = new Discord.MessageEmbed()
+                .setColor('#02FE97')
+                .setTitle('User Muted (Spam Detected)')
+                .setThumbnail(message.author.displayAvatarURL())
+                .addField('User:', message.author.username, true)
+                channel.send(logAuto);
+                setTimeout(() => {
+                    message.member.roles.remove(muterole);
+                    message.channel.send('You have been unmuted!')
+                    var logAutounmute = new Discord.MessageEmbed()
+                    .setColor('#02FE97')
+                    .setTitle('User Unmuted')
+                    .addField('User:', message.author.username, true)
+                    channel.send(logAutounmute);
+                }, TIME);
+            } else {
+                userData.msgCount = msgCount;
+                usersMap.set(message.author.id, userData);
+            }
+        }
+    }
+    else {
+        let fn = setTimeout(() => {
+            usersMap.delete(message.author.id);
+            console.log('Removed from map.')
+        }, TIME);
+        usersMap.set(message.author.id, {
+            msgCount: 1,
+            lastMessage : message,
+            timer : fn
+        });
+    }
+})
+
 client.on('messageDelete', async msg =>{
     let deletelog = new Discord.MessageEmbed()
     .setTitle('Yo a msg was deleted, nigga!')
@@ -423,6 +506,9 @@ client.on('message', msg => {
     }
     else if (msg.content === "!check mention") {
         msg.channel.send("@everyone");
+    }
+    if(msg.content.includes('entertain me')){
+        msg.reply('git entertained. :pepega:');
     }
     else if (msg.content.includes('nigga')) {
         if (msg.author.username === 'ShinyACash') {
