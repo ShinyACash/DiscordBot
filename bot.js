@@ -143,9 +143,9 @@ client.on('message', async(msg) => {
         isMuted.add(`${member}`);
         member.roles.add(role);
 
-        /*setTimeout(async() => {
+        setTimeout(async() => {
          member.roles.remove(role);
-        }, time);*/
+        }, 600000);
 
         client.channels.cache.get('775608981451702302').send(`**${user}** has been muted by **${msg.author}**!`);
     }
