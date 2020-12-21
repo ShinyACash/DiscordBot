@@ -72,7 +72,7 @@ console.log(TotalNcounter)
 
 const usersMap = new Map();
 const LIMIT = 5;
-const TIME = 3000000;
+const TIME = 300000;
 const DIFF = 3000;
 
 client.on('message', async(message) => {
