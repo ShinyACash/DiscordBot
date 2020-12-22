@@ -531,35 +531,35 @@ client.on('message', async(msg) => {
 
                     
                 }
-                if(S_Chakra <= 1000){
+                if(S_Chakra <= 1000 && S_Chakra > 100){
                     var jutsulog = new Discord.MessageEmbed()
                     .setTitle('Your Jutsus')
                     .setColor('#02FE97')
                     .addField('clone(10 chakra), kunai(5 chakra), fireball(100 chakra), galepalm (200 chakra), mudwall(500 chakra)')
                     msg.channel.send(jutsulog);
                 }
-                if(S_Chakra <= 2000){
+                if(S_Chakra <= 2000 && S_Chakra > 1000){
                     var jutsulog = new Discord.MessageEmbed()
                     .setTitle('Your Jutsus')
                     .setColor('#02FE97')
                     .addField('clone(10 chakra), kunai(5 chakra), fireball(100 chakra), galepalm (200 chakra), mudwall(500 chakra), minirasengan(1000 chakra), flamewheel(800 chakra)')
                     msg.channel.send(jutsulog);
                 }
-                if(S_Chakra <= 3000){
+                if(S_Chakra <= 3000 && S_Chakra > 2000){
                     var jutsulog = new Discord.MessageEmbed()
                     .setTitle('Your Jutsus')
                     .setColor('#02FE97')
                     .addField('clone(10 chakra), kunai(5 chakra), fireball(100 chakra), galepalm (200 chakra), mudwall(500 chakra), minirasengan(1000 chakra), flamewheel(800 chakra), genjutsu(1000 chakra + 10 sharingan), rasengan(2000 chakra), woodbarier(1500 chakra)')
                     msg.channel.send(jutsulog);
                 }
-                if(S_Chakra <= 5000){
+                if(S_Chakra <= 5000 && S_Chakra > 3000){
                     var jutsulog = new Discord.MessageEmbed()
                     .setTitle('Your Jutsus')
                     .setColor('#02FE97')
                     .addField('clone(10 chakra), kunai(5 chakra), fireball(100 chakra), galepalm (200 chakra), mudwall(500 chakra), minirasengan(1000 chakra), flamewheel(800 chakra), genjutsu(1000 chakra + 10 sharingan), rasengan(2000 chakra), woodbarier(1500 chakra), chidori(2500 chakra + 50 sharingan), giantrasengan(4000 chakra)')
                     msg.channel.send(jutsulog);
                 }
-                if(S_Chakra <= 10000){
+                if(S_Chakra <= 10000 && S_Chakra > 5000){
                     var jutsulog = new Discord.MessageEmbed()
                     .setTitle('Your Jutsus')
                     .setColor('#02FE97')
