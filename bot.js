@@ -40,6 +40,10 @@ var S_tomoe = 0;
 var D_tomoe = 0;
 var O_tomoe = 0;
 
+var S_tomoe_msg = 0;
+var D_tomoe_msg = 0;
+var O_tomoe_msg = 0;
+
 var S_tailscount = 0;
 var D_tailscount = 0;
 var O_tailscount = 0;
@@ -451,6 +455,14 @@ client.on('message', async(msg) => {
             .setColor('#02FE97')
             .addField('Your Chakra: ', S_Chakra, true)
             msg.channel.send(S_chakralog);
+            if(S_tomoe_msg === 1) return;
+            else{
+                if(S_Chakra >= 2000){
+                    S_tomoe += 1;
+                    msg.author.send('You felt a sensation in your eyes.... you now have the one tomoe SHARINGAN!!');
+                    S_tomoe_msg += 1;
+                }
+            }
         }
         if(msg.author.id === '774874294999580672'){
             let D_chakralog = new Discord.MessageEmbed()
@@ -458,6 +470,14 @@ client.on('message', async(msg) => {
             .setColor('#02FE97')
             .addField('Your Chakra: ', D_Chakra, true)
             msg.channel.send(D_chakralog);
+            if(D_tomoe_msg === 1) return;
+            else{
+                if(D_Chakra >= 2000){
+                    D_tomoe += 1;
+                    msg.author.send('You felt a sensation in your eyes.... you now have the one tomoe SHARINGAN!!');
+                    D_tomoe_msg += 1;
+                }
+            }
         }
         if(msg.author.id === '714021486243086388'){
             let O_chakralog = new Discord.MessageEmbed()
@@ -465,7 +485,21 @@ client.on('message', async(msg) => {
             .setColor('#02FE97')
             .addField('Your Chakra: ', O_Chakra, true)
             msg.channel.send(O_chakralog);
+            if(O_tomoe_msg === 1) return;
+            else{
+                if(O_Chakra >= 2000){
+                    O_tomoe += 1;
+                    msg.author.send('You felt a sensation in your eyes.... you now have the one tomoe SHARINGAN!!');
+                    O_tomoe_msg += 1;
+                }
+            }
         }
+
+        
+    }
+
+    if(cmd === "gimmechakra"){
+        S_Chakra += 2000;
     }
 
     if(cmd === "cchakra"){
