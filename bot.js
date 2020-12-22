@@ -5,6 +5,7 @@ const client = new Discord.Client;
 const trainedRecently = new Set();
 const mission = new Set();
 const ramen = new Set();
+const hasattacked = new Set();
 const gottenMsg1 = new Set();
 const gottenMsg2 = new Set();
 const gottenMsg3 = new Set();
@@ -35,10 +36,18 @@ var S_Health = 100;
 var D_Health = 100;
 var O_Health = 100;
 
+var S_clone = 0;
+var D_clone = 0;
+var O_clone = 0;
+
 
 var S_tomoe = 0;
 var D_tomoe = 0;
 var O_tomoe = 0;
+
+var S_sharingan = 0;
+var D_sharingan = 0;
+var O_sharingan = 0;
 
 var S_tomoe_msg = 0;
 var D_tomoe_msg = 0;
@@ -56,6 +65,9 @@ var O_Chakra = 50;
 var tS_Chakra = S_Chakra;
 var tD_Chakra = D_Chakra;
 var tO_Chakra = O_Chakra;
+
+var dueler1 = "";
+var dueler2 = "";
 
 
 
@@ -461,6 +473,7 @@ client.on('message', async(msg) => {
                     S_tomoe += 1;
                     msg.author.send('You felt a sensation in your eyes.... you now have the one tomoe SHARINGAN!!');
                     S_tomoe_msg += 1;
+                    S_sharingan = 100;
                 }
             }
         }
@@ -476,6 +489,7 @@ client.on('message', async(msg) => {
                     D_tomoe += 1;
                     msg.author.send('You felt a sensation in your eyes.... you now have the one tomoe SHARINGAN!!');
                     D_tomoe_msg += 1;
+                    D_sharingan = 100;
                 }
             }
         }
@@ -498,8 +512,209 @@ client.on('message', async(msg) => {
         
     }
 
-    if(cmd === "gimmechakra"){
-        S_Chakra += 2000;
+    if(cmd === 'duel'){
+        var dueler = msg.mentions.users.first();
+        if(!dueler) return msg.reply('You didn\'t mention anyone!');
+        if(msg.author.id === '695513111414964225'){
+            if(dueler.id === '774874294999580672'){
+                msg.channel.send(`Ayo ${msg.author}, you go first.`);
+                dueler1 = `${msg.author.id}`;
+                dueler2 = `${dueler.id}`;
+                Gameon = 1;
+                if(S_Chakra <= 100){
+
+                    var jutsulog = new Discord.MessageEmbed()
+                    .setTitle('Your Jutsus')
+                    .setColor('#02FE97')
+                    .addField('clone(10 chakra), kunai(5 chakra)')
+                    msg.channel.send(jutsulog);
+
+                    
+                }
+                if(S_Chakra <= 1000){
+                    var jutsulog = new Discord.MessageEmbed()
+                    .setTitle('Your Jutsus')
+                    .setColor('#02FE97')
+                    .addField('clone(10 chakra), kunai(5 chakra), fireball(100 chakra), galepalm (200 chakra), mudwall(500 chakra)')
+                    msg.channel.send(jutsulog);
+                }
+                if(S_Chakra <= 2000){
+                    var jutsulog = new Discord.MessageEmbed()
+                    .setTitle('Your Jutsus')
+                    .setColor('#02FE97')
+                    .addField('clone(10 chakra), kunai(5 chakra), fireball(100 chakra), galepalm (200 chakra), mudwall(500 chakra), minirasengan(1000 chakra), flamewheel(800 chakra)')
+                    msg.channel.send(jutsulog);
+                }
+                if(S_Chakra <= 3000){
+                    var jutsulog = new Discord.MessageEmbed()
+                    .setTitle('Your Jutsus')
+                    .setColor('#02FE97')
+                    .addField('clone(10 chakra), kunai(5 chakra), fireball(100 chakra), galepalm (200 chakra), mudwall(500 chakra), minirasengan(1000 chakra), flamewheel(800 chakra), genjutsu(1000 chakra + 10 sharingan), rasengan(2000 chakra), woodbarier(1500 chakra)')
+                    msg.channel.send(jutsulog);
+                }
+                if(S_Chakra <= 5000){
+                    var jutsulog = new Discord.MessageEmbed()
+                    .setTitle('Your Jutsus')
+                    .setColor('#02FE97')
+                    .addField('clone(10 chakra), kunai(5 chakra), fireball(100 chakra), galepalm (200 chakra), mudwall(500 chakra), minirasengan(1000 chakra), flamewheel(800 chakra), genjutsu(1000 chakra + 10 sharingan), rasengan(2000 chakra), woodbarier(1500 chakra), chidori(2500 chakra + 50 sharingan), giantrasengan(4000 chakra)')
+                    msg.channel.send(jutsulog);
+                }
+                if(S_Chakra <= 10000){
+                    var jutsulog = new Discord.MessageEmbed()
+                    .setTitle('Your Jutsus')
+                    .setColor('#02FE97')
+                    .addField('clone(10 chakra), kunai(5 chakra), fireball(100 chakra), galepalm (200 chakra), mudwall(500 chakra), minirasengan(1000 chakra), flamewheel(800 chakra), genjutsu(1000 chakra + 10 sharingan), rasengan(2000 chakra), woodbarier(1500 chakra), chidori(2500 chakra + 50 sharingan), giantrasengan(4000 chakra), blackchidori(5000 chakra + 100 sharingan), rasenganbarrage(5000 chakra), majesticflame(7000 chakra + 100 sharingan)')
+                    msg.channel.send(jutsulog);
+                }
+            }
+            if(dueler.id === '714021486243086388'){
+                
+            }
+        }
+        if(msg.author.id === '774874294999580672'){
+            if(dueler.id === '695513111414964225'){
+            
+            }
+            if(dueler.id === '714021486243086388'){
+                
+            }
+        }
+        if(msg.author.id === '714021486243086388'){
+            if(dueler.id === '695513111414964225'){
+            
+            }
+            if(dueler.id === '774874294999580672'){
+                
+            }
+        }
+    }
+
+    if(cmd === 'clone'){
+        if(Gameon === 1){
+            if(hasattacked.has(msg.author.id)){
+                msg.channel.send('yo wait before your opponent attacks');
+            }
+            else{
+                if(dueler1 === '695513111414964225'){
+                    if(dueler2 === '774874294999580672'){
+                        S_clone = 1;
+                        tS_Chakra -= 10;
+                        if(tS_Chakra <= 0){
+                            msg.channel.send('Shiny died, Dan won!!');
+                            Gameon = 0;
+                            if(D_Chakra >= 10000){
+                                msg.channel.send('Dan has awakened his MANGEKYO SHARINGAN!!! for killing his friend... good job?');
+                            }
+                        }
+                        dueler1 = '774874294999580672';
+                        dueler2 = '695513111414964225';
+                    }
+                }
+                if(dueler1 === '774874294999580672'){
+                    if(dueler2 === '695513111414964225'){
+                        D_clone = 1;
+                        tD_Chakra -= 10;
+                        if(tD_Chakra <= 0){
+                            msg.channel.send('Dan died, Shiny won!!');
+                            Gameon = 0;
+                            if(S_Chakra >= 10000){
+                                msg.channel.send('Shiny has awakened his MANGEKYO SHARINGAN!!! for killing his friend... good job?');
+                            }
+                        }
+                        dueler1 = '695513111414964225';
+                        dueler2 = '774874294999580672';
+                    }
+                }
+
+                setTimeout(async() =>{
+                    hasattacked.delete(msg.author.id);
+                }, 5000)
+            }
+            
+        }
+        else{
+            msg.channel.send('You are not in a duel currently...maybe start one to use bushin-no-jutsu.');
+        }
+    }
+
+    if(cmd === 'kunai'){
+        if(Gameon === 1){
+            if(hasattacked.has(msg.author.id)){
+                msg.channel.send('Yo wait before your opponent attacks!');
+            }
+            else{
+                if(dueler1 === '695513111414964225'){
+                    if(dueler2 === '774874294999580672'){
+                        if(S_clone = 1){
+                            D_Health -= 20;
+                            S_clone = 0;
+                            if(D_Health <= 0){
+                                msg.channel.send('Dan died, Shiny won!!');
+                                Gameon = 0;
+                                if(S_Chakra >= 10000){
+                                    msg.channel.send('Shiny has awakened his MANGEKYO SHARINGAN!!! for killing his friend... good job?');
+                                }
+                            }
+                            msg.channel.send('Shiny Hit Dan with a kunai and it did 20 dmg cuz of the clone!, but used 5 chakra');
+                        }
+                        else{
+                            D_Health -= 10;
+                            msg.channel.send('Shiny did 10 dmg to dan by hitting him with a kunai and used 5 chakra');
+                        }
+                        tS_Chakra -= 5;
+                        if(tS_Chakra <= 0){
+                            msg.channel.send('Shiny died, Dan won!!');
+                            Gameon = 0;
+                            if(D_Chakra >= 10000){
+                                msg.channel.send('Dan has awakened his MANGEKYO SHARINGAN!!! for killing his friend... good job?');
+                            }
+                        }
+                        dueler1 = '774874294999580672';
+                        dueler2 = '695513111414964225';
+                    }
+                }
+                if(dueler1 === '774874294999580672'){
+                    if(dueler2 === '695513111414964225'){
+                        if(D_clone = 1){
+                            S_Health -= 20;
+                            D_clone = 0;
+                            if(D_clone = 1){
+                                S_Health -= 20;
+                                D_clone = 0;
+                                if(S_Health <= 0){
+                                    msg.channel.send('Shiny died, Dan won!!');
+                                    Gameon = 0;
+                                    if(S_Chakra >= 10000){
+                                        msg.channel.send('Shiny has awakened his MANGEKYO SHARINGAN!!! for killing his friend... good job?');
+                                    }
+                                }
+                                msg.channel.send('Dan hit Shiny with a kunai and it did 20 dmg cuz of the clone!, but used 5 chakra');
+                            }
+                        }
+                        else{
+                            S_Health -= 10;
+                            msg.channel.send('Dan did 10 dmg to shiny by hitting him with a kunai and used 5 chakra');
+                        }
+                        tD_Chakra -= 5;
+                        if(tD_Chakra <= 0){
+                            msg.channel.send('Dan died, Shiny won!!');
+                            Gameon = 0;
+                            if(S_Chakra >= 10000){
+                                msg.channel.send('Shiny has awakened his MANGEKYO SHARINGAN!!! for killing his friend... good job?');
+                            }
+                        }
+    
+                        dueler1 = '695513111414964225';
+                        dueler2 = '774874294999580672';
+                    }
+                }
+
+                setTimeout(async() => {
+                    hasattacked.delete(msg.author.id);
+                }, 5000)
+            }
+            
+        }
     }
 
     if(cmd === "cchakra"){
