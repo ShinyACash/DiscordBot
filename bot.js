@@ -526,8 +526,10 @@ client.on('message', async(msg) => {
                 var jutsulog = new Discord.MessageEmbed()
                 .setTitle('All Jutsus')
                 .setColor('#02FE97')
-                .addField('clone(10 chakra), kunai(5 chakra), fireball(100 chakra), galepalm (200 chakra), mudwall(500 chakra)')
-                .addField('minirasengan(1000 chakra), flamewheel(800 chakra), genjutsu(1000 chakra + 10 sharingan), rasengan(2000 chakra), woodbarier(1500 chakra), chidori(2500 chakra + 50 sharingan), giantrasengan(4000 chakra), blackchidori(5000 chakra + 100 sharingan), rasenganbarrage(5000 chakra), majesticflame(7000 chakra + 100 sharingan), senin-mode/sage mode is not yet available...')
+                .addField('clone(10 chakra), kunai(5 chakra), fireball(100 chakra), galepalm (200 chakra), mudwall(500 chakra)', ',')
+                .addField('minirasengan(1000 chakra), flamewheel(800 chakra), genjutsu(1000 chakra + 10 sharingan), rasengan(2000 chakra)', ',', true)
+                .addField('woodbarier(1500 chakra), chidori(2500 chakra + 50 sharingan), giantrasengan(4000 chakra), blackchidori(5000 chakra + 100 sharingan)', ',', true)
+                .addField('rasenganbarrage(5000 chakra), majesticflame(7000 chakra + 100 sharingan) sage mode no available..',)
                 msg.channel.send(jutsulog);
             }
         }
