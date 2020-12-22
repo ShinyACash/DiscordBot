@@ -637,6 +637,10 @@ client.on('message', async(msg) => {
         }
     }
 
+    if(cmd === "kill"){
+        D_Health = 0;
+    }
+
     if(cmd === 'kunai'){
         if(Gameon === 1){
             if(hasattacked.has(msg.author.id)){
