@@ -599,6 +599,7 @@ client.on('message', async(msg) => {
                     if(dueler2 === '774874294999580672'){
                         S_clone = 1;
                         tS_Chakra -= 10;
+                        msg.channel.send('Shiny used BUSHIN-NO-JUTSU!!');
                         if(tS_Chakra <= 0){
                             msg.channel.send('Shiny died, Dan won!!');
                             Gameon = 0;
@@ -614,6 +615,7 @@ client.on('message', async(msg) => {
                     if(dueler2 === '695513111414964225'){
                         D_clone = 1;
                         tD_Chakra -= 10;
+                        msg.channel.send('Dan used BUSHIN-NO-JUTSU!!');
                         if(tD_Chakra <= 0){
                             msg.channel.send('Dan died, Shiny won!!');
                             Gameon = 0;
