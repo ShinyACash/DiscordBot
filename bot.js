@@ -391,8 +391,8 @@ client.on('message', async(msg) => {
                 let missionlog = new Discord.MessageEmbed()
                 .setTitle('Mission Success!')
                 .setColor('#02FE97')
-                .addField('You passed your mission with a ', rand_mission_msg, true)
-                .addField(rand_mission_msg2, 'Good Job!! - Hokage', true)
+                .addField('You passed your mission with a: ', rand_mission_msg, true)
+                .addField(rand_mission_msg2, 'Good Job!! - Hokage', false)
                 msg.channel.send(missionlog);
 
                 mission.add(msg.author.id)
@@ -453,6 +453,54 @@ client.on('message', async(msg) => {
             .setColor('#02FE97')
             .addField('Your Chakra: ', O_Chakra, true)
             msg.channel.send(O_chakralog);
+        }
+    }
+
+    if(cmd === "C_chakra"){
+        if(msg.author.id === '695513111414964225'){
+            let S_Cchakralog = new Discord.MessageEmbed()
+            .setTitle('Chakra Count')
+            .setColor('#02FE97')
+            .addField('Your Current Chakra: ', tS_Chakra, true)
+            msg.channel.send(S_Cchakralog);
+        }
+        if(msg.author.id === '774874294999580672'){
+            let D_Cchakralog = new Discord.MessageEmbed()
+            .setTitle('Chakra Count')
+            .setColor('#02FE97')
+            .addField('Your Current Chakra: ', tD_Chakra, true)
+            msg.channel.send(D_Cchakralog);
+        }
+        if(msg.author.id === '714021486243086388'){
+            let O_Cchakralog = new Discord.MessageEmbed()
+            .setTitle('Chakra Count')
+            .setColor('#02FE97')
+            .addField('Your Current Chakra: ', tO_Chakra, true)
+            msg.channel.send(O_Cchakralog);
+        }
+    }
+
+    if(cmd === "health"){
+        if(msg.author.id === '695513111414964225'){
+            let S_hlog = new Discord.MessageEmbed()
+            .setTitle('Health Count')
+            .setColor('#02FE97')
+            .addField('Your Health: ', S_Health, true)
+            msg.channel.send(S_hlog);
+        }
+        if(msg.author.id === '774874294999580672'){
+            let D_hlog = new Discord.MessageEmbed()
+            .setTitle('Health Count')
+            .setColor('#02FE97')
+            .addField('Your Health: ', D_Health, true)
+            msg.channel.send(D_hlog);
+        }
+        if(msg.author.id === '714021486243086388'){
+            let O_hlog = new Discord.MessageEmbed()
+            .setTitle('Health Count')
+            .setColor('#02FE97')
+            .addField('Your Health: ', O_Health, true)
+            msg.channel.send(O_hlog);
         }
     }
 
