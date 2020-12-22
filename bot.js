@@ -350,6 +350,10 @@ client.on('message', async(msg) => {
             }
             else if(rand_mission_msg === 'success'){
                 if(msg.author.id === '695513111414964225'){
+                    if(rand_mission_msg2 === 'And u had to kill 2 so u gained 250 chakra lvl, but u lost 5 health.'){
+                        S_Chakra += 250;
+                        S_Health -= 5;
+                    }
                     if(rand_mission_msg2 === 'And u had to kill 2 so u gained 250 chakra lvl, but u lost 10 health.'){
                         S_Chakra += 250;
                         S_Health -= 10;
@@ -363,6 +367,10 @@ client.on('message', async(msg) => {
                     }
                 }
                 if(msg.author.id === '774874294999580672'){
+                    if(rand_mission_msg2 === 'And u had to kill 2 so u gained 250 chakra lvl, but u lost 5 health.'){
+                        D_Chakra += 250;
+                        D_Health -= 5;
+                    }
                     if(rand_mission_msg2 === 'And u had to kill 2 so u gained 250 chakra lvl, but u lost 10 health.'){
                         D_Chakra += 250;
                         D_Health -= 10;
@@ -376,6 +384,10 @@ client.on('message', async(msg) => {
                     }
                 }
                 if(msg.author.id === '714021486243086388'){
+                    if(rand_mission_msg2 === 'And u had to kill 2 so u gained 250 chakra lvl, but u lost 5 health.'){
+                        O_Chakra += 250;
+                        O_Health -= 5;
+                    }
                     if(rand_mission_msg2 === 'And u had to kill 2 so u gained 250 chakra lvl, but u lost 10 health.'){
                         O_Chakra += 250;
                         O_Health -= 10;
@@ -456,7 +468,7 @@ client.on('message', async(msg) => {
         }
     }
 
-    if(cmd === "C_chakra"){
+    if(cmd === "cchakra"){
         if(msg.author.id === '695513111414964225'){
             let S_Cchakralog = new Discord.MessageEmbed()
             .setTitle('Chakra Count')
