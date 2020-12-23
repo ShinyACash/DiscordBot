@@ -681,57 +681,6 @@ client.on('message', async(msg) => {
         }
     }
 
-    if(cmd === 'clone'){
-        if(Gameon === 1){
-            if(msg.author.id === '695513111414964225'){
-                if(hasattacked.has(msg.author.id)){
-                    msg.channel.send(`ayo ${msg.author}, u need at least 10 secs to use chakra again!`);
-                }
-                else{
-                    S_clone = 1;
-                    tS_Chakra -= 10;
-                    msg.channel.send('Shiny used BUSHIN-NO-JUTSU!!');
-                    hasattacked.add(msg.author.id);
-                    if(tS_Chakra <= 0){
-                        msg.channel.send('Shiny died cuz he ran out of chakra, Dan won!!');
-                        Gameon = 0;
-                        if(D_Chakra >= 10000){
-                            msg.channel.send('Dan has awakened his MANGEKYO SHARINGAN!!! for killing his friend... good job?');
-                        }
-                    }
-
-                    setTimeout(async() =>{
-                        hasattacked.delete(msg.author.id);
-
-                    }, 10000)
-                }
-            }
-
-            if(msg.author.id === '774874294999580672'){
-                if(hasattacked.has(msg.author.id)){
-                    msg.channel.send(`ayo ${msg.author}, u need at least 10 secs to use chakra again!`);
-                }
-                else{
-                    D_clone = 1;
-                    tD_Chakra -= 10;
-                    msg.channel.send('Dan used BUSHIN-NO-JUTSU!!');
-                    hasattacked.add(msg.author.id);
-                    if(tD_Chakra <= 0){
-                        msg.channel.send('Dan died, Shiny won!!');
-                        Gameon = 0;
-                        if(S_Chakra >= 10000){
-                            msg.channel.send('Shiny has awakened his MANGEKYO SHARINGAN!!! for killing his friend... good job?');
-                        }
-                    }
-                    setTimeout(async() =>{
-                        hasattacked.delete(msg.author.id);
-                    }, 10000)
-                }
-            }
-            
-        }
-    }
-
     if(cmd === "cc"){
         if(msg.author.id === '695513111414964225'){
             let S_Cchakralog = new Discord.MessageEmbed()
@@ -936,7 +885,7 @@ client.on('message', async(msg) => {
         var reason = args.splice(1).join(' ');
         if(!reason) return msg.reply('You need to give a reason!');
     
-        var channel = msg.guild.channels.cache.find(c => c.name === 'potato');
+        var channel = msg.guild.channels.cache.get('778889714001510400');
     
         var log = new Discord.MessageEmbed()
         .setColor('#02FE97')
@@ -993,6 +942,30 @@ client.on('message', mg => {
 })
 
 client.on('message', msg => {
+    if(msg.content.includes('https://discord.gg/')){
+        msg.delete;
+
+        var user = msg.author;
+
+        var role = msg.guild.roles.cache.find(r => r.name === 'Muted');
+
+        var channel = msg.guild.channels.cache.get('778889714001510400');
+
+        msg.member.roles.add(role);
+
+        var mutelog = new Discord.MessageEmbed()
+        .setTitle('Rules Violator')
+        .setColor('#02FE97')
+        .addField('User: ', user)
+        .addField('Reason: ', 'boi tried to send server invites')
+        .setFooter('pepega boi.')
+        channel.send(mutelog);
+
+        setTimeout(async() =>{
+            msg.member.roles.remove(role);
+        }, 600000)
+
+    }
     if (msg.content.includes('bot the bot u are nice' || 'bot the bot u are cool')) {
         msg.reply('Thanks, you are cool too');
     }
