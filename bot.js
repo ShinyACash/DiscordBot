@@ -943,7 +943,7 @@ client.on('message', mg => {
 
 client.on('message', msg => {
     if(msg.content.includes('https://discord.gg/')){
-        msg.delete;
+        msg.delete({ timeout : 0 })
 
         var user = msg.author;
 
@@ -963,6 +963,7 @@ client.on('message', msg => {
 
         setTimeout(async() =>{
             msg.member.roles.remove(role);
+            channel.send('he is now unmuted');
         }, 600000)
 
     }
