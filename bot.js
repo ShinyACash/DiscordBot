@@ -223,7 +223,7 @@ client.on('message', async(msg) => {
         client.channels.cache.get('775608981451702302').send(`**${user}** has been muted by **${msg.author}**!`);
     }
 
-    if(cmd === "PS"){
+    if(cmd === "ps"){
         if(usedprivserver.has(msg.author.id)){
             msg.channel('yo! you already used the command!');
         }
@@ -246,7 +246,7 @@ client.on('message', async(msg) => {
         }
     }
 
-    if(cmd === "PrivServer"){
+    if(cmd === "privserver"){
         if(usedprivserver.has(msg.author.id)){
             msg.channel('yo! you already used the command!');
         }
