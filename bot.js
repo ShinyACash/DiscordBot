@@ -83,50 +83,56 @@ client.on('message', async(message) => {
             usersMap.set(message.author.id, userData)
         }
         else {
-            ++msgCount;
-            if(parseInt(msgCount) === LIMIT) {
-                let muterole = message.guild.roles.cache.find(role => role.name === 'Muted');
-                if(!muterole) {
-                    try{
-                        muterole = await message.guild.roles.create({
-                            name : "Muted",
-                            permissions: []
-                        })
-                        message.guild.channels.cache.forEach(async (channel, id) => {
-                            await channel.createOverwrite(muterole, {
-                                SEND_MESSAGES: false,
-                                ADD_REACTIONS : false
-                            })
-                        })
-                    }catch (e) {
-                        console.log(e)
-                    }
-                }
-                message.member.roles.add(muterole);
-                isMuted.add(message.author.id);
-                //message.channel.send('You have been muted!');
-                var channel = message.guild.channels.cache.get("778889714001510400");
 
-                var logAuto = new Discord.MessageEmbed()
-                .setColor('#02FE97')
-                .setTitle('User Muted (Spam Detected)')
-                .setThumbnail(message.author.displayAvatarURL())
-                .addField('User:', message.author.username, true)
-                .addField('Time muted for: ', '5 min', true)
-                channel.send(logAuto);
-                setTimeout(() => {
-                    message.member.roles.remove(muterole);
-                    //message.channel.send('You have been unmuted!')
-                    var logAutounmute = new Discord.MessageEmbed()
+            if(message.member.hasPermission('ADMINISTRATOR')){
+                
+            }
+            else{
+                ++msgCount;
+                if(parseInt(msgCount) === LIMIT) {
+                    let muterole = message.guild.roles.cache.find(role => role.name === 'Muted');
+                    if(!muterole) {
+                        try{
+                            muterole = await message.guild.roles.create({
+                                name : "Muted",
+                                permissions: []
+                            })
+                            message.guild.channels.cache.forEach(async (channel, id) => {
+                                await channel.createOverwrite(muterole, {
+                                    SEND_MESSAGES: false,
+                                    ADD_REACTIONS : false
+                                })
+                            })
+                        }catch (e) {
+                            console.log(e)
+                        }
+                    }
+                    message.member.roles.add(muterole);
+                    isMuted.add(message.author.id);
+                    //message.channel.send('You have been muted!');
+                    var channel = message.guild.channels.cache.get("778889714001510400");
+
+                    var logAuto = new Discord.MessageEmbed()
                     .setColor('#02FE97')
-                    .setTitle('User Unmuted')
+                    .setTitle('User Muted (Spam Detected)')
                     .setThumbnail(message.author.displayAvatarURL())
                     .addField('User:', message.author.username, true)
-                    channel.send(logAutounmute);
-                }, TIME);
-            } else {
-                userData.msgCount = msgCount;
-                usersMap.set(message.author.id, userData);
+                    .addField('Time muted for: ', '5 min', true)
+                    channel.send(logAuto);
+                    setTimeout(() => {
+                        message.member.roles.remove(muterole);
+                        //message.channel.send('You have been unmuted!')
+                        var logAutounmute = new Discord.MessageEmbed()
+                        .setColor('#02FE97')
+                        .setTitle('User Unmuted')
+                        .setThumbnail(message.author.displayAvatarURL())
+                        .addField('User:', message.author.username, true)
+                        channel.send(logAutounmute);
+                    }, TIME);
+                }else {
+                    userData.msgCount = msgCount;
+                    usersMap.set(message.author.id, userData);
+                }
             }
         }
     }
