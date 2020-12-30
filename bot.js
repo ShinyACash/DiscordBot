@@ -223,7 +223,30 @@ client.on('message', async(msg) => {
         client.channels.cache.get('775608981451702302').send(`**${user}** has been muted by **${msg.author}**!`);
     }
 
-    if(cmd === "PS" || cmd === "PrivServer"){
+    if(cmd === "PS"){
+        if(usedprivserver.has(msg.author.id)){
+            msg.channel('yo! you already used the command!');
+        }
+        else{
+            msg.channel.send("https://www.roblox.com/games/286090429/Arsenal?privateServerLinkCode=vUfmN_6NMDvhBBYoO5RxtFi3pKcYydxu");
+            msg.channel.send("This Link will be deleted in 30 secs");
+
+            if(msg.content === "https://www.roblox.com/games/286090429/Arsenal?privateServerLinkCode=vUfmN_6NMDvhBBYoO5RxtFi3pKcYydxu"){
+                msg.delete({ timeout: 30000 });
+            }
+            if(msg.content === "This Link will be deleted in 30 secs"){
+                msg.delete({ timeout: 30000 });
+            }
+
+            usedprivserver.add(msg.author.id);
+
+            setTimeout(async() =>{
+                usedprivserver.delete(msg.author.id);
+            }, 30000)
+        }
+    }
+
+    if(cmd === "PrivServer"){
         if(usedprivserver.has(msg.author.id)){
             msg.channel('yo! you already used the command!');
         }
