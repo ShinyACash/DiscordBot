@@ -228,7 +228,7 @@ client.on('message', async(msg) => {
         .setColor('#ff0000')
         .setTitle('Mute Case')
         .addField('User:', user, true)
-        .addField('By:', user, true)
+        .addField('By:', msg.author, true)
         .setFooter('↑ that person is a nigga, beware...')
         logchannel.send(adminlog);
 
@@ -333,7 +333,7 @@ client.on('message', async(msg) => {
         .setColor('#00ff00')
         .setTitle('Unmute Case')
         .addField('User:', user, true)
-        .addField('By:', user, true)
+        .addField('By:', msg.author, true)
         .setFooter('↑ that person is a nigga, beware...')
         logchannel.send(adminlog);
 
