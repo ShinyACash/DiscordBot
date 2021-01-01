@@ -229,7 +229,7 @@ client.on('message', async(msg) => {
         .setTitle('Mute Case')
         .addField('User:', user, true)
         .addField('By:', user, true)
-        .setFooter('↑ that person is a good mod beware...')
+        .setFooter('↑ that person is a nigga, beware...')
         logchannel.send(adminlog);
 
         var embed = new Discord.MessageEmbed()
@@ -334,7 +334,7 @@ client.on('message', async(msg) => {
         .setTitle('Unmute Case')
         .addField('User:', user, true)
         .addField('By:', user, true)
-        .setFooter('↑ that person is a good mod beware...')
+        .setFooter('↑ that person is a nigga, beware...')
         logchannel.send(adminlog);
 
         isMuted.remove(`${member}`);
