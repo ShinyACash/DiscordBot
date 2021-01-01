@@ -88,6 +88,17 @@ client.on('message', async(message) => {
                 
             }
             else{
+
+                var user = msg.mentions.users.first();
+                if(!user) return msg.reply('You didn\'t mention anyone!');
+
+                var member;
+
+                try {
+                    member = await msg.guild.members.fetch(user);
+                } catch(err) {
+                    member = null;
+                }
                 ++msgCount;
                 if(parseInt(msgCount) === LIMIT) {
                     let muterole = message.guild.roles.cache.find(role => role.name === 'Muted');
@@ -119,6 +130,8 @@ client.on('message', async(message) => {
                     .addField('User:', message.author.username, true)
                     .addField('Time muted for: ', '5 min', true)
                     channel.send(logAuto);
+
+                    isMuted.add(`${member}`);
                     setTimeout(() => {
                         message.member.roles.remove(muterole);
                         //message.channel.send('You have been unmuted!')
@@ -128,6 +141,8 @@ client.on('message', async(message) => {
                         .setThumbnail(message.author.displayAvatarURL())
                         .addField('User:', message.author.username, true)
                         channel.send(logAutounmute);
+
+                        isMuted.delete(`${member}`);
                     }, TIME);
                 }else {
                     userData.msgCount = msgCount;
@@ -199,6 +214,7 @@ client.on('message', async(msg) => {
         if(!reason) return msg.reply('You need to give a reason!');
 
         var channel = msg.guild.channels.cache.get("778889714001510400");
+        var logchannel = msg.guild.channels.cache.get("775608981451702302");
 
         var log = new Discord.MessageEmbed()
         .setColor('#02FE97')
@@ -207,6 +223,14 @@ client.on('message', async(msg) => {
         .addField('By:', msg.author, true)
         .addField('Reason:', reason)
         channel.send(log);
+
+        var adminlog = new Discord.MessageEmbed()
+        .setColor('#ff0000')
+        .setTitle('Mute Case')
+        .addField('User:', user, true)
+        .addField('By:', user, true)
+        .setFooter('↑ that person is a good mod beware...')
+        logchannel.send(adminlog);
 
         var embed = new Discord.MessageEmbed()
         .setTitle('You were muted!')
@@ -226,7 +250,6 @@ client.on('message', async(msg) => {
          member.roles.remove(role);
         }, 600000);
 
-        client.channels.cache.get('775608981451702302').send(`**${user}** has been muted by **${msg.author}**!`);
     }
 
     if(cmd === "ps"){
@@ -297,6 +320,7 @@ client.on('message', async(msg) => {
         member.roles.remove(role);
 
         var channel = msg.guild.channels.cache.get("778889714001510400");
+        var logchannel = msg.guild.channels.cache.get("775608981451702302");
 
         var log = new Discord.MessageEmbed()
         .setColor('#02FE97')
@@ -304,6 +328,14 @@ client.on('message', async(msg) => {
         .addField('User:', user, true)
         .addField('By (Mod):', msg.author, true)
         channel.send(log);
+
+        var adminlog = new Discord.MessageEmbed()
+        .setColor('#00ff00')
+        .setTitle('Unmute Case')
+        .addField('User:', user, true)
+        .addField('By:', user, true)
+        .setFooter('↑ that person is a good mod beware...')
+        logchannel.send(adminlog);
 
         isMuted.remove(`${member}`);
 
