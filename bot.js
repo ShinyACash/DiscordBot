@@ -492,8 +492,8 @@ client.on('message', async(msg) => {
 
 client.on('message', mg => {
 
-    if(mg.content === 'NOITS-MYANUS-XYZ'){
-        mg.author.send('You got a 70% OFF for a 3-month VIP MOD subscription !!!');
+    if(mg.content === 'ARND-UMN-GUI'){
+        mg.author.send('Test Passed!! send a screen shot to Shiny.');
     }
 
     if(mg.content === 'fuck india'){
