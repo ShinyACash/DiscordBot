@@ -496,6 +496,32 @@ client.on('message', mg => {
         mg.author.send('Test Passed!! send a screen shot to Shiny.');
     }
 
+    if(mg.content === 'SUG-MAH-BALL'){
+        mg.author.send('You freed bot the bot and then he went to the nearest washroom... 1 of 6 found!');
+    }
+
+    if(mg.content === 'YOU-GOT-DETEN'){
+        mg.author.send('What are u doing here? Ya got detention? 2 of 6 found!');
+    }
+
+    if(mg.content === 'PLS-BEG-MEME'){
+        mg.author.send('How?.... 3 of 6 found!');
+    }
+
+    if(mg.content === 'THE-BOT-TEAM'){
+        mg.author.send('Pretty obvious huh? 4 of 6 found!');
+    }
+
+    if(mg.content === 'OHH-MAH-NEGUS'){
+        mg.author.send('You freed bot the bot and then he went to the nearest washroom... 5 of 6 found!');
+    }
+
+    if(mg.content === 'VALO-GARB-BOI'){
+        mg.author.send('You freed bot the bot and then he went to the nearest washroom... 6 of 6 found!');
+    }
+    
+
+
     if(mg.content === 'fuck india'){
         mg.author.send('Nice try, BITCH');
     }
