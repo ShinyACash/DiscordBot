@@ -513,11 +513,11 @@ client.on('message', mg => {
     }
 
     if(mg.content === 'OHH-MAH-NEGUS'){
-        mg.author.send('You freed bot the bot and then he went to the nearest washroom... 5 of 6 found!');
+        mg.author.send('dayum 5 of 6 found!');
     }
 
     if(mg.content === 'VALO-GARB-BOI'){
-        mg.author.send('You freed bot the bot and then he went to the nearest washroom... 6 of 6 found!');
+        mg.author.send('gucci fast find huh? 6 of 6 found!');
     }
     
 
