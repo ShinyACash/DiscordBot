@@ -191,6 +191,35 @@ client.on('message', async(msg) => {
     var args = msg.content.split(' ');
     var cmd = args.shift().slice(prefix.length).toLowerCase();
 
+    if(cmd === "study"){
+        
+        var time = args.splice(2).join(' ');
+        if(!time) return msg.reply('You need to provide a time for the timer!');
+
+        if(time === "40m"){
+            msg.author.send("Your study timer for 40m has started");
+            setTimeout(async() =>{
+                msg("Timer ended! you may start another one for another subject or take a break. Good job ^_^");
+            }, 2400000)
+        }
+
+        if(time === "1h"){
+            msg.author.send("Your study timer for 1h has started");
+            setTimeout(async() =>{
+                msg("Timer ended! you may start another one for another subject or take a break. Good job ^_^");
+            }, 3600000)
+        }
+
+        if(time === "2h"){
+            msg.author.send("Your study timer for 3h has started");
+            setTimeout(async() =>{
+                msg("Timer ended! you may start another one for another subject or take a break. Good job ^_^");
+            }, 7200000)
+        }
+
+        
+    }
+
     if(cmd === "mute"){
         if(!msg.member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You can\'t even use that, maybe try when u actually HAVE mod abilities...');
 
