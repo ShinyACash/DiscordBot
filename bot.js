@@ -193,7 +193,7 @@ client.on('message', async(msg) => {
 
     if(cmd === "study"){
         
-        var time = args.splice(2).join(' ');
+        var time = args.splice(1).join(' ');
         if(!time) return msg.reply('You need to provide a time for the timer!');
 
         if(time === "40m"){
