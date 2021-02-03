@@ -49,6 +49,8 @@ client.once('ready', () => {
     //client.channels.cache.get('775564519233028099').send('Hallo people I am online!');
 });
 
+client.user.setActivity('Dank Memer-senpai and Pokétwo-senpai, aah~', { type: 'WATCHING' });
+
 
 //const { writeFileSync } = require("fs");
 //const data = require("C:/Users/Akash/Documents/GitHub/DiscordBot/app/bot.js");
