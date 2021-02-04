@@ -169,7 +169,7 @@ client.on('message', async(message) => {
 
 client.on('messageDelete', async msg =>{
     let deletelog = new Discord.MessageEmbed()
-    .setTitle('Yo a msg was deleted, nigga!')
+    .setTitle('Yo a msg was deleted!')
     .setColor('#ff0000')
     .setThumbnail(msg.author.displayAvatarURL())
     .addField('Deleted from: ', msg.channel)
@@ -234,7 +234,7 @@ client.on('message', async(msg) => {
         .setTitle('Mute Case')
         .addField('User:', user, true)
         .addField('By:', msg.author, true)
-        .setFooter('↑ that person is a nigga, beware...')
+        .setFooter('↑ that person is a scum, beware...')
         logchannel.send(adminlog);
 
         var embed = new Discord.MessageEmbed()
@@ -547,19 +547,8 @@ client.on('message', msg => {
     else if (msg.content.includes('FUCK')) {
         msg.reply('Do you wanna get banned? jk lol. Use abbreviations');
     }
-    else if (msg.content.includes('ty')) {
-        if (msg.content.includes('bot')) {
-            msg.reply('welcome BITCH');
-            if (msg.content.includes('asshole' || 'a hole')) {
-                msg.reply('F off BITCH');
-            }
-        }
-    }
-    else if (msg.content.includes('bot')) {
-        if (msg.content.includes('a hole' || 'asshole')) {
-            msg.reply('F off BITCH');
-        }
-    }
+    
+    
 
 })
 
@@ -590,7 +579,7 @@ client.on('message', msg => {
         msg.channel.send('1v1 has been chosen between ' + rand_one + ' and ' + rand_two);
     }    
     else if (msg.content === '!randomMember') {
-        let mem = ['ShinyACash', 'xNightmare', 'Dogey Dood', 'blindbutnotblind'];
+        let mem = ['ShinyACash', 'xNightmare', 'blindbutnotblind'];
         let rand_mem = mem[Math.floor(Math.random() * mem.length)];
         msg.channel.send('The random person is ' + rand_mem);
     }
