@@ -45,7 +45,8 @@ const emoji = client.emojis.cache.get("782957768545665074")
 
 client.once('ready', () => {
     console.log('Bot online!');
-    client.user.setActivity('Dank Memer-senpai and Pokétwo-senpai, aah~', { type: 'WATCHING' });
+    client.user.setActivity('Dank Memer-senpai, aah~', { type: 'WATCHING' });
+    
     //ShinyNcounter += 1;
     //client.channels.cache.get('775564519233028099').send('Hallo people I am online!');
 });
