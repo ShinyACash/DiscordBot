@@ -292,12 +292,8 @@ client.on('message', async(msg) => {
         }
 
         if(msg.content.includes(user)){
-            if(member.hasPermission('MANAGE_WEBHOOKS')){
-                console.log("got dat mention!");
-                let replies = ["Shiny-sama is currently busy, if he is REALLY needed then pls dm him. じゃあな! 😄", "He's busy, dm him if it's important.", "Look, sometimes a person can be busy, right now Shiny-sama is busy. DND ⛔", "Shiny-samaわ忙しいです. Use google translate if u want.", "He busy, DESU!", "Probs watching anime or studying or something else ig.", "Not available...."];
-                let rand_replies = replies[Math.floor(Math.random() * replies.length)];
-                msg.channel.send(rand_replies);
-            }
+            if(member.hasPermission('MANAGE_WEBHOOKS')) return console.log("got dat mention!"); let replies = ["Shiny-sama is currently busy, if he is REALLY needed then pls dm him. じゃあな! 😄", "He's busy, dm him if it's important.", "Look, sometimes a person can be busy, right now Shiny-sama is busy. DND ⛔", "Shiny-samaわ忙しいです. Use google translate if u want.", "He busy, DESU!", "Probs watching anime or studying or something else ig.", "Not available...."]; let rand_replies = replies[Math.floor(Math.random() * replies.length)]; msg.channel.send(rand_replies);
+
         }
     }
 
