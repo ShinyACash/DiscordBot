@@ -280,7 +280,7 @@ client.on('message', async(msg) => {
     }
 
     if(msg.content.includes('')){
-        console.log("les see wut we got here");
+        
         var user = msg.mentions.users.first();
         var member;
         
@@ -291,9 +291,9 @@ client.on('message', async(msg) => {
             member = null;
         }
 
-        console.log(member.id);
+        
         if(dnd == true){
-            if(member.roles.find(r => r.name === "Owner")){
+            if(member.hasPermission('MANAGE_WEBHOOKS')){
                 console.log("got dat mention!");
                 let replies = ["Shiny-sama is currently busy, if he is REALLY needed then pls dm him. じゃあな! 😄", "He's busy, dm him if it's important.", "Look, sometimes a person can be busy, right now Shiny-sama is busy. DND ⛔", "Shiny-samaわ忙しいです. Use google translate if u want.", "He busy, DESU!", "Probs watching anime or studying or something else ig.", "Not available...."];
                 let rand_replies = replies[Math.floor(Math.random() * replies.length)];
