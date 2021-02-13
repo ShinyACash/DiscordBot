@@ -302,7 +302,7 @@ client.on('message', async(msg) => {
         }
     }*/
 
-    if(msg.content.includes('@ShinyStickmin#6122')){
+    if(msg.content.includes('@ShinyStickmin')){
         msg.reply("check code here");
         console.log('this is where it went wrong');
         if(dnd == true){
