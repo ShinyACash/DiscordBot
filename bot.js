@@ -18,7 +18,7 @@ const gottenMsg11 = new Set();
 const gottenMsg12 = new Set();
 const gottenMsg13 = new Set();
 const isMuted = new Set();
-const dnd = new Boolean();
+let dnd = false;
 
 
 
@@ -261,14 +261,14 @@ client.on('message', async(msg) => {
 
     if(cmd === "dnd"){
         if(msg.author.id === "695513111414964225"){
-            dnd == true;
+            dnd = true;
             msg.channel.send("gucci desu.");
         }
     }
 
     if(cmd === "dndend"){
         if(msg.author.id === "695513111414964225"){
-            dnd == false;
+            dnd = false;
             msg.channel.send("dnd mode disabled.");
         }
     }
