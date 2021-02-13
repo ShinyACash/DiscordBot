@@ -273,7 +273,7 @@ client.on('message', async(msg) => {
         }
     }
 
-    if(dnd === true){
+    if(dnd == true){
         var user = msg.mentions.users.first();
         var member;
 
