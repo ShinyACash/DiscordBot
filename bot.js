@@ -261,7 +261,7 @@ client.on('message', async(msg) => {
 
     if(cmd === "dnd"){
         if(msg.author.id === "695513111414964225"){
-            dnd(true);
+            dnd == true;
             msg.channel.send("gucci desu.");
             var user = msg.mentions.users.first();
             if(user === "ShinyStickmin"){
@@ -277,8 +277,20 @@ client.on('message', async(msg) => {
 
     if(cmd === "dndend"){
         if(msg.author.id === "695513111414964225"){
-            dnd(false);
+            dnd == false;
             msg.channel.send("dnd mode disabled.");
+        }
+    }
+
+    if(dnd === true){
+        var user = msg.mentions.users.first();
+        if(user === "ShinyStickmin"){
+            if(msg.content.includes(user)){
+                let replies = ["ShinyStickmin-sama is currently busy, if he is REALLY needed then pls dm him. じゃあな! 😄", "He's busy, dm him if it's important.", "Look, sometimes a person can be busy, right now Shiny-sama is busy. DND ⛔", "Shiny-samaわ忙しいです. Use google translate if u want."];
+                let rand_replies = replies[Math.floor(Math.random() * replies.length)];
+                msg.channel.send(rand_replies);
+            }
+            
         }
     }
 
