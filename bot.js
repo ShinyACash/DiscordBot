@@ -18,6 +18,7 @@ const gottenMsg11 = new Set();
 const gottenMsg12 = new Set();
 const gottenMsg13 = new Set();
 const isMuted = new Set();
+const dnd = new Boolean();
 
 
 
@@ -211,7 +212,7 @@ client.on('message', async(msg) => {
             member = null;
         }
 
-        if(!member) return msg.reply('They aren\'t even in the server!, stop messing with me boi!');
+        if(!member) return msg.reply('Stop messing with me boi!');
         if(member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You cannot mute that person!, so yea...stop trying');
 
         
@@ -256,6 +257,23 @@ client.on('message', async(msg) => {
          member.roles.remove(role);
         }, 600000);
 
+    }
+
+    if(cmd === "dnd"){
+        dnd = true;
+        var user = msg.mentions.users.first();
+        if(user === "ShinyStickmin"){
+            if(msg.content.includes(user)){
+                let replies = ["ShinyStickmin-sama is currently busy, if he is REALLY needed then pls dm him. じゃあな! 😄", "He's busy, dm him if it's important.", "Look, sometimes a person can be busy, right now Shiny-sama is busy. DND ⛔", "Shiny-samaわ忙しいです. Use google translate if u want."];
+                let rand_replies = replies[Math.floor(Math.random() * replies.length)];
+                msg.channel.send(rand_replies);
+            }
+            
+        }
+    }
+
+    if(cmd === "dndend"){
+        dnd = false;
     }
 
     if(cmd === "ps"){
