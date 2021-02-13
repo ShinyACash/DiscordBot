@@ -261,6 +261,7 @@ client.on('message', async(msg) => {
 
     if(cmd === "dnd"){
         dnd = true;
+        msg.reply("gucci desu.");
         var user = msg.mentions.users.first();
         if(user === "ShinyStickmin"){
             if(msg.content.includes(user)){
@@ -274,6 +275,7 @@ client.on('message', async(msg) => {
 
     if(cmd === "dndend"){
         dnd = false;
+        msg.reply("dnd mode disabled.");
     }
 
     if(cmd === "ps"){
