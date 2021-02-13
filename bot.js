@@ -19,6 +19,7 @@ const gottenMsg12 = new Set();
 const gottenMsg13 = new Set();
 const isMuted = new Set();
 let dnd = false;
+let dndtrigger = false;
 
 
 
@@ -291,13 +292,19 @@ client.on('message', async(msg) => {
             member = null;
         }
 
-        if(member.hasPermission('MANAGE_WEBHOOKS')){
-            if(dnd == true){
-                console.log("got dat mention!");
-                let replies = ["Shiny-sama is currently busy, if he is REALLY needed then pls dm him. じゃあな! 😄", "He's busy, dm him if it's important.", "Look, sometimes a person can be busy, right now Shiny-sama is busy. DND ⛔", "Shiny-samaわ忙しいです. Use google translate if u want.", "He busy, DESU!", "Probs watching anime or studying or something else ig.", "Not available...."];
-                let rand_replies = replies[Math.floor(Math.random() * replies.length)];
-                msg.channel.send(rand_replies);
-            }
+        console.log("check code here");
+
+        if(member.hasPermission('MANAGE_WEBHOOKS')) return dndtrigger = true;
+        
+    }
+
+    if(dndtrigger == true){
+        if(dnd == true){
+            console.log("got dat mention!");
+            let replies = ["Shiny-sama is currently busy, if he is REALLY needed then pls dm him. じゃあな! 😄", "He's busy, dm him if it's important.", "Look, sometimes a person can be busy, right now Shiny-sama is busy. DND ⛔", "Shiny-samaわ忙しいです. Use google translate if u want.", "He busy, DESU!", "Probs watching anime or studying or something else ig.", "Not available...."];
+            let rand_replies = replies[Math.floor(Math.random() * replies.length)];
+            msg.channel.send(rand_replies);
+            dndtrigger = false;
         }
     }
 
