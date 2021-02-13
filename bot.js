@@ -261,7 +261,7 @@ client.on('message', async(msg) => {
 
     if(cmd === "dnd"){
         if(msg.author.id === "695513111414964225"){
-            dnd = true;
+            dnd(true);
             msg.channel.send("gucci desu.");
             var user = msg.mentions.users.first();
             if(user === "ShinyStickmin"){
@@ -277,7 +277,7 @@ client.on('message', async(msg) => {
 
     if(cmd === "dndend"){
         if(msg.author.id === "695513111414964225"){
-            dnd = false;
+            dnd(false);
             msg.channel.send("dnd mode disabled.");
         }
     }
