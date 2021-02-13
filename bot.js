@@ -91,20 +91,9 @@ client.on('message', async(message) => {
         else {
 
             if(message.member.hasPermission('ADMINISTRATOR')){
-                
+                return;
             }
             else{
-
-                var user = msg.mentions.users.first();
-                if(!user) return msg.reply('You didn\'t mention anyone!');
-
-                var member;
-
-                try {
-                    member = await msg.guild.members.fetch(user);
-                } catch(err) {
-                    member = null;
-                }
                 ++msgCount;
                 if(parseInt(msgCount) === LIMIT) {
                     let muterole = message.guild.roles.cache.find(role => role.name === 'Muted');
