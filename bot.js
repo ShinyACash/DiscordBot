@@ -291,7 +291,7 @@ client.on('message', async(msg) => {
             member = null;
         }
 
-        console.log(user.id);
+        console.log(member.id);
         if(dnd == true){
             if(member.roles.find(r => r.name === "Owner")){
                 console.log("got dat mention!");
