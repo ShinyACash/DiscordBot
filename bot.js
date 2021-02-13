@@ -275,7 +275,14 @@ client.on('message', async(msg) => {
 
     if(dnd === true){
         var user = msg.mentions.users.first();
-        if(user === "@ShinyStickmin"){
+        var member;
+
+        try {
+            member = await msg.guild.members.fetch(user);
+        } catch(err) {
+            member = null;
+        }
+        if(member.user.username === "ShinyStickmin"){
             console.log("got dat mention!");
             if(msg.content.includes(user)){
                 let replies = ["ShinyStickmin-sama is currently busy, if he is REALLY needed then pls dm him. じゃあな! 😄", "He's busy, dm him if it's important.", "Look, sometimes a person can be busy, right now Shiny-sama is busy. DND ⛔", "Shiny-samaわ忙しいです. Use google translate if u want."];
