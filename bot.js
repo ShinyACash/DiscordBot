@@ -279,7 +279,7 @@ client.on('message', async(msg) => {
         }
     }
 
-    if(dnd == true){
+    /*if(dnd == true){
         
         var user = msg.mentions.users.first();
         var member;
@@ -294,6 +294,29 @@ client.on('message', async(msg) => {
         if(msg.content.includes('')){
             console.log("PLS");
             if(member.hasPermission('MANAGE_WEBHOOKS')){
+                console.log("got dat mention!");
+                let replies = ["Shiny-sama is currently busy, if he is REALLY needed then pls dm him. じゃあな! 😄", "He's busy, dm him if it's important.", "Look, sometimes a person can be busy, right now Shiny-sama is busy. DND ⛔", "Shiny-samaわ忙しいです. Use google translate if u want.", "He busy, DESU!", "Probs watching anime or studying or something else ig.", "Not available...."];
+                let rand_replies = replies[Math.floor(Math.random() * replies.length)];
+                msg.channel.send(rand_replies);
+            }
+        }
+    }*/
+
+    if(msg.content.includes('')){
+        var user = msg.mentions.users.first();
+        if(!user) return;
+        var member;
+        if(!member) return;
+        
+
+        try {
+            member = await msg.guild.members.fetch(user);
+        } catch(err) {
+            member = null;
+        }
+
+        if(member.hasPermission('MANAGE_WEBHOOKS')){
+            if(dnd == true){
                 console.log("got dat mention!");
                 let replies = ["Shiny-sama is currently busy, if he is REALLY needed then pls dm him. じゃあな! 😄", "He's busy, dm him if it's important.", "Look, sometimes a person can be busy, right now Shiny-sama is busy. DND ⛔", "Shiny-samaわ忙しいです. Use google translate if u want.", "He busy, DESU!", "Probs watching anime or studying or something else ig.", "Not available...."];
                 let rand_replies = replies[Math.floor(Math.random() * replies.length)];
