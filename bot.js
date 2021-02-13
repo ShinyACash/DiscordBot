@@ -312,7 +312,6 @@ client.on('message', async(msg) => {
             console.log("HOLY IT WORKED");
         }
         
-        else return;
     }
 
     
