@@ -282,7 +282,7 @@ client.on('message', async(msg) => {
         } catch(err) {
             member = null;
         }
-        if(member.user.username === "ShinyStickmin"){
+        if(member.user.id("695513111414964225")){
             console.log("got dat mention!");
             if(msg.content.includes(user)){
                 let replies = ["ShinyStickmin-sama is currently busy, if he is REALLY needed then pls dm him. じゃあな! 😄", "He's busy, dm him if it's important.", "Look, sometimes a person can be busy, right now Shiny-sama is busy. DND ⛔", "Shiny-samaわ忙しいです. Use google translate if u want."];
