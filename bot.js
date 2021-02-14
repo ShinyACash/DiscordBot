@@ -160,7 +160,7 @@ client.on('message', async(message) => {
             timer : fn
         });
     }
-    const userId = message.guild.members.find(m => m.id === "695513111414964225");
+    //const userId = message.guild.members.find(m => m.id === "695513111414964225");
 })
 
 client.on('messageDelete', async msg =>{
@@ -189,6 +189,8 @@ client.on('message', async(msg) => {
 
     var args = msg.content.split(' ');
     var cmd = args.shift().slice(prefix.length).toLowerCase();
+
+    const userID = msg.guild.members.find(m => m.id === "695513111414964225");
 
     
 
@@ -312,7 +314,10 @@ client.on('message', async(msg) => {
     }*/
 
 
-    if(msg.content.includes('<@!' + userId + '>')){
+    if(msg.content.includes('<@!695513111414964225>')){
+        msg.channel.send("mention is working, ");
+    }
+    if(msg.content.includes('<@!'+userID+'>')){
         msg.channel.send("mention is working, ");
     }
 
