@@ -20,7 +20,7 @@ const gottenMsg13 = new Set();
 const isMuted = new Set();
 let dnd = false;
 //let myID = '';
-var MYID = JSON.parse({"ID" : "695513111414964225"});
+var MYID = JSON.parse('{"ID" : "695513111414964225"}');
 
 //let dndtrigger = false;
 //const userId = message.guild.members.find(m => m.id === "695513111414964225");
