@@ -20,7 +20,7 @@ const gottenMsg13 = new Set();
 const isMuted = new Set();
 let dnd = false;
 //let dndtrigger = false;
-const userId = message.guild.members.find(m => m.id === "695513111414964225");
+//const userId = message.guild.members.find(m => m.id === "695513111414964225");
 
 
 
@@ -160,6 +160,7 @@ client.on('message', async(message) => {
             timer : fn
         });
     }
+    const userId = message.guild.members.find(m => m.id === "695513111414964225");
 })
 
 client.on('messageDelete', async msg =>{
