@@ -20,7 +20,7 @@ const gottenMsg13 = new Set();
 const isMuted = new Set();
 let dnd = false;
 //let dndtrigger = false;
-let id = '';
+const userId = message.guild.members.find(m => m.id === "695513111414964225");
 
 
 
@@ -309,6 +309,11 @@ client.on('message', async(msg) => {
         }
         
     }*/
+
+
+    if(msg.content.includes('<@!' + userId + '>')){
+        msg.channel.send("mention is working, ");
+    }
 
     
 
