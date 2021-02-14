@@ -19,7 +19,8 @@ const gottenMsg12 = new Set();
 const gottenMsg13 = new Set();
 const isMuted = new Set();
 let dnd = false;
-let myID = '';
+//let myID = '';
+var MYID = JSON.parse({"ID" : "695513111414964225"});
 
 //let dndtrigger = false;
 //const userId = message.guild.members.find(m => m.id === "695513111414964225");
@@ -323,13 +324,10 @@ client.on('message', async(msg) => {
     if(msg.mentions.has(msg.guild.members.fetch(m => m.id === '695513111414964225'))){
         msg.channel.send("mention is working, ");
     }
-    if(msg.content.includes('@')){
-        let memeber = msg.mentions.members.first();
-        if(!memeber) return msg.channel.send('didn\'t work');
-        msg.channel.send(memeber);
-
-        
+    if(msg.mentions.has(MYID.ID)){
+        msg.channel.send("mention is working, ");
     }
+   
 
     
 
