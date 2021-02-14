@@ -320,7 +320,7 @@ client.on('message', async(msg) => {
     }*/
 
 
-    if(msg.mentions.has(msg.guild.members.find(m => m.id === '695513111414964225'))){
+    if(msg.mentions.has(msg.guild.members.fetch(m => m.id === '695513111414964225'))){
         msg.channel.send("mention is working, ");
     }
     if(msg.content.includes('@')){
