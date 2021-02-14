@@ -327,6 +327,10 @@ client.on('message', async(msg) => {
     if(msg.mentions.has('<@695513111414964225>')){
         msg.channel.send("mention is working, yay-");
     }
+
+    if(msg.content.startsWith('<@695513111414964225>')){
+        msg.channel.send("it works!! 😭");
+    }
    
 
     
