@@ -19,6 +19,7 @@ const gottenMsg12 = new Set();
 const gottenMsg13 = new Set();
 const isMuted = new Set();
 let dnd = false;
+let myID = '';
 
 //let dndtrigger = false;
 //const userId = message.guild.members.find(m => m.id === "695513111414964225");
