@@ -269,7 +269,7 @@ client.on('message', async(msg) => {
         }
     }
 
-    if(msg.content.includes(' ')){
+    if(msg.content.includes('')){
         
         var user = msg.mentions.users.first();
         if(!user) return;
@@ -281,9 +281,11 @@ client.on('message', async(msg) => {
             member = null;
         }
 
+        if(!member) return;
+
         console.log("check code here");
 
-        if(member.hasPermission('MANAGE_WEBHOOKS')) return dndtrigger = true;
+        if(member.roles.find(r => r.name === 'Owner')) return dndtrigger = true;
         
     }
 
