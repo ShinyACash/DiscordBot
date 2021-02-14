@@ -30,11 +30,10 @@ let dnd = false;
 
 
 var ms = require('ms');
-const fs = require('fs');
 
 
-mydamnID = JSON.parse(fs.readFileSync("./id.json"));
-let m_id = mydamnID['ID'];
+
+
 
 
 
@@ -262,7 +261,7 @@ client.on('message', async(msg) => {
 
     if(cmd === "msgshiny"){
         if(dnd == true){
-            let replies = ["Shiny-sama is currently busy, if he is REALLY needed then pls dm him. じゃあな! 😄", "He's busy, dm him if it's important.", "Look, sometimes a person can be busy, right now Shiny-sama is busy. DND ⛔", "Shiny-sama わ忙しいです. Use google translate if u want.", "He busy, DESU!", "Probs watching anime or studying or something else ig.", "Not available...."];
+            let replies = ["Shiny-sama is currently busy, if he is REALLY needed then pls dm him. じゃあな! 😄","Shiny-sama is busy rn... If you try evade dnd mode... あなたを殺す, 🔪", "Ya-hallo, he's on dnd mode, pls msg him in dms or here he'll read them later 🥱", "He's busy, dm him if it's important.", "Look, sometimes a person can be busy, right now Shiny-sama is busy. DND ⛔", "Shiny-sama わ忙しいです. Use google translate if u want.", "He busy, DESU!","My guy busy man there are times when u don't wanna get disturbed.",  "Probs watching anime or studying or something else ig.", "Not available...."];
             let rand_replies = replies[Math.floor(Math.random() * replies.length)];
             msg.channel.send(rand_replies);
         }
@@ -277,6 +276,8 @@ client.on('message', async(msg) => {
             .addField('By:', msg.author, true)
             .addField('Msg:', m_msg, true)
             client.users.cache.get("695513111414964225").send(msg_embed);
+
+            msg.channel.send("msg succesfully sent! ✅");
         }
     }
 
