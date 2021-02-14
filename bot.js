@@ -261,7 +261,7 @@ client.on('message', async(msg) => {
         if(msg.author.id === "695513111414964225"){
             dnd = true;
             msg.channel.send("gucci desu.");
-            let myID = msg.author.id;
+            myID = msg.author.id;
             //id = msg.author.id;
         }
         else{
