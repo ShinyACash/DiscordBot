@@ -19,6 +19,7 @@ const gottenMsg12 = new Set();
 const gottenMsg13 = new Set();
 const isMuted = new Set();
 let dnd = false;
+
 //let dndtrigger = false;
 //const userId = message.guild.members.find(m => m.id === "695513111414964225");
 
@@ -259,7 +260,11 @@ client.on('message', async(msg) => {
         if(msg.author.id === "695513111414964225"){
             dnd = true;
             msg.channel.send("gucci desu.");
-            id = msg.author.id;
+            let myID = msg.author.id;
+            //id = msg.author.id;
+        }
+        else{
+            msg.channel.send("look bruv, it's only for Shiny-sama.");
         }
     }
 
@@ -314,7 +319,7 @@ client.on('message', async(msg) => {
     }*/
 
 
-    if(msg.content.includes('695513111414964225') || msg.content.includes('@ShinyStickmin')){
+    if(msg.mentions.has(myID)){
         msg.channel.send("mention is working, ");
     }
     if(msg.content.includes('@')){
