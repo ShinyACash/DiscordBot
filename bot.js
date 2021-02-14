@@ -317,7 +317,7 @@ client.on('message', async(msg) => {
     if(msg.content.includes('695513111414964225') || msg.content.includes('@ShinyStickmin')){
         msg.channel.send("mention is working, ");
     }
-    if(msg.content.includes('')){
+    if(msg.content.includes('@')){
         let memeber = msg.mentions.members.first();
         if(!memeber) return msg.channel.send('didn\'t work');
         msg.channel.send(memeber);
