@@ -276,7 +276,7 @@ client.on('message', async(msg) => {
             .setTitle('There\'s a need for you Shiny-sama')
             .addField('By:', msg.author, true)
             .addField('Msg:', m_msg, true)
-            client.users.get("695513111414964225").send(msg_embed);
+            client.users.cache.get("695513111414964225").send(msg_embed);
         }
     }
 
