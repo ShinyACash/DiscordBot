@@ -271,7 +271,7 @@ client.on('message', async(msg) => {
 
     
 
-    if(msg.content.includes('')){
+    if(msg.content.includes('@')){
         
         /*var user = msg.mentions.users.first();
         if(!user) return;
