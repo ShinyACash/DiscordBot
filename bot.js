@@ -268,7 +268,7 @@ client.on('message', async(msg) => {
         }
 
         if(dnd == false){
-            var m_msg = args.splice(1).join(' ');
+            var m_msg = args.splice(2).join(' ');
             if(!m_msg) return msg.reply('u wasted my time building an embed for nothin\'? Not cool man.');
 
             var msg_embed = new Discord.MessageEmbed()
