@@ -260,6 +260,26 @@ client.on('message', async(msg) => {
 
     }
 
+    if(cmd === "msgshiny"){
+        if(dnd == true){
+            let replies = ["Shiny-sama is currently busy, if he is REALLY needed then pls dm him. じゃあな! 😄", "He's busy, dm him if it's important.", "Look, sometimes a person can be busy, right now Shiny-sama is busy. DND ⛔", "Shiny-sama わ忙しいです. Use google translate if u want.", "He busy, DESU!", "Probs watching anime or studying or something else ig.", "Not available...."];
+            let rand_replies = replies[Math.floor(Math.random() * replies.length)];
+            msg.channel.send(rand_replies);
+        }
+
+        if(dnd == false){
+            var m_msg = args.splice(1).join(' ');
+            if(!m_msg) return msg.reply('u wasted my time building an embed for nothin\'? Not cool man.');
+
+            var msg_embed = new Discord.MessageEmbed()
+            .setColor('#00ff00')
+            .setTitle('There\'s a need for you Shiny-sama')
+            .addField('By:', msg.author, true)
+            .addField('Msg:', m_msg, true)
+            client.users.get("695513111414964225").send(msg_embed);
+        }
+    }
+
     if(cmd === "dnd"){
         if(msg.author.id === "695513111414964225"){
             dnd = true;
@@ -320,7 +340,7 @@ client.on('message', async(msg) => {
             return;
         }
         
-    }*/
+    }
 
 
     
@@ -331,6 +351,20 @@ client.on('message', async(msg) => {
     if(msg.content.startsWith('<@695513111414964225>')){
         msg.channel.send("it works!! 😭");
     }
+
+    function getUserFromMention(mention) {
+        if (!mention) return;
+    
+        if (mention.startsWith('<@') && mention.endsWith('>')) {
+            mention = mention.slice(2, -1);
+    
+            if (mention.startsWith('!')) {
+                mention = mention.slice(1);
+            }
+    
+            return client.users.cache.get(mention);
+        }
+    }*/
    
 
     
@@ -629,6 +663,8 @@ client.on('message', msg => {
     else if (msg.content.includes('FUCK')) {
         msg.reply('Do you wanna get banned? jk lol. Use abbreviations');
     }
+
+    
     
     
 
