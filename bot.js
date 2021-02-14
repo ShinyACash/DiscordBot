@@ -191,7 +191,7 @@ client.on('message', async(msg) => {
     var args = msg.content.split(' ');
     var cmd = args.shift().slice(prefix.length).toLowerCase();
 
-    const userID = msg.guild.members.find(m => m.id === "695513111414964225");
+    //const userID = msg.guild.members.find(m => m.id === "695513111414964225");
 
     
 
