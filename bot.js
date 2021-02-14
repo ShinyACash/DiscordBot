@@ -19,7 +19,9 @@ const gottenMsg12 = new Set();
 const gottenMsg13 = new Set();
 const isMuted = new Set();
 let dnd = false;
-let dndtrigger = false;
+//let dndtrigger = false;
+let id = '';
+
 
 
 
@@ -253,6 +255,7 @@ client.on('message', async(msg) => {
         if(msg.author.id === "695513111414964225"){
             dnd = true;
             msg.channel.send("gucci desu.");
+            id = msg.author.id;
         }
     }
 
@@ -271,7 +274,7 @@ client.on('message', async(msg) => {
 
     
 
-    if(msg.content.includes('@')){
+    if(msg.content.includes(id)){
         
         /*var user = msg.mentions.users.first();
         if(!user) return;
