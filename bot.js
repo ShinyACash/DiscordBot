@@ -314,11 +314,12 @@ client.on('message', async(msg) => {
     }*/
 
 
-    if(msg.content.includes('<@!695513111414964225>')){
+    if(msg.content.includes('<@695513111414964225>')){
         msg.channel.send("mention is working, ");
     }
-    if(msg.content.includes('<@!'+userID+'>')){
-        msg.channel.send("mention is working, ");
+    if(msg.content.includes(' ')){
+        let memeber = msg.mentions.members.first();
+        msg.channel.send(memeber);
     }
 
     
