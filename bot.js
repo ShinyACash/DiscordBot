@@ -20,9 +20,7 @@ const gottenMsg13 = new Set();
 const isMuted = new Set();
 let dnd = false;
 //let myID = '';
-var idgarb = '{"ID" : "695513111414964225"}'
-var MYID = JSON.parse(idgarb);
-MYID.ID = eval("(" + MYID.ID + ")");
+
 
 //let dndtrigger = false;
 //const userId = message.guild.members.find(m => m.id === "695513111414964225");
@@ -32,9 +30,11 @@ MYID.ID = eval("(" + MYID.ID + ")");
 
 
 var ms = require('ms');
+const fs = require('fs');
 
 
-
+mydamnID = JSON.parse(fs.readFileSync("./id.json"));
+let m_id = mydamnID['ID'];
 
 
 
@@ -323,11 +323,9 @@ client.on('message', async(msg) => {
     }*/
 
 
-    if(msg.mentions.has(msg.guild.members.fetch(m => m.id === '695513111414964225'))){
-        msg.channel.send("mention is working, ");
-    }
-    if(msg.mentions.has(MYID.ID)){
-        msg.channel.send("mention is working, ");
+    
+    if(msg.mentions.has(m_id)){
+        msg.channel.send("mention is working, yay-");
     }
    
 
