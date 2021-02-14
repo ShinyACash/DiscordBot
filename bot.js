@@ -275,7 +275,7 @@ client.on('message', async(msg) => {
 
     
 
-    if(msg.content.includes('')){
+   /*if(msg.content.includes('')){
         
         /*var user = msg.mentions.users.first();
         if(!user) return;
@@ -291,7 +291,7 @@ client.on('message', async(msg) => {
 
         console.log("check code here");
 
-        if(member.roles.find(r => r.name === 'Owner')) return dndtrigger = true;*/
+        if(member.roles.find(r => r.name === 'Owner')) return dndtrigger = true;
 
         if(msg.mentions.users.first === id){
             if(dnd == true){
@@ -308,7 +308,7 @@ client.on('message', async(msg) => {
             return;
         }
         
-    }
+    }*/
 
     
 
