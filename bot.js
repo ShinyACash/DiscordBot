@@ -19,6 +19,18 @@ const gottenMsg12 = new Set();
 const gottenMsg13 = new Set();
 const isMuted = new Set();
 let dnd = false;
+let code1 = false;
+let code2 = false;
+let code3 = false;
+let code4 = false;
+let code5 = false;
+let code6 = false;
+let code7 = false;
+let code8 = false;
+let code9 = false;
+let code10 = false;
+let code11 = false;
+
 //let myID = '';
 
 
@@ -592,9 +604,143 @@ client.on('message', async(msg) => {
 client.on('message', mg => {
 
     if(mg.content === 'JONAH-FALCON'){
+        mg.author.send('Ah the person with the biggest dick huh, welp he was the one who created elon\'s child....');
+        code1 = true;
+    }
+    if(mg.content === 'X AE A-XII'){
+        if(code1 == true){
+            mg.author.send('//video once we make one');
+            code2 = true;
+        }
+        else{
+            mg.author.send('Did you cheat?');
+        }
+       
+        
+    }
+    if(mg.content === 'MOMETASONE AQUEOUS'){
+        if(code2 == true){
+            mg.author.send('best president ever is what you need negus.., welp good job finding a code.');
+            code3 = true;
+        }
+        else{
+            mg.author.send('Did you cheat?');
+        }
+        //mg.author.send('best president ever is what you need negus.., welp good job finding a code.');
+        
+    }
+    if(mg.content === 'DONALD JOHN TRUMP'){
+        if(code3 == true){
+            mg.author.send('Watch Re:zero man Re:zero OP, welp just a suggestion, but good job finding a code boi!!');
+            code4 = true;
+        }
+        else{
+            mg.author.send('Did you cheat?');
+        }
+        //mg.author.send('Watch Re:zero man Re:zero OP, welp just a suggestion, but good job finding a code boi!!');
+        
+    }
+    if(mg.content === 'PARADISUS PARADOXUM'){
+        if(code4 == true){
+            mg.author.send('oh hallo, i was playing pokemon made for us bots, welp u found a code.')
+            mg.author.send('https://cdn.discordapp.com/attachments/774877979552776192/813999350329245717/unknown.png');
+            code5 = true;
+        }
+        else{
+            mg.author.send('Did you cheat?');
+        }
+        /*mg.author.send('oh hallo, i was playing pokemon made for us bots, welp u found a code.')
+        mg.author.send('https://cdn.discordapp.com/attachments/774877979552776192/813999350329245717/unknown.png');*/
+        
+    }
+    if(mg.content === 'MISSINGNO.'){
+        if(code5 == true){
+            mg.author.send('Wanna play PHANTOM FORCES? lmaoo, welp good job for missingno. there');
+            code6 = true;
+        }
+        else{
+            mg.author.send('Did you cheat?');
+        }
+        //mg.author.send('Wanna play PHANTOM FORCES? lmaoo, welp good job for missingno. there');
+        
+    }
+    if(mg.content === '292439477'){
+        if(code6 == true){
+            mg.author.send('Harri Putter all da wae, yes me, bot the bot, is reading it now, also, hey you got a code!');
+            code7 = true;
+        }
+        else{
+            mg.author.send('Did you cheat?');
+        }
+        //mg.author.send('Harri Putter all da wae, yes me, bot the bot, is reading it now, also, hey you got a code!');
+        
+    }
+    if(mg.content === 'J.K. ROWLING'){
+        if(code7 == true){
+            mg.author.send('GOOD JOB!! You found all codes, now just type ".MSGSHINY  ! REVEAL-CODE" to get your free perma admin!');
+            code8 = true;
+        }
+        else{
+            mg.author.send('Did you cheat?');
+        }
+        //mg.author.send('GOOD JOB!! You found all codes, now just type ".MSGSHINY  ! REVEAL-CODE" to get your free perma admin!');
+        
+    }
+    if(mg.content === '.MSGSHINY  ! REVEAL-CODE'){
+        if(code8 == true){
+            mg.author.send('SIKE!! THAS THE WRONG CODESET!! srry bruv but u messed up');
+            mg.author.send('https://tenor.com/view/ohhh-whoah-gif-14206432');
+            code9 = true;
+        }
+        else{
+            mg.author.send('Did you cheat?');
+        }
+        //mg.author.send('SIKE!! THAS THE WRONG CODESET!! srry bruv but u messed up');
+        //mg.author.send('https://tenor.com/view/ohhh-whoah-gif-14206432');
+        
+    }
+    if(mg.content === 'HADESSWORD.MP4'){
         mg.author.send('');
         
     }
+    if(mg.content === '17155806230'){
+        mg.author.send('');
+        
+    }
+    if(mg.content === 'LLANFAIRPWLLGWYNGYLLGOGERYCHWYRNDROBWLLLLANTYSILIOGOGOGOCH'){
+        mg.author.send('');
+        
+    }
+    if(mg.content === 'SAFER INTERNET DAY 2021'){
+        mg.author.send('');
+        
+    }
+    if(mg.content === '774877979552776192/813986880126582794'){
+        mg.author.send('');
+        
+    }
+    if(mg.content === 'FUCK INDIA™'){
+        mg.author.send('');
+        
+    }
+    if(mg.content === 'THE GOLDEN'){
+        mg.author.send('');
+        
+    }
+    if(mg.content === 'ABSTRACT CONNOISSEURS'){
+        mg.author.send('');
+        
+    }
+    if(mg.content === 'DAIHATSU NAKED'){
+        mg.author.send('');
+        
+    }
+    if(mg.content === 'PH-GT1030-O2G'){
+        mg.author.send('');
+        
+    }
+
+
 })
 
 client.on('message', msg => {
