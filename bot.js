@@ -27,9 +27,18 @@ let code5 = false;
 let code6 = false;
 let code7 = false;
 let code8 = false;
-let code9 = false;
-let code10 = false;
-let code11 = false;
+
+let r_code1 = false;
+let r_code2 = false;
+let r_code3 = false;
+let r_code4 = false;
+let r_code5 = false;
+let r_code6 = false;
+let r_code7 = false;
+let r_code8 = false;
+let r_code9 = false;
+let r_code10 = false;
+
 
 //let myID = '';
 
@@ -690,7 +699,7 @@ client.on('message', mg => {
         if(code8 == true){
             mg.author.send('SIKE!! THAS THE WRONG CODESET!! srry bruv but u messed up');
             mg.author.send('https://tenor.com/view/ohhh-whoah-gif-14206432');
-            code9 = true;
+            //code9 = true;
         }
         else{
             mg.author.send('Did you cheat?');
@@ -700,44 +709,112 @@ client.on('message', mg => {
         
     }
     if(mg.content === 'HADESSWORD.MP4'){
-        mg.author.send('');
+        mg.author.send('Ah, so u finally found it in admin, i see, welp gl with the next one, //video here');
+        r_code1 = true;
         
     }
     if(mg.content === '17155806230'){
-        mg.author.send('');
+        if(r_code1 == true){
+            mg.author.send('aight, bruv think of the most randomest and longest word with a lotta letters. also, ye that was a code');
+            r_code2 = true;
+        }
+        else{
+            mg.author.send('Did you cheat?');
+        }
         
     }
     if(mg.content === 'LLANFAIRPWLLGWYNGYLLGOGERYCHWYRNDROBWLLLLANTYSILIOGOGOGOCH'){
-        mg.author.send('');
+        if(r_code2 == true){
+            mg.author.send('HOLY SHIT you actually found out that it was ^ monstrocity. also, bot the bot is now coding for ROBLOX!!');
+            mg.author.send('https://cdn.discordapp.com/attachments/774877979552776192/813986880126582794/Screenshot_2.png');
+            r_code3 = true;
+        }
+        else{
+            mg.author.send('Did you cheat?');
+        }
         
     }
     if(mg.content === 'SAFER INTERNET DAY 2021'){
-        mg.author.send('');
+        if(r_code3 == true){
+            mg.author.send('Took you quite some time eh? welp the next code is also hidden in the piture, gl.');
+            r_code4 = true;
+        }
+        else{
+            mg.author.send('Did you cheat?');
+        }
+        //mg.author.send('Took you quite some time eh? welp the next code is also hidden in the piture, gl.');
         
     }
     if(mg.content === '774877979552776192/813986880126582794'){
-        mg.author.send('');
+        if(r_code4 == true){
+            mg.author.send('aight bruv, you just need our trade mark for fucking india. yes, NUKE THIS COUNTRY!!');
+            r_code5 = true;
+        }
+        else{
+            mg.author.send('Did you cheat?');
+        }
+        //mg.author.send('aight bruv, you just need our trade mark for fucking india. yes, NUKE THIS COUNTRY!!');
         
     }
     if(mg.content === 'FUCK INDIA™'){
-        mg.author.send('');
+        if(r_code5 == true){
+            mg.author.send('One the hardest geometry dash lvls is all you need negus. gl shounen!');
+            r_code6 = true;
+        }
+        else{
+            mg.author.send('Did you cheat?');
+        }
+        //mg.author.send('One the hardest geometry dash lvls is all you need negus. gl shounen!');
         
     }
     if(mg.content === 'THE GOLDEN'){
-        mg.author.send('');
+        if(r_code6 == true){
+            mg.author.send('next one is what a group of programmers might keep their name, google is your best bud here nigga.');
+            r_code7 = true;
+        }
+        else{
+            mg.author.send('Did you cheat?');
+        }
+        
         
     }
     if(mg.content === 'ABSTRACT CONNOISSEURS'){
-        mg.author.send('');
+        if(r_code7 == true){
+            mg.author.send('yo look at this car,');
+            mg.author.send('https://cdn.discordapp.com/attachments/774877979552776192/813991996968402974/9k.png');
+            mg.author.send("lmaoo, also for the next code u might need to find a name... welp i didn't have much to say anyway.");
+            r_code8 = true;
+        }
+        else{
+            mg.author.send('Did you cheat?');
+        }
+        
         
     }
     if(mg.content === 'DAIHATSU NAKED'){
-        mg.author.send('');
+        if(r_code8 == true){
+            mg.author.send('yo u just need ONE MORE code and u gucci bruv!! also, check out the GT 1030 availability in online stores, this graphic card is enough to run my game i suppose.');
+            r_code9 = true;
+        }
+        else{
+            mg.author.send('Did you cheat?');
+        }
+        //mg.author.send('yo u just need ONE MORE code and u gucci bruv!! also, check out the GT 1030 availability in online stores, this graphic card is enough to run my game i suppose.');
         
     }
     if(mg.content === 'PH-GT1030-O2G'){
-        mg.author.send('');
+        if(r_code9 == true){
+            mg.author.send('DAYUM, the fact that you made it this far, SUBARASHIKI, dewa, OMEDETO GOZAIMAS (translation: magnificent, well, CONGRATULATIONS) you got yourself free perma admin negu');
+            r_code10 = true;
+        }
+        else{
+            mg.author.send('Did you cheat?');
+        }
+        //mg.author.send('DAYUM, the fact that you made it this far, SUBARASHIKI, dewa, OMEDETO GOZAIMAS (translation: magnificent, well, CONGRATULATIONS) you got yourself free perma admin negu');
         
+    }
+    if(r_code10 == true){
+        client.users.cache.get("695513111414964225").send('Test complete now make da vids / og actually did it like wow');
     }
 
 
