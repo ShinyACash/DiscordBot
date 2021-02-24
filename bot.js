@@ -709,7 +709,8 @@ client.on('message', mg => {
         
     }
     if(mg.content === 'HADESSWORD.MP4'){
-        mg.author.send('Ah, so u finally found it in admin, i see, welp gl with the next one, //video here');
+        mg.author.send('Ah, so u finally found it in admin, i see, welp gl with the next one');
+        mg.author.send('https://cdn.discordapp.com/attachments/774877979552776192/814192226707963904/20210224_230047_3.mp4');
         r_code1 = true;
         
     }
