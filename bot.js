@@ -813,9 +813,7 @@ client.on('message', mg => {
         //mg.author.send('DAYUM, the fact that you made it this far, SUBARASHIKI, dewa, OMEDETO GOZAIMAS (translation: magnificent, well, CONGRATULATIONS) you got yourself free perma admin negu');
         
     }
-    if(r_code10 == true){
-        client.users.cache.get("695513111414964225").send('Test complete now make da vids / og actually did it like wow');
-    }
+    
 
 
 })
