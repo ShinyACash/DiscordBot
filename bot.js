@@ -603,7 +603,7 @@ client.on('message', async(msg) => {
 
 client.on('message', mg => {
 
-    if(mg.content === 'JONAH-FALCON'){
+    if(mg.content === 'JONAH FALCON'){
         mg.author.send('Ah the person with the biggest dick huh, welp he was the one who created elon\'s child....');
         code1 = true;
     }
