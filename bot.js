@@ -618,7 +618,8 @@ client.on('message', mg => {
     }
     if(mg.content === 'X AE A-XII'){
         if(code1 == true){
-            mg.author.send('//video once we make one');
+            mg.author.send('https://cdn.discordapp.com/attachments/774877979552776192/814459289841303562/20210225_164453.mp4');
+            mg.author.send('srry for the quality but thas wut discord can handle for now-');
             code2 = true;
         }
         else{
