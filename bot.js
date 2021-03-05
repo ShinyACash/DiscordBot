@@ -602,9 +602,21 @@ client.on('message', async(msg) => {
             console.warn(err);
         }
     
-        msg.guild.members.ban(user); // This should not be user.id like I said in my video. I made a mistake. Sorry! :)
+        msg.guild.members.ban(user); 
     
         msg.channel.send(`**${user}** has been banned by **${msg.author}**!`);
+    }
+    
+    if(cmd === "bdelete"){
+        if(!msg.member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You can\'t use that! only mods can when they have to...');
+
+        var amount = args.splice(1).join(' ');
+        if(!amount) return msg.reply('You need to give an amount!! Don\'t waste my time!');
+
+        var x = amount;
+        message.channel.bulkDelete(x).then(() => {
+            message.channel.send("Deleted"+ x +" messages.").then(msg => msg.delete(3000));
+        });
     }
     
 });
