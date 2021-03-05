@@ -613,7 +613,7 @@ client.on('message', async(msg) => {
         var amount = args.splice(1).join(' ');
         if(!amount) return msg.reply('You need to give an amount!! Don\'t waste my time!');
 
-        var x = amount;
+        var x = parseInt(amount);
         message.channel.bulkDelete(x).then(() => {
             message.channel.send("Deleted"+ x +" messages.").then(msg => msg.delete(3000));
         });
