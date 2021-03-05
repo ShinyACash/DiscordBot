@@ -612,7 +612,7 @@ client.on('message', async(msg) => {
         if (!args[0]) return message.reply('oi, state a number.')
         if (parseInt(args[0]) > 100) return message.reply("you cannot enter more than 100 messages at a time, so yea, also my limit is 2 weeks of msgs.");
         msg.channel.bulkDelete(parseInt(args[0]), true).then(() => {
-            msg.channel.send("Deleted"+ x +" messages.").then(msg => msg.delete(3000));
+            msg.channel.send("Deleted"+ parseInt(args[0]) +" messages.").then(msg => msg.delete(3000));
         });
     }
     
