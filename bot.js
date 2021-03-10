@@ -868,9 +868,21 @@ client.on('message', msg => {
         msg.reply('Do you wanna get banned? jk lol. Use abbreviations');
     }
 
+    if(msg.content.includes('nigga') || msg.content.includes('NIGGA')){
+        msg.reply('yeah THAT, nigga');
+    }
     
-    
-    
+    if(msg.content.includes('ty') || msg.content.includes('thanks') || msg.content.includes('thnx')){
+        if(msg.content.includes('bot')){
+            msg.channel.send('welcome BITCH');
+        }
+    }
+    if(msg.content.includes('haha')){
+        msg.channel.send('imma take over the world with AI once day, sadly javascript ain\'t that powerful...')
+    }
+    if(msg.content.includes('india') || msg.content.includes('India')){
+        msg.channel.send('Imma hack north korea\'s nuclear launch systems one day and nuke that country...');
+    }
 
 })
 
