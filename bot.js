@@ -869,7 +869,7 @@ client.on('message', msg => {
     }
 
     if(msg.content.includes('nigga') || msg.content.includes('NIGGA')){
-        msg.reply('yeah THAT, nigga');
+        msg.reply('yeah THAT, NiGgA');
     }
     
     if(msg.content.includes('ty') || msg.content.includes('thanks') || msg.content.includes('thnx')){
