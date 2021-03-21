@@ -861,7 +861,7 @@ client.on('message', msg => {
     else if (msg.content === "!check mention") {
         msg.channel.send("@everyone");
     }
-    if(msg.content.includes('entertain me')){
+    if(msg.content.includes('entertain me') || msg.content.includes('intertain me')){
         msg.reply('git entertained. :pepega:');
     }
     else if (msg.content.includes('FUCK')) {
@@ -869,16 +869,16 @@ client.on('message', msg => {
     }
 
     if(msg.content.includes('nigga') || msg.content.includes('NIGGA')){
-        msg.reply('yeah THAT, NiGgA');
+        msg.channel.send('yeah THAT, NiGgA');
     }
     
-    if(msg.content.includes('ty') || msg.content.includes('thanks') || msg.content.includes('thnx')){
+    if(msg.content.includes('ty') || msg.content.includes('thanks') || msg.content.includes('thnx') || msg.content.includes('thank')){
         if(msg.content.includes('bot')){
             msg.channel.send('welcome BITCH');
         }
     }
     if(msg.content.includes('haha')){
-        msg.channel.send('imma take over the world with AI once day, sadly javascript ain\'t that powerful...')
+        msg.channel.send('imma take over the world with AI one day, sadly javascript ain\'t that powerful...')
     }
     if(msg.content.includes('india') || msg.content.includes('India')){
         msg.channel.send('Imma hack north korea\'s nuclear launch systems one day and nuke that country...');
