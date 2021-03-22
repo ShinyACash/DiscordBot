@@ -862,7 +862,7 @@ client.on('message', msg => {
         msg.channel.send("@everyone");
     }
     if(msg.content.includes('entertain me') || msg.content.includes('intertain me')){
-        msg.reply('git entertained. :pepega:');
+        msg.reply('git entertained. :Pepega:');
     }
     else if (msg.content.includes('FUCK')) {
         msg.reply('Do you wanna get banned? jk lol. Use abbreviations');
