@@ -864,11 +864,6 @@ client.on('message', msg => {
     if(msg.content.includes('entertain me') || msg.content.includes('intertain me')){
         msg.reply('git entertained. :Pepega:');
     }
-    if(msg.content.includes("")){
-        if(msg.author.id === "695598635458756708"){
-            msg.member.setNickname("Fucc me harder");
-        }
-    }
     else if (msg.content.includes('FUCK')) {
         msg.reply('Do you wanna get banned? jk lol. Use abbreviations');
     }
