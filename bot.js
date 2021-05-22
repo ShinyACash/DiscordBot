@@ -890,22 +890,28 @@ client.on('message', msg => {
             msg.channel.send(`bro, ${msg.author}, you already used your coupon u dumb-peep-`);
         }
         else{
+
+            var date = new Date();
+
+            let dateofClaim = date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear();
+            let expiry = date.getDate() + '/' + (date.getMonth() + 1 ) + '/' + date.getFullYear();
+
             var codeembed = new Discord.MessageEmbed()
             .setTitle('Congratulations!')
             .setColor('#0BB5DB')
             .setThumbnail('https://cdn.discordapp.com/attachments/775944283039203359/845542331184054272/340201012057900.png')
             .addField('You have now claimed your coupon of 40% off on any pass or sub in the server!', ' ', true)
-            .addField('Expiry: ', 'one month after claim.', true)
+            .addField('Expiry: ', expiry, true)
             .addField('Use it wisely!')
             .setFooter('Finally! | 🥰')
             msg.channel.send(codeembed);
 
             var dateofclaim = new Discord.MessageEmbed()
             .setTitle('A memeber claimed a coupon!')
+            .setColor('#0BB5DB')
             .addField('Who was it?: ', msg.author, true)
-            .addField('Date and Time of claim: ', ' ', true)
-            .setTimestamp(msg.createdAt)
-            .addField('Expiry :', 'Pls type it out. Yeah my code isn\'t that well devloped-', true)
+            .addField('Date and Time of claim: ', dateofClaim, true)
+            .addField('Expiry :', expiry, true)
             client.users.cache.get("695513111414964225").send(dateofclaim);
 
 
