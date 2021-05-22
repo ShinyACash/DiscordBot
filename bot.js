@@ -894,17 +894,18 @@ client.on('message', msg => {
             .setTitle('Congratulations!')
             .setColor('#0BB5DB')
             .setThumbnail('https://cdn.discordapp.com/attachments/775944283039203359/845542331184054272/340201012057900.png')
-            .addField('You have now claimed your coupon of 40% off on any pass or sub in the server!')
-            .addField('Expiry: 1 month after claim.')
+            .addField('You have now claimed your coupon of 40% off on any pass or sub in the server!', ' ', true)
+            .addField('Expiry: ', 'one month after claim.', true)
             .addField('Use it wisely!')
             .setFooter('Finally! | 🥰')
             msg.channel.send(codeembed);
 
             var dateofclaim = new Discord.MessageEmbed()
-            .setTitle('A memeber claimed a coupon')
+            .setTitle('A memeber claimed a coupon!')
             .addField('Who was it?: ', msg.author, true)
-            .addField('Date and Time of claim: ', msg.createdTimestamp, true)
-            .addField('Expiry : Pls type it out. Yeah my code isn\'t that well devloped-')
+            .addField('Date and Time of claim: ', ' ', true)
+            .setTimestamp(msg.createdAt)
+            .addField('Expiry :', 'Pls type it out. Yeah my code isn\'t that well devloped-', true)
             client.users.cache.get("695513111414964225").send(dateofclaim);
 
 
