@@ -900,7 +900,7 @@ client.on('message', msg => {
             .setTitle('Congratulations!')
             .setColor('#0BB5DB')
             .setThumbnail('https://cdn.discordapp.com/attachments/775944283039203359/845542331184054272/340201012057900.png')
-            .addField('You have now claimed your coupon of 40% off on any pass or sub in the server!', ' ', true)
+            .addField('You have now claimed your coupon of 40% off on any pass or sub in the server!', 'nice!', true)
             .addField('Expiry: ', expiry, true)
             .addField('Use it wisely!')
             .setFooter('Finally! | 🥰')
