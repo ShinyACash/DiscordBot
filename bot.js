@@ -18,6 +18,7 @@ const gottenMsg11 = new Set();
 const gottenMsg12 = new Set();
 const gottenMsg13 = new Set();
 const isMuted = new Set();
+const usedCodeRem = new Set();
 let dnd = false;
 let code1 = false;
 let code2 = false;
@@ -288,7 +289,7 @@ client.on('message', async(msg) => {
         }
 
         if(dnd == false){
-            var m_msg = args.splice(2).join(' ');
+            var m_msg = args.splice(1).join(' ');
             if(!m_msg) return msg.reply('u wasted my time building an embed for nothin\'? Not cool man.');
 
             var msg_embed = new Discord.MessageEmbed()
@@ -882,6 +883,35 @@ client.on('message', msg => {
     }
     if(msg.content.includes('india') || msg.content.includes('India')){
         msg.channel.send('Imma hack north korea\'s nuclear launch systems one day and nuke that country...');
+    }
+    if(msg.content === 'SHINYGOTREM'){
+        if(usedCodeRem.has(msg.author.id)){
+            msg.react('❌');
+            msg.channel.send(`bro, ${msg.author}, you already used your coupon u dumb-peep-`);
+        }
+        else{
+            var codeembed = new Discord.MessageEmbed()
+            .setTitle('Congratulations!')
+            .setColor('#0BB5DB')
+            .setThumbnail('https://cdn.discordapp.com/attachments/775944283039203359/845542331184054272/340201012057900.png')
+            .addField('You have now claimed your coupon of 40% off on any pass or sub in the server!')
+            .addField('Expiry: 1 month after claim.')
+            .addField('Use it wisely!')
+            .setFooter('Finally! | 🥰')
+            channel.send(codeembed);
+
+            var dateofclaim = new Discord.MessageEmbed()
+            .setTitle('A memeber claimed a coupon')
+            .addField('Who was it?: ', msg.author, true)
+            .addField('Date and Time of claim: ', msg.createdTimestamp, true)
+            .addField('Expiry : Pls type it out. Yeah my code isn\'t that well devloped-')
+            client.users.cache.get("695513111414964225").send(dateofclaim);
+
+
+            msg.author.send('Take a screenshot of it and send it to @Pr0gramm3d_t0_K!LL if you want extra measurements (a dm is already sent to him for the date of claim) for him to remember and not scam you. -just an adivec from your\'s truly, Bot the Bot.-')
+            usedCodeRem.add(msg.author.id);
+        }
+        
     }
 
 })
