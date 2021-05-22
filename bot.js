@@ -898,7 +898,7 @@ client.on('message', msg => {
             .addField('Expiry: 1 month after claim.')
             .addField('Use it wisely!')
             .setFooter('Finally! | 🥰')
-            channel.send(codeembed);
+            msg.channel.send(codeembed);
 
             var dateofclaim = new Discord.MessageEmbed()
             .setTitle('A memeber claimed a coupon')
