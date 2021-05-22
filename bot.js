@@ -893,8 +893,8 @@ client.on('message', msg => {
 
             var date = new Date();
 
-            let dateofClaim = date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear();
-            let expiry = date.getDate() + '/' + (date.getMonth() + 1 ) + '/' + date.getFullYear();
+            let dateofClaim = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
+            let expiry = date.getDate() + '/' + (date.getMonth() + 2) + '/' + date.getFullYear();
 
             var codeembed = new Discord.MessageEmbed()
             .setTitle('Congratulations!')
