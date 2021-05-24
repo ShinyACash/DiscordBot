@@ -1,22 +1,6 @@
 const Discord = require("discord.js");
 
 const client = new Discord.Client;
-
-const trainedRecently = new Set();
-const usedprivserver = new Set();
-const gottenMsg1 = new Set();
-const gottenMsg2 = new Set();
-const gottenMsg3 = new Set();
-const gottenMsg4 = new Set();
-const gottenMsg5 = new Set();
-const gottenMsg6 = new Set();
-const gottenMsg7 = new Set();
-const gottenMsg8 = new Set();
-const gottenMsg9 = new Set();
-const gottenMsg10 = new Set();
-const gottenMsg11 = new Set();
-const gottenMsg12 = new Set();
-const gottenMsg13 = new Set();
 const isMuted = new Set();
 const usedCodeRem = new Set();
 const claimed = new Set();
@@ -448,9 +432,6 @@ client.on('message', async(msg) => {
         if(msg.author.id === "695513111414964225"){
             msg.react("👍");
             n_Code = args.splice(1).join(' ');
-            msg.channel.send("Updating Embed...").then((msg) => {
-                setTimeout(() => msg.edit("Update complete!"), 5000)
-            })
         }
         else{
             msg.reply(`nice try... want me to report to shiny? lol`);
@@ -461,9 +442,6 @@ client.on('message', async(msg) => {
         if(msg.author.id === "695513111414964225"){
             msg.react("👍");
             n_Percentage = args.splice(1).join(' ');
-            msg.channel.send("Updating Embed...").then((msg) => {
-                setTimeout(() => msg.edit("Update complete!"), 5000)
-            })
         }
         else{
             msg.channel.send(`bro, don't act so smart ${msg.author}. Stap it.`);
@@ -474,9 +452,6 @@ client.on('message', async(msg) => {
         if(msg.author.id === "695513111414964225"){
             msg.react("👍");
             n_Expiry = args.splice(1).join(' ');
-            msg.channel.send("Updating Embed...").then((msg) => {
-                setTimeout(() => msg.edit("Update complete!"), 5000)
-            })
         }
         else{
             msg.channel.send(`...can you not? Like, there's no point-`);
@@ -487,9 +462,6 @@ client.on('message', async(msg) => {
         if(msg.author.id === "695513111414964225"){
             msg.react("👍");
             n_Thumbnail = args.splice(1).join(' ');
-            msg.channel.send("Updating Embed...").then((msg) => {
-                setTimeout(() => msg.edit("Update complete!"), 5000)
-            })
         }
         else{
             msg.reply(`it was a pron image wasn't it? 😏`);
@@ -521,6 +493,8 @@ client.on('message', async(msg) => {
             .addField('Coupon Code: ', n_Code, true)
             .addField('Expiry :', n_Expiry, true)
             client.users.cache.get("695513111414964225").send(Cclaim);
+
+            claimed.add(msg.author.id);
         }
     }
 
