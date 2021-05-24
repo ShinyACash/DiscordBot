@@ -702,7 +702,7 @@ client.on('message', async(msg) => {
         }
     }
 
-    if(cmd === "cleaClaim"){
+    if(cmd === "clearClaim"){
         if(msg.author.id === "695513111414964225"){
             msg.react("✅");
             claimed.clear();
