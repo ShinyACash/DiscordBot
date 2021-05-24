@@ -333,96 +333,6 @@ client.on('message', async(msg) => {
         }
     }
 
-    
-
-   /*if(msg.content.includes('')){
-        
-        /*var user = msg.mentions.users.first();
-        if(!user) return;
-        var member;
-
-        try {
-            member = await msg.guild.members.fetch(user);
-        } catch(err) {
-            member = null;
-        }
-
-        if(!member) return;
-
-        console.log("check code here");
-
-        if(member.roles.find(r => r.name === 'Owner')) return dndtrigger = true;
-
-        if(msg.mentions.users.first === id){
-            if(dnd == true){
-                console.log("got dat mention!");
-                let replies = ["Shiny-sama is currently busy, if he is REALLY needed then pls dm him. じゃあな! 😄", "He's busy, dm him if it's important.", "Look, sometimes a person can be busy, right now Shiny-sama is busy. DND ⛔", "Shiny-sama わ忙しいです. Use google translate if u want.", "He busy, DESU!", "Probs watching anime or studying or something else ig.", "Not available...."];
-                let rand_replies = replies[Math.floor(Math.random() * replies.length)];
-                msg.channel.send(rand_replies);
-            }
-            else{
-                return;
-            } 
-        }
-        else{
-            return;
-        }
-        
-    }
-
-
-    
-    if(msg.mentions.has('<@695513111414964225>')){
-        msg.channel.send("mention is working, yay-");
-    }
-
-    if(msg.content.startsWith('<@695513111414964225>')){
-        msg.channel.send("it works!! 😭");
-    }
-
-    function getUserFromMention(mention) {
-        if (!mention) return;
-    
-        if (mention.startsWith('<@') && mention.endsWith('>')) {
-            mention = mention.slice(2, -1);
-    
-            if (mention.startsWith('!')) {
-                mention = mention.slice(1);
-            }
-    
-            return client.users.cache.get(mention);
-        }
-    }*/
-   
-
-    
-
-
-    
-
-    if(cmd === "ps"){
-        if(usedprivserver.has(msg.author.id)){
-            msg.channel('yo! you already used the command!');
-        }
-        else{
-            msg.channel.send("https://www.roblox.com/games/286090429/Arsenal?privateServerLinkCode=vUfmN_6NMDvhBBYoO5RxtFi3pKcYydxu")
-            .then(msg => {
-                msg.delete({ timeout: 30000 })
-            });
-            msg.channel.send("This Link will be deleted in 30 secs")
-            .then(msg => {
-                msg.delete({ timeout: 30000 })
-            });
-
-            usedprivserver.add(msg.author.id);
-
-            setTimeout(async() =>{
-                usedprivserver.delete(msg.author.id);
-            }, 30000)
-        }
-    }
-
-
     if(cmd === "unmute"){
         if(!msg.member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You can\'t use that!');
 
@@ -480,48 +390,6 @@ client.on('message', async(msg) => {
         //msg.channel.send(`Yo ping!! ${client.ws.ping}ms`);
     }
 
-    if(cmd === "warn"){
-        if(!msg.member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You can\'t use that!');
-
-        var user = msg.mentions.users.first();
-        if(!user) return msg.reply('You didn\'t mention anyone!');
-    
-        var member;
-    
-        try {
-            member = await msg.guild.members.fetch(user);
-        } catch(err) {
-            member = null;
-        }
-    
-        if(!member) return msg.reply('They aren\'t in the server!');
-    
-        var reason = args.splice(1).join(' ');
-        if(!reason) return msg.reply('You need to give a reason!');
-    
-        var channel = msg.guild.channels.cache.get('778889714001510400');
-    
-        var log = new Discord.MessageEmbed()
-        .setColor('#02FE97')
-        .setTitle('User Warned')
-        .addField('User:', user, true)
-        .addField('By:', msg.author, true)
-        .addField('Reason:', reason)
-        channel.send(log);
-    
-        var embed = new Discord.MessageEmbed()
-        .setTitle('You were warned!, better listen to the moderator...')
-        .setDescription(reason);
-    
-        try {
-            user.send(embed);
-        } catch(err) {
-            console.warn(err);
-        }
-    
-        msg.channel.send(`**${user}** has been warned by **${msg.author}**!`);
-    }
-
     if(cmd === "kick"){
         if(!msg.member.hasPermission('KICK_MEMBERS')) return msg.reply('You can\'t use that!');
 
@@ -565,52 +433,6 @@ client.on('message', async(msg) => {
         member.kick(reason);
     
         msg.channel.send(`**${user}** has been kicked by **${msg.author}**!`);
-    }
-
-    if(cmd === "ban"){
-        if(!msg.member.hasPermission('BAN_MEMBERS')) return msg.reply('You can\'t use that!');
-
-        var user = msg.mentions.users.first();
-        if(!user) return msg.reply('You didn\'t mention anyone!');
-    
-        var member;
-    
-        try {
-            member = await msg.guild.members.fetch(user);
-        } catch(err) {
-            member = null;
-        }
-    
-        if(member){
-            if(member.hasPermission('ADMINISTRATOR')) return msg.reply('You cannot ban this person!');
-        }
-    
-        var reason = args.splice(1).join(' ');
-        if(!reason) return msg.reply('You need to give a reason!');
-    
-        var channel = msg.guild.channels.cache.get('778889714001510400');
-    
-        var log = new Discord.MessageEmbed()
-        .setColor('#02FE97')
-        .setTitle('User Banned')
-        .addField('User:', user, true)
-        .addField('By:', msg.author, true)
-        .addField('Reason:', reason)
-        channel.send(log);
-    
-        var embed = new Discord.MessageEmbed()
-        .setTitle('You were banned!')
-        .setDescription(reason);
-    
-        try {
-            await user.send(embed);
-        } catch(err) {
-            console.warn(err);
-        }
-    
-        msg.guild.members.ban(user); 
-    
-        msg.channel.send(`**${user}** has been banned by **${msg.author}**!`);
     }
     
     if(cmd === "bdelete"){
