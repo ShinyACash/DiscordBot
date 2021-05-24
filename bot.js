@@ -5,11 +5,11 @@ const isMuted = new Set();
 const usedCodeRem = new Set();
 const claimed = new Set();
 
-var n_Code = "";
-var n_Color = "";
-var n_Percentage = "";
-var n_Expiry = "";
-var n_Thumbnail = "";
+let n_Code = "";
+let n_Color = "";
+let n_Percentage = "";
+let n_Expiry = "";
+let n_Thumbnail = "";
 
 
 let dnd = false;
@@ -202,6 +202,8 @@ client.on('message', async(msg) => {
     //var ms = require('ms');
     if(msg.author.bot) return;
     if(!msg.guild) return;
+
+    let owner = msg.guild.roles.cache.find(role => role.name === 'Owner');
 
     var prefix = ".";
     if(!msg.content.toLowerCase().startsWith(prefix)) return;
@@ -429,7 +431,7 @@ client.on('message', async(msg) => {
     }
 
     if(cmd === "newC"){
-        if(msg.author.id === "695513111414964225"){
+        if(msg.member.roles.has(owner)){
             msg.react("👍");
             n_Code = args.splice(1).join(' ');
         }
@@ -439,7 +441,7 @@ client.on('message', async(msg) => {
     }
 
     if(cmd === "setP"){
-        if(msg.author.id === "695513111414964225"){
+        if(msg.member.roles.has(owner)){
             msg.react("👍");
             n_Percentage = args.splice(1).join(' ');
         }
@@ -449,7 +451,7 @@ client.on('message', async(msg) => {
     }
 
     if(cmd === "setE"){
-        if(msg.author.id === "695513111414964225"){
+        if(msg.member.roles.has(owner)){
             msg.react("👍");
             n_Expiry = args.splice(1).join(' ');
         }
@@ -459,7 +461,7 @@ client.on('message', async(msg) => {
     }
 
     if(cmd === "setT"){
-        if(msg.author.id === "695513111414964225"){
+        if(msg.member.roles.has(owner)){
             msg.react("👍");
             n_Thumbnail = args.splice(1).join(' ');
         }
