@@ -424,14 +424,16 @@ client.on('message', async(msg) => {
     if(cmd === "bdelete"){
         if(!msg.member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You can\'t use that! only mods can when they have to...');
         if (!args[0]) return message.reply('oi, state a number.')
-        if (parseInt(args[0]) > 100) return message.reply("you cannot enter more than 100 messages at a time, so yea, also my limit is 2 weeks of msgs.");
+        if (parseInt(args[0]) > 100){
+            message.reply("you cannot enter more than 100 messages at a time, so yea, also my limit is 2 weeks of msgs.");
+        }
         msg.channel.bulkDelete(parseInt(args[0]), true).then(() => {
             msg.channel.send("Deleted "+ parseInt(args[0]) +" messages.").then(msg => msg.delete(3000));
         });
     }
 
     if(cmd === "newC"){
-        if(msg.member.roles.has(owner)){
+        if(msg.author.id === "695513111414964225"){
             msg.react("👍");
             n_Code = args.splice(1).join(' ');
         }
@@ -441,7 +443,7 @@ client.on('message', async(msg) => {
     }
 
     if(cmd === "setP"){
-        if(msg.member.roles.has(owner)){
+        if(msg.author.id === "695513111414964225"){
             msg.react("👍");
             n_Percentage = args.splice(1).join(' ');
         }
@@ -451,7 +453,7 @@ client.on('message', async(msg) => {
     }
 
     if(cmd === "setE"){
-        if(msg.member.roles.has(owner)){
+        if(msg.author.id === "695513111414964225"){
             msg.react("👍");
             n_Expiry = args.splice(1).join(' ');
         }
@@ -461,7 +463,7 @@ client.on('message', async(msg) => {
     }
 
     if(cmd === "setT"){
-        if(msg.member.roles.has(owner)){
+        if(msg.author.id === "695513111414964225"){
             msg.react("👍");
             n_Thumbnail = args.splice(1).join(' ');
         }
