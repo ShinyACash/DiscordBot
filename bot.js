@@ -19,6 +19,15 @@ const gottenMsg12 = new Set();
 const gottenMsg13 = new Set();
 const isMuted = new Set();
 const usedCodeRem = new Set();
+const claimed = new Set();
+
+var n_Code = "";
+var n_Color = "";
+var n_Percentage = "";
+var n_Expiry = "";
+var n_Thumbnail = "";
+
+
 let dnd = false;
 let code1 = false;
 let code2 = false;
@@ -167,7 +176,7 @@ client.on('message', async(message) => {
                         channel.send(logAutounmute);
 
                         isMuted.delete(`${member}`);
-                    }, TIME);
+                    }, 300000);
                 }else {
                     userData.msgCount = msgCount;
                     usersMap.set(message.author.id, userData);
@@ -239,7 +248,7 @@ client.on('message', async(msg) => {
 
         
 
-        var reason = args.splice(2).join(' ');
+        var reason = args.splice(1).join(' ');
         if(!reason) return msg.reply('You need to give a reason!');
 
         var channel = msg.guild.channels.cache.get("778889714001510400");
@@ -274,10 +283,6 @@ client.on('message', async(msg) => {
         var role = msg.guild.roles.cache.find(r => r.name === 'Muted');
         isMuted.add(`${member}`);
         member.roles.add(role);
-
-        setTimeout(async() => {
-         member.roles.remove(role);
-        }, 600000);
 
     }
 
@@ -616,6 +621,98 @@ client.on('message', async(msg) => {
             msg.channel.send("Deleted "+ parseInt(args[0]) +" messages.").then(msg => msg.delete(3000));
         });
     }
+
+    if(cmd === "newC"){
+        if(msg.author.id === "695513111414964225"){
+            msg.react("👍");
+            n_Code = args.splice(1).join(' ');
+            msg.channel.send("Updating Embed...").then((msg) => {
+                setTimeout(() => msg.edit("Update complete!"), 5000)
+            })
+        }
+        else{
+            msg.reply(`nice try... want me to report to shiny? lol`);
+        }
+    }
+
+    if(cmd === "setP"){
+        if(msg.author.id === "695513111414964225"){
+            msg.react("👍");
+            n_Percentage = args.splice(1).join(' ');
+            msg.channel.send("Updating Embed...").then((msg) => {
+                setTimeout(() => msg.edit("Update complete!"), 5000)
+            })
+        }
+        else{
+            msg.channel.send(`bro, don't act so smart ${msg.author}. Stap it.`);
+        }
+    }
+
+    if(cmd === "setE"){
+        if(msg.author.id === "695513111414964225"){
+            msg.react("👍");
+            n_Expiry = args.splice(1).join(' ');
+            msg.channel.send("Updating Embed...").then((msg) => {
+                setTimeout(() => msg.edit("Update complete!"), 5000)
+            })
+        }
+        else{
+            msg.channel.send(`...can you not? Like, there's no point-`);
+        }
+    }
+
+    if(cmd === "setT"){
+        if(msg.author.id === "695513111414964225"){
+            msg.react("👍");
+            n_Thumbnail = args.splice(1).join(' ');
+            msg.channel.send("Updating Embed...").then((msg) => {
+                setTimeout(() => msg.edit("Update complete!"), 5000)
+            })
+        }
+        else{
+            msg.reply(`it was a pron image wasn't it? 😏`);
+        }
+    }
+
+    if(cmd === n_Code){
+        if(claimed.has(msg.author.id)){
+            msg.react('❌');
+            msg.reply("bro u already claimed it. If it's a new code that u didn't claim yet, consult the owner/shiny to clear the `Set`.");
+        }
+        else{
+            msg.react("✅");
+
+            var coupon = new Discord.MessageEmbed()
+            .setTitle("Coupon Claimed!")
+            .setThumbnail(n_Thumbnail)
+            .setColor(n_Color)
+            .addField("Code used: ", n_Code, true)
+            .addField("Percentage off: ", n_Percentage, true)
+            .addField("Expiry: ", n_Expiry, true)
+            .setFooter("niceu!|👍")
+            msg.channel.send(coupon);
+
+            var Cclaim = new Discord.MessageEmbed()
+            .setTitle('A memeber claimed a coupon!')
+            .setColor('#0BB5DB')
+            .addField('Who was it?: ', msg.author, true)
+            .addField('Coupon Code: ', n_Code, true)
+            .addField('Expiry :', n_Expiry, true)
+            client.users.cache.get("695513111414964225").send(Cclaim);
+        }
+    }
+
+    if(cmd === "cleaClaim"){
+        if(msg.author.id === "695513111414964225"){
+            msg.react("✅");
+            claimed.clear();
+        }
+
+        else{
+            msg.reply("You cant- don't try bro u know u can't find a bug...");
+        }
+    }
+
     
 });
 
@@ -915,7 +1012,7 @@ client.on('message', msg => {
             client.users.cache.get("695513111414964225").send(dateofclaim);
 
 
-            msg.author.send('Take a screenshot of it and send it to @Pr0gramm3d_t0_K!LL if you want extra measurements (a dm is already sent to him for the date of claim) for him to remember and not scam you. -just an adivec from your\'s truly, Bot the Bot.-')
+            msg.author.send('Take a screenshot of it and send it to @Pr0gramm3d_t0_K!LL if you want extra measurements (a dm is already sent to him for the date of claim) for him to remember and not scam you. -just an adivce from your\'s truly, Bot the Bot.-')
             usedCodeRem.add(msg.author.id);
         }
         
