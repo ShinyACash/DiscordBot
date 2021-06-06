@@ -796,7 +796,7 @@ client.on('message', msg => {
             var codeembed = new Discord.MessageEmbed()
             .setTitle('Congratulations!')
             .setColor('#0BB5DB')
-            .setThumbnail('https://cdn.discordapp.com/attachments/775944283039203359/850977426334941204/Re-Zero-Rem-wake-up-death-1024x576.png')
+            .setThumbnail('https://cdn.discordapp.com/attachments/775944283039203359/850978662702120960/images.png')
             .addField('You have now claimed your coupon of 40% off on any pass or sub in the server!', 'nice!', true)
             .addField('Expiry: ', expiry, true)
             .addField('Use it wisely!')
