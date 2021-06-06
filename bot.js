@@ -799,7 +799,7 @@ client.on('message', msg => {
             .setThumbnail('https://cdn.discordapp.com/attachments/775944283039203359/850978662702120960/images.png')
             .addField('You have now claimed your coupon of 40% off on any pass or sub in the server!', 'nice!', true)
             .addField('Expiry: ', expiry, true)
-            .addField('Use it wisely!', "Don't try using this cmd again pls...", true)
+            .addField('Use it wisely!', "Don't try using this cmd again pls...", false)
             .setFooter('Finally! | 🥰')
             msg.channel.send(codeembed);
 
