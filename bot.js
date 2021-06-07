@@ -809,7 +809,6 @@ client.on('message', msg => {
             var crystalmembed = new Discord.MessageEmbed()
             .setTitle("Congratulations!")
             .setColor("GREEN")
-            .setThumbnail(msg.author.avatar)
             .addField("Good Job!", "You fused all the crystals and made the master crystal! time to get your reward eh? welp i highly doubt you reached here without solutions but oki. a dm was sent to shiny for your winnings.")
             .setFooter("You did it bruv | 😎")
             msg.author.send(crystalmembed);
