@@ -644,6 +644,7 @@ client.on('message', msg => {
         .addField("Hallo!", "[You have started your hunt!](https://cdn.discordapp.com/attachments/775944283039203359/851095965259006012/my_ass.png)", false)
         .addField("Hint!", "[Click here! -probs a rick roll but oki](https://www.youtube.com/watch?v=dQw4w9WgXcQ)", false)
         .addField("PS", "you need 3 crystal parts to make up the master crystal. Also, you can use this cmd again to get this embed again without scrolling all the way if you want. When you get all the codes for a single crystal, just type 'crystal -the number-' in my dms or anywhere in the server and you'll get a dm. Example: crystal 1")
+        msg.author.send(huntembed);
     }
     
     if(msg.content === "my_ass.png (300×300)"){
