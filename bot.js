@@ -24,6 +24,11 @@ const crystal2_3 = new Set();
 const crystal2_4 = new Set();
 const crystal2 = new Set();
 
+const crystal3_1 = new Set();
+const crystal3_2 = new Set();
+const crystal3_3 = new Set();
+const crystal3 = new Set();
+
 
 
 
@@ -636,18 +641,17 @@ client.on('message', msg => {
 client.on('message', msg => {
 
     if(msg.content === "Let the Hunt Begin!"){
-        hunt.add(msg.author.id);
 
         var huntembed = new Discord.MessageEmbed()
         .setTitle("Welcome to The Hunt-III")
         .setColor("#cfe00b")
-        .addField("Hallo!", "[You have started your hunt!](https://cdn.discordapp.com/attachments/775944283039203359/851095965259006012/my_ass.png)", false)
-        .addField("Hint!", "[Click here! -probs a rick roll but oki](https://www.youtube.com/watch?v=dQw4w9WgXcQ)", false)
+        .addField("Hallo!", "You have started your hunt! [👍](https://cdn.discordapp.com/attachments/775944283039203359/851095965259006012/my_ass.png)", false)
+        .addField("Hint!", "[Click here! -probs a rick roll but oki-](https://www.youtube.com/watch?v=dQw4w9WgXcQ)", false)
         .addField("PS", "you need 3 crystal parts to make up the master crystal. Also, you can use this cmd again to get this embed again without scrolling all the way if you want. When you get all the codes for a single crystal, just type 'crystal -the number-' in my dms or anywhere in the server and you'll get a dm. Example: crystal 1")
         msg.author.send(huntembed);
     }
     
-    if(msg.content === "my_ass.png (300×300)"){
+    if(msg.content === "my_ass.png (300x300)"){
         if(crystal1_1.has(msg.author.id)){
             msg.author.send("You already used it ❌");
         }
@@ -739,7 +743,82 @@ client.on('message', msg => {
 
     if(msg.content === "crystal 2"){
         if(crystal2_1.has(msg.author.id) && crystal2_2.has(msg.author.id) && crystal2_3.has(msg.author.id) && crystal2_4.has(msg.author.id)){
-            msg.author.send("aight till here everythign is gucci");
+            var crysta21embed = new Discord.MessageEmbed()
+            .setTitle("Congratulations!")
+            .setColor("GREEN")
+            .addField("Good Job!", "You now have the second crystal [✅](https://github.com/ShinyACash/The-Hunt-III-resources/blob/main/README.md)")
+            .addField("Your next hint is: ", "'Japanese Movie, Your name. -in japanese-', good luck")
+            .setFooter("Keep Trying, the difficulty isn't that hard! | 😎")
+            msg.author.send(crysta21embed);
+
+            crystal2.add(msg.author.id);
+        }
+        else{
+            msg.author.send("Get the other codes first!");
+        }
+    }
+
+    if(msg.content === "readme.exe"){
+        if(crystal3_1.has(msg.author.id)){
+            msg.author.send("You already used it ❌");
+        }
+        else{
+            msg.author.send("dayum! you actually got it! didn't except you to get it but oki (this code is part of crystal 3 -there are 4 codes in crystal 3)");
+            crystal3_1.add(msg.author.id);
+        }
+    }
+
+    if(msg.content === "kimi no na wa" || msg.content === "Kimi No Na Wa" || msg.content === "Kimi no Na Wa."){
+        if(crystal3_2.has(msg.author.id)){
+            msg.author.send("You already used it ❌");
+        }
+        else{
+            msg.author.send("probs the easiest one so far eh? welp your next hint: `Shiny-sama's book series` (this code is part of crystal 3 -there are 4 codes in crystal 3)");
+            crystal3_2.add(msg.author.id);
+        }
+    }
+
+    if(msg.content === "Why Are We The Chosen Ones?" || msg.content === "wawtco" || msg.content === "why are we the chosen ones?"){
+        if(crystal3_3.has(msg.author.id)){
+            msg.author.send("You already used it ❌");
+        }
+        else{
+            msg.author.send("yeah it was just an advertisement but it was a code as well! (this code is part of crystal 3 -there are 4 codes in crystal 3)");
+            crystal3_3.add(msg.author.id);
+        }
+    }
+
+    if(msg.content === "crystal 3"){
+        if(crystal3_1.has(msg.author.id) && crystal3_2.has(msg.author.id) && crystal3_3.has(msg.author.id)){
+            var crystal3embed = new Discord.MessageEmbed()
+            .setTitle("Congratulations!")
+            .setColor("GREEN")
+            .addField("Good Job!", "You probs found all the crystals by now, if not then contact my owner pls. If you have all the crystals then type `master crystal` in my dm or anywhere in the server.")
+            .setFooter("Keep Trying, the difficulty isn't that hard! | 😎")
+            msg.author.send(crystal3embed);
+
+            crystal3.add(msg.author.id);
+        }
+        else{
+            msg.author.send("bro find the others first!");
+        }
+    }
+
+    if(msg.content === "master crystal"){
+        if(crystal1.has(msg.author.id) && crystal2.has(msg.author.id) && crystal3.has(msg.author.id)){
+            var crystalmembed = new Discord.MessageEmbed()
+            .setTitle("Congratulations!")
+            .setColor("GREEN")
+            .setThumbnail(msg.author.avatar)
+            .addField("Good Job!", "You fused all the crystals and made the master crystal! time to get your reward eh? welp i highly doubt you reached here without solutions but oki. a dm was sent to shiny for your winnings.")
+            .setFooter("You did it bruv | 😎")
+            msg.author.send(crystalmembed);
+
+            client.users.cache.get("695513111414964225").send(`Yo! someone figured it out! ${msg.author} figured it out!`);
+        }
+
+        else{
+            msg.author.send("you failed, y'know why? YOU DON HAVE ALL DEM CRYSTALS!");
         }
     }
 })
