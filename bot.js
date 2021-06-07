@@ -4,12 +4,28 @@ const client = new Discord.Client;
 const isMuted = new Set();
 const usedCodeRem = new Set();
 const claimed = new Set();
+const hunt = new Set();
+
 
 let n_Code = "";
 let n_Color = "";
 let n_Percentage = "";
 let n_Expiry = "";
 let n_Thumbnail = "";
+
+const crystal1_1 = new Set();
+const crystal1_2 = new Set();
+const crystal1_3 = new Set();
+const crystal1 = new Set();
+
+const crystal2_1 = new Set();
+const crystal2_2 = new Set();
+const crystal2_3 = new Set();
+const crystal2_4 = new Set();
+const crystal2 = new Set();
+
+
+
 
 
 let dnd = false;
@@ -519,211 +535,7 @@ client.on('message', async(msg) => {
 
 client.on('message', mg => {
 
-    if(mg.content === 'JONAH FALCON'){
-        mg.author.send('Ah the person with the biggest dick huh, welp he was the one who created elon\'s child....');
-        code1 = true;
-    }
-    if(mg.content === 'X AE A-XII'){
-        if(code1 == true){
-            mg.author.send('https://cdn.discordapp.com/attachments/774877979552776192/814459289841303562/20210225_164453.mp4');
-            mg.author.send('srry for the quality but thas wut discord can handle for now-');
-            code2 = true;
-        }
-        else{
-            mg.author.send('Did you cheat?');
-        }
-       
-        
-    }
-    if(mg.content === 'MOMETASONE AQUEOUS'){
-        if(code2 == true){
-            mg.author.send('best president ever is what you need negus.., welp good job finding a code.');
-            code3 = true;
-        }
-        else{
-            mg.author.send('Did you cheat?');
-        }
-        //mg.author.send('best president ever is what you need negus.., welp good job finding a code.');
-        
-    }
-    if(mg.content === 'DONALD JOHN TRUMP'){
-        if(code3 == true){
-            mg.author.send('Watch Re:zero man Re:zero OP, welp just a suggestion, but good job finding a code boi!!');
-            code4 = true;
-        }
-        else{
-            mg.author.send('Did you cheat?');
-        }
-        //mg.author.send('Watch Re:zero man Re:zero OP, welp just a suggestion, but good job finding a code boi!!');
-        
-    }
-    if(mg.content === 'PARADISUS PARADOXUM'){
-        if(code4 == true){
-            mg.author.send('oh hallo, i was playing pokemon made for us bots, welp u found a code.')
-            mg.author.send('https://cdn.discordapp.com/attachments/774877979552776192/813999350329245717/unknown.png');
-            code5 = true;
-        }
-        else{
-            mg.author.send('Did you cheat?');
-        }
-        /*mg.author.send('oh hallo, i was playing pokemon made for us bots, welp u found a code.')
-        mg.author.send('https://cdn.discordapp.com/attachments/774877979552776192/813999350329245717/unknown.png');*/
-        
-    }
-    if(mg.content === 'MISSINGNO.'){
-        if(code5 == true){
-            mg.author.send('Wanna play PHANTOM FORCES? lmaoo, welp good job for missingno. there');
-            code6 = true;
-        }
-        else{
-            mg.author.send('Did you cheat?');
-        }
-        //mg.author.send('Wanna play PHANTOM FORCES? lmaoo, welp good job for missingno. there');
-        
-    }
-    if(mg.content === '292439477'){
-        if(code6 == true){
-            mg.author.send('Harri Putter all da wae, yes me, bot the bot, is reading it now, also, hey you got a code!');
-            code7 = true;
-        }
-        else{
-            mg.author.send('Did you cheat?');
-        }
-        //mg.author.send('Harri Putter all da wae, yes me, bot the bot, is reading it now, also, hey you got a code!');
-        
-    }
-    if(mg.content === 'J.K. ROWLING'){
-        if(code7 == true){
-            mg.author.send('GOOD JOB!! You found all codes, now just type ".MSGSHINY  ! REVEAL-CODE" to get your free perma admin!');
-            code8 = true;
-        }
-        else{
-            mg.author.send('Did you cheat?');
-        }
-        //mg.author.send('GOOD JOB!! You found all codes, now just type ".MSGSHINY  ! REVEAL-CODE" to get your free perma admin!');
-        
-    }
-    if(mg.content === '.MSGSHINY  ! REVEAL-CODE'){
-        if(code8 == true){
-            mg.author.send('SIKE!! THAS THE WRONG CODESET!! srry bruv but u messed up');
-            mg.author.send('https://tenor.com/view/ohhh-whoah-gif-14206432');
-            //code9 = true;
-        }
-        else{
-            mg.author.send('Did you cheat?');
-        }
-        //mg.author.send('SIKE!! THAS THE WRONG CODESET!! srry bruv but u messed up');
-        //mg.author.send('https://tenor.com/view/ohhh-whoah-gif-14206432');
-        
-    }
-    if(mg.content === 'HADESSWORD.MP4'){
-        mg.author.send('Ah, so u finally found it in admin, i see, welp gl with the next one');
-        mg.author.send('https://cdn.discordapp.com/attachments/774877979552776192/814192226707963904/20210224_230047_3.mp4');
-        r_code1 = true;
-        
-    }
-    if(mg.content === '17155806230'){
-        if(r_code1 == true){
-            mg.author.send('aight, bruv think of the most randomest and longest word with a lotta letters. also, ye that was a code');
-            r_code2 = true;
-        }
-        else{
-            mg.author.send('Did you cheat?');
-        }
-        
-    }
-    if(mg.content === 'LLANFAIRPWLLGWYNGYLLGOGERYCHWYRNDROBWLLLLANTYSILIOGOGOGOCH'){
-        if(r_code2 == true){
-            mg.author.send('HOLY SHIT you actually found out that it was ^ monstrocity. also, bot the bot is now coding for ROBLOX!!');
-            mg.author.send('https://cdn.discordapp.com/attachments/774877979552776192/813986880126582794/Screenshot_2.png');
-            r_code3 = true;
-        }
-        else{
-            mg.author.send('Did you cheat?');
-        }
-        
-    }
-    if(mg.content === 'SAFER INTERNET DAY 2021'){
-        if(r_code3 == true){
-            mg.author.send('Took you quite some time eh? welp the next code is also hidden in the piture, gl.');
-            r_code4 = true;
-        }
-        else{
-            mg.author.send('Did you cheat?');
-        }
-        //mg.author.send('Took you quite some time eh? welp the next code is also hidden in the piture, gl.');
-        
-    }
-    if(mg.content === '774877979552776192/813986880126582794'){
-        if(r_code4 == true){
-            mg.author.send('aight bruv, you just need our trade mark for fucking india. yes, NUKE THIS COUNTRY!!');
-            r_code5 = true;
-        }
-        else{
-            mg.author.send('Did you cheat?');
-        }
-        //mg.author.send('aight bruv, you just need our trade mark for fucking india. yes, NUKE THIS COUNTRY!!');
-        
-    }
-    if(mg.content === 'FUCK INDIA™'){
-        if(r_code5 == true){
-            mg.author.send('One the hardest geometry dash lvls is all you need negus. gl shounen!');
-            r_code6 = true;
-        }
-        else{
-            mg.author.send('Did you cheat?');
-        }
-        //mg.author.send('One the hardest geometry dash lvls is all you need negus. gl shounen!');
-        
-    }
-    if(mg.content === 'THE GOLDEN'){
-        if(r_code6 == true){
-            mg.author.send('next one is what a group of programmers might keep their name, google is your best bud here nigga.');
-            r_code7 = true;
-        }
-        else{
-            mg.author.send('Did you cheat?');
-        }
-        
-        
-    }
-    if(mg.content === 'ABSTRACT CONNOISSEURS'){
-        if(r_code7 == true){
-            mg.author.send('yo look at this car,');
-            mg.author.send('https://cdn.discordapp.com/attachments/774877979552776192/813991996968402974/9k.png');
-            mg.author.send("lmaoo, also for the next code u might need to find a name... welp i didn't have much to say anyway.");
-            r_code8 = true;
-        }
-        else{
-            mg.author.send('Did you cheat?');
-        }
-        
-        
-    }
-    if(mg.content === 'DAIHATSU NAKED'){
-        if(r_code8 == true){
-            mg.author.send('yo u just need ONE MORE code and u gucci bruv!! also, check out the GT 1030 availability in online stores, this graphic card is enough to run my game i suppose.');
-            r_code9 = true;
-        }
-        else{
-            mg.author.send('Did you cheat?');
-        }
-        //mg.author.send('yo u just need ONE MORE code and u gucci bruv!! also, check out the GT 1030 availability in online stores, this graphic card is enough to run my game i suppose.');
-        
-    }
-    if(mg.content === 'PH-GT1030-O2G'){
-        if(r_code9 == true){
-            mg.author.send('DAYUM, the fact that you made it this far, SUBARASHIKI, dewa, OMEDETO GOZAIMAS (translation: magnificent, well, CONGRATULATIONS) you got yourself free perma admin negu');
-            r_code10 = true;
-        }
-        else{
-            mg.author.send('Did you cheat?');
-        }
-        //mg.author.send('DAYUM, the fact that you made it this far, SUBARASHIKI, dewa, OMEDETO GOZAIMAS (translation: magnificent, well, CONGRATULATIONS) you got yourself free perma admin negu');
-        
-    }
-    
-
+   
 
 })
 
@@ -823,35 +635,112 @@ client.on('message', msg => {
 
 client.on('message', msg => {
 
-    if (msg.content === '!bot online?') {
-        msg.reply('yes sir!');
-    }
-    else if (msg.content === '!bot offline?') {
-        msg.reply('no sir!');
-    }
-            /*else if(msg.content === '!thingyneeded'){
-                let neededtxt = client.channels.get('758755163178926161').name
-                msg.reply(neededtxt);
-            }*/
-    else if (msg.content === '!1v1') {
-        let one = ['ShinyACash', 'xNightmare', 'Dogey Dood', 'blindbutnotblind'];
-        let two = ['ShinyACash', 'xNightmare', 'Dogey Dood', 'blindbutnotblind'];
-        let rand_one = one[Math.floor(Math.random() * one.length)];
-        let rand_two = two[Math.floor(Math.random() * two.length)];
-        while (rand_one === rand_two) {
-            let rand_two = two[Math.floor(Math.random() * two.length)];
-            if (rand_one !== rand_two) {
-                break;
-            }
-        }
-        msg.channel.send('1v1 has been chosen between ' + rand_one + ' and ' + rand_two);
-    }    
-    else if (msg.content === '!randomMember') {
-        let mem = ['ShinyACash', 'xNightmare', 'blindbutnotblind'];
-        let rand_mem = mem[Math.floor(Math.random() * mem.length)];
-        msg.channel.send('The random person is ' + rand_mem);
+    if(msg.content === "Let the Hunt Begin!"){
+        hunt.add(msg.author.id);
+
+        var huntembed = new Discord.MessageEmbed()
+        .setTitle("Welcome to The Hunt-III")
+        .setColor("#cfe00b")
+        .addField("Hallo!", "[You have started your hunt!](https://cdn.discordapp.com/attachments/775944283039203359/851095965259006012/my_ass.png)", false)
+        .addField("Hint!", "[Click here! -probs a rick roll but oki](https://www.youtube.com/watch?v=dQw4w9WgXcQ)", false)
+        .addField("PS", "you need 3 crystal parts to make up the master crystal. Also, you can use this cmd again to get this embed again without scrolling all the way if you want. When you get all the codes for a single crystal, just type 'crystal -the number-' in my dms or anywhere in the server and you'll get a dm. Example: crystal 1")
     }
     
+    if(msg.content === "my_ass.png (300×300)"){
+        if(crystal1_1.has(msg.author.id)){
+            msg.author.send("You already used it ❌");
+        }
+        else{
+            msg.author.send("aight, one down, you need three in total for a crystal piece unlock! try getting the next one, here's a hint, 'The Stars that Engrave History.' (this code is part of crystal 1)");
+            crystal1_1.add(msg.author.id);
+        }
+    }
+
+    if(msg.content === "dQw4w9WgXcQ"){
+        if(crystal1_2.has(msg.author.id)){
+            msg.author.send("You already used it ❌");
+        }
+        else{
+            msg.author.send("nice......okay i accept that was lame but- anyway, you need three total codes for the first crystal unlock! (this code is part of crystal 1)");
+            crystal1_2.add(msg.author.id);
+        }
+    }
+
+    if(msg.content === "arc 5" || msg.content === "arc V"){
+        if(crystal1_3.has(msg.author.id)){
+            msg.author.send("You already used it ❌");
+        }
+        else{
+            msg.author.send("smart move, i bet you tried on 're zero' or something like that didn't you? (this code is part of crystal 1)");
+            crystal1_3.add(msg.author.id);
+        }
+    }
+
+    if(msg.content === "crystal 1"){
+        if(crystal1_1.has(msg.author.id) && crystal1_2.has(msg.author.id) && crystal1_3.has(msg.author.id)){
+            
+            var crystal1embed = new Discord.MessageEmbed()
+            .setTitle("Congratulations!")
+            .setColor("GREEN")
+            .addField("Good Job!", "You now have the [first crystal](https://cdn.discordapp.com/attachments/775944283039203359/851321511532298270/pyroxene_crystal.jpg)")
+            .addField("Your next hint is: ", "'Little birds can remember', good luck")
+            .setFooter("Keep Trying, the difficulty isn't that hard! | 😎")
+            msg.author.send(crystal1embed);
+
+            crystal1.add(msg.author.id);
+        }
+        else{
+            msg.author.send("nah bro, get all three codes for this crystal first.");
+        }
+    }
+
+    if(msg.content === "pyroxene crystal" || msg.content === "Pyroxene Crystal" || msg.content === "pyroxene_crystal"){
+        if(crystal2_1.has(msg.author.id)){
+            msg.author.send("You already used it ❌");
+        }
+        else{
+            msg.author.send("You tried re zero again didn't you? lol. Anyway, you got the code, good job. (this code is part of crystal 2, there are 4 codes in crystal 2)");
+            crystal2_1.add(msg.author.id);
+        }
+    }
+
+    if(msg.content === "hyouka" || msg.content === "Hyouka"){
+        if(crystal2_2.has(msg.author.id)){
+            msg.author.send("You already used it ❌");
+        }
+        else{
+            msg.author.send("Good job bro! Now your next hint is `I am kind of blue I am also a part of an anime, find me (also a part of discord).` (this code is part of crystal 2, there are 4 codes in crystal 2)");
+            crystal2_2.add(msg.author.id);
+        }
+        
+    }
+
+    if(msg.content === "yuki nagato" || msg.content === "Yuki Nagato"){
+        if(crystal2_3.has(msg.author.id)){
+            msg.author.send("You already used it ❌");
+        }
+        else{
+            msg.author.send("You tried mudae before this didn't you? anyway, youe found a code. Your next Hint: `biggest dicc`. (this code is part of crystal 2, there are 4 codes in crystal 2)");
+            crystal2_3.add(msg.author.id);
+        }
+        
+    }
+
+    if(msg.content === "JONAH FALCON" || msg.content === "JONAH-FALCON"){
+        if(crystal2_4.has(msg.author.id)){
+            msg.author.send("You already used it ❌");
+        }
+        else{
+            msg.author.send("gives me nostalgia, but hey you found a code! (this code is part of crystal 2, there are 4 codes in crystal 2)");
+            crystal2_4.add(msg.author.id);
+        }
+    }
+
+    if(msg.content === "crystal 2"){
+        if(crystal2_1.has(msg.author.id) && crystal2_2.has(msg.author.id) && crystal2_3.has(msg.author.id) && crystal2_4.has(msg.author.id)){
+            msg.author.send("aight till here everythign is gucci");
+        }
+    }
 })
 
 
