@@ -1,17 +1,14 @@
 const Discord = require("discord.js");
-
 const client = new Discord.Client;
 const isMuted = new Set();
 const usedCodeRem = new Set();
 const claimed = new Set();
-const hunt = new Set();
+//const hunt = new Set();
 
 
-let n_Code = "";
-let n_Color = "";
-let n_Percentage = "";
-let n_Expiry = "";
-let n_Thumbnail = "";
+
+
+
 
 const crystal1_1 = new Set();
 const crystal1_2 = new Set();
@@ -32,6 +29,8 @@ const crystal3 = new Set();
 
 
 
+var danW = 5;
+var ogW = 5;
 
 let dnd = false;
 let code1 = false;
@@ -90,6 +89,7 @@ const emoji = client.emojis.cache.get("782957768545665074")
 client.once('ready', () => {
     console.log('Bot online!');
     client.user.setActivity('Dank Memer-senpai, aah~', { type: 'WATCHING' });
+
     
     //ShinyNcounter += 1;
     //client.channels.cache.get('775564519233028099').send('Hallo people I am online!');
@@ -453,88 +453,34 @@ client.on('message', async(msg) => {
         });
     }
 
-    if(cmd === "newC"){
-        if(msg.author.id === "695513111414964225"){
-            msg.react("👍");
-            n_Code = args.splice(1).join(' ');
+    if(cmd === "dSlot+"){
+        if(msg.author.id === '695513111414964225'){
+            danW = danW + 1;
         }
         else{
-            msg.reply(`nice try... want me to report to shiny? lol`);
+            msg.reply("nice try...");
+        }
+    }
+    if(cmd === "oSlot+"){
+        if(msg.author.id === '695513111414964225'){
+            ogW = ogW + 1;
+        }
+        else{
+            msg.reply("nice try...");
         }
     }
 
-    if(cmd === "setP"){
-        if(msg.author.id === "695513111414964225"){
-            msg.react("👍");
-            n_Percentage = args.splice(1).join(' ');
+    if(cmd === 'slots'){
+        if(msg.author.id === "774874294999580672"){
+            msg.reply("You have " + danW + " slots in your **exclusive** waifus");
+        }
+        if(msg.author.id === "774874294999580672"){
+            msg.reply("You have " + ogW + " slots in your **exclusive** waifus");
         }
         else{
-            msg.channel.send(`bro, don't act so smart ${msg.author}. Stap it.`);
+            msg.reply("not for you bruv, MUDAE USERS ONLY -unless you paid for it, then contact my fucking OWNER-");
         }
     }
-
-    if(cmd === "setE"){
-        if(msg.author.id === "695513111414964225"){
-            msg.react("👍");
-            n_Expiry = args.splice(1).join(' ');
-        }
-        else{
-            msg.channel.send(`...can you not? Like, there's no point-`);
-        }
-    }
-
-    if(cmd === "setT"){
-        if(msg.author.id === "695513111414964225"){
-            msg.react("👍");
-            n_Thumbnail = args.splice(1).join(' ');
-        }
-        else{
-            msg.reply(`it was a pron image wasn't it? 😏`);
-        }
-    }
-
-    if(cmd === n_Code){
-        if(claimed.has(msg.author.id)){
-            msg.react('❌');
-            msg.reply("bro u already claimed it. If it's a new code that u didn't claim yet, consult the owner/shiny to clear the `Set`.");
-        }
-        else{
-            msg.react("✅");
-
-            var coupon = new Discord.MessageEmbed()
-            .setTitle("Coupon Claimed!")
-            .setThumbnail(n_Thumbnail)
-            .setColor(n_Color)
-            .addField("Code used: ", n_Code, true)
-            .addField("Percentage off: ", n_Percentage, true)
-            .addField("Expiry: ", n_Expiry, true)
-            .setFooter("niceu!|👍")
-            msg.channel.send(coupon);
-
-            var Cclaim = new Discord.MessageEmbed()
-            .setTitle('A memeber claimed a coupon!')
-            .setColor('#0BB5DB')
-            .addField('Who was it?: ', msg.author, true)
-            .addField('Coupon Code: ', n_Code, true)
-            .addField('Expiry :', n_Expiry, true)
-            client.users.cache.get("695513111414964225").send(Cclaim);
-
-            claimed.add(msg.author.id);
-        }
-    }
-
-    if(cmd === "clearClaim"){
-        if(msg.author.id === "695513111414964225"){
-            msg.react("✅");
-            claimed.clear();
-        }
-
-        else{
-            msg.reply("You cant- don't try bro u know u can't find a bug...");
-        }
-    }
-
-    
 });
 
 
