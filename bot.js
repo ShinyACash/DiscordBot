@@ -474,7 +474,7 @@ client.on('message', async(msg) => {
         if(msg.author.id === "774874294999580672"){
             msg.reply("You have " + danW + " slots in your **exclusive** waifus");
         }
-        if(msg.author.id === "774874294999580672"){
+        if(msg.author.id === "683636590245183508"){
             msg.reply("You have " + ogW + " slots in your **exclusive** waifus");
         }
         else{
