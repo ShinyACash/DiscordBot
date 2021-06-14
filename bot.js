@@ -29,7 +29,7 @@ const crystal3 = new Set();
 
 
 
-var danW = 5;
+var danW = 10;
 var ogW = 5;
 
 let dnd = false;
@@ -453,32 +453,16 @@ client.on('message', async(msg) => {
         });
     }
 
-    if(cmd === "dSlot+"){
-        if(msg.author.id === '695513111414964225'){
-            danW = danW + 1;
-        }
-        else{
-            msg.reply("nice try...");
-        }
-    }
-    if(cmd === "oSlot+"){
-        if(msg.author.id === '695513111414964225'){
-            ogW = ogW + 1;
-        }
-        else{
-            msg.reply("nice try...");
-        }
-    }
 
     if(cmd === 'slots'){
         if(msg.author.id === "774874294999580672"){
             msg.reply("You have " + danW + " slots in your **exclusive** waifus");
         }
-        if(msg.author.id === "683636590245183508"){
+        else if(msg.author.id === "683636590245183508"){
             msg.reply("You have " + ogW + " slots in your **exclusive** waifus");
         }
-        else{
-            msg.reply("not for you bruv, MUDAE USERS ONLY -unless you paid for it, then contact my fucking OWNER-");
+        else if(msg.author.id !== "774874294999580672" || msg.author.id !== "683636590245183508"){
+            msg.react('❌');
         }
     }
 });
