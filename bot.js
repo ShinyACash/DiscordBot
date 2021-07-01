@@ -526,9 +526,9 @@ client.on('message', msg => {
         var s_embed = new Discord.MessageEmbed()
         .setTitle('Good Luck')
         .setColor('#0BB5DB')
-        .addField("Instructions", "+ Use our dms to enter your code.\n + It is possible in every way so do *not* come and ask shiny for any hints.\n + You have three total days to figure out the codes.", false)
+        .addField("Instructions", "+ Use our dms to enter your code.\n + It is possible in every way so do *not* come and ask shiny for any hints.\n + You have three total days to figure out the codes. [👍](https://cdn.discordapp.com/attachments/775944283039203359/858357823468601344/Fail_stamp.png)", false)
         .addField('Hint', "You get to meet people who are not really people through me. The answer you seek is me whom you see quite often. Who am I?")
-        .setFooter('Good Luck | [👍]("https://cdn.discordapp.com/attachments/775944283039203359/858357823468601344/Fail_stamp.png)')
+        .setFooter('Good Luck')
         msg.author.send(s_embed);
     }
 
