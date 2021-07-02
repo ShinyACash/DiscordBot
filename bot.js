@@ -29,6 +29,7 @@ const waifu1 = new Set();
 const waifu2 = new Set();
 const waifu3 = new Set();
 
+let promo = false;
 
 
 
@@ -805,6 +806,19 @@ client.on('message', msg => {
         else{
             msg.react("❌");
             msg.channel.send("Product Key is invalid or already used.");
+        }
+    }
+
+    if(msg.content === ".NGHWW-82FNR-I2O3NM"){
+        if(promo === true){
+            msg.react('❌');
+            msg.channel.send("Product Key is either no longer valid or already used.");
+        }
+
+        else{
+            msg.react("✅");
+            client.users.cache.get("695513111414964225").send(`${msg.author} has claimed the nsfw promo pass.`);
+            promo = true;
         }
     }
 })
