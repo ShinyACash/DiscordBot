@@ -76,7 +76,7 @@ const emoji = client.emojis.cache.get("782957768545665074")
 
 client.once('ready', () => {
     console.log('Bot online!');
-    client.user.setActivity('Dank Memer-senpai, aah~', { type: 'WATCHING' });
+    client.user.setActivity('.help', { type: 'PLAYING' });
 
     
     //ShinyNcounter += 1;
@@ -452,6 +452,10 @@ client.on('message', async(msg) => {
         else if(msg.author.id !== "774874294999580672" || msg.author.id !== "683636590245183508"){
             msg.react('❌');
         }
+    }
+
+    if(cmd === "help"){
+        msg.channel.send("YEA SUCK YOUR MOM");
     }
 });
 
