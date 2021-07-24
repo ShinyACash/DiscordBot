@@ -145,7 +145,7 @@ client.on('message', async(message) => {
                     }
                     message.member.roles.add(muterole);
                     //if(message.member.hasPermission('MANAGE_MESSAGES')) return message.member.roles.remove(muterole);
-                    isMuted.add(message.author.id);
+                    //isMuted.add(message.author.id);
                     //message.channel.send('You have been muted!');
                     var channel = message.guild.channels.cache.get("778889714001510400");
 
@@ -169,7 +169,7 @@ client.on('message', async(message) => {
                         channel.send(logAutounmute);
 
                         isMuted.delete(`${member}`);
-                    }, 300000);
+                    }, 30000);
                 }else {
                     userData.msgCount = msgCount;
                     usersMap.set(message.author.id, userData);
