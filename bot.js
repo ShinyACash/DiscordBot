@@ -145,7 +145,7 @@ client.on('message', async(message) => {
                     }
                     message.member.roles.add(muterole);
                     //if(message.member.hasPermission('MANAGE_MESSAGES')) return message.member.roles.remove(muterole);
-                    //isMuted.add(message.author.id);
+                    isMuted.add(message.author.id);
                     //message.channel.send('You have been muted!');
                     var channel = message.guild.channels.cache.get("778889714001510400");
 
@@ -342,7 +342,8 @@ client.on('message', async(msg) => {
             member = null;
         }
 
-        if(!isMuted.has(`${member}`)) return msg.reply('Yo they are not even muted, stfu.'); 
+        if(!isMuted.has(`${member}`)) return msg.reply('Yo they are not even muted, stfu.');
+        if(!isMuted.has(msg.author.id)) return msg.reply('Yo they are not even muted, stfu.');
 
         if(!member) return msg.reply('They aren\'t even in the server!, stop messing with me boi!');
         if(member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You cannot unmute that person!, so yea...stop trying');
