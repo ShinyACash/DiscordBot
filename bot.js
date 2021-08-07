@@ -278,6 +278,7 @@ client.on('message', async(msg) => {
         var role = msg.guild.roles.cache.find(r => r.name === 'Muted');
         isMuted.add(`${member}`);
         member.roles.add(role);
+        //blah blah
 
     }
 
