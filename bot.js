@@ -477,6 +477,8 @@ client.on('message', msg => {
 
         var channel = msg.guild.channels.cache.get('778889714001510400');
 
+        if(msg.author.bot) return;
+
         msg.member.roles.add(role);
 
         var mutelog = new Discord.MessageEmbed()
