@@ -622,14 +622,14 @@ client.on('message', msg => {
 client.on('message', msg => {
     if(msg.content === ".points"){
         var point = new Discord.MessageEmbed()
-            .setTitle('Le Points')
-            .setColor('#0BB5DB')
-            .addField('le Shiny-sama: ', me)
-            .addField('la senpai: ', min)
-            .addField('la taek00kyolo: ', aak)
-            .addField('la dumdum: ', dum)
-            .footer('why do i have to deal with the scores?')
-            msg.channel.send(point);
+        .setTitle('Le Points')
+        .setColor('#0BB5DB')
+        .addField('le Shiny-sama: ', me)
+        .addField('la senpai: ', min)
+        .addField('la taek00kyolo: ', aak)
+        .addField('la dumdum: ', dum)
+        .footer('why do i have to deal with the scores?')
+        msg.channel.send(point);
     }
 })
 
