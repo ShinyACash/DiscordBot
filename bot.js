@@ -504,7 +504,7 @@ client.on('message', async(msg) => {
         if (!args[0]) return message.reply('oi, state a number.')
         if(parseInt(args[0]) > 1){
             me = me - parseInt(args[0]);
-            msg.channel.send("Added " + parseInt(args[0]) + " points to le dingug.");
+            msg.channel.send("Subtracted " + parseInt(args[0]) + " points from le dingug.");
         }
         else return;
     }
@@ -513,7 +513,7 @@ client.on('message', async(msg) => {
         if (!args[0]) return message.reply('oi, state a number.')
         if(parseInt(args[0]) > 1){
             aak = aak - parseInt(args[0]);
-            msg.channel.send("Added " + parseInt(args[0]) + " points to le dingug.");
+            msg.channel.send("Subtracted " + parseInt(args[0]) + " points from la taek00kyolo.");
         }
     }
 
@@ -521,7 +521,7 @@ client.on('message', async(msg) => {
         if (!args[0]) return message.reply('oi, state a number.')
         if(parseInt(args[0]) > 1){
             min = min - parseInt(args[0]);
-            msg.channel.send("Added " + parseInt(args[0]) + " points to le dingug.");
+            msg.channel.send("Subtracted " + parseInt(args[0]) + " points from la senpai.");
         }
         else return;
     }
@@ -530,9 +530,18 @@ client.on('message', async(msg) => {
         if (!args[0]) return message.reply('oi, state a number.')
         if(parseInt(args[0]) > 1){
             dum = dum - parseInt(args[0]);
-            msg.channel.send("Added " + parseInt(args[0]) + " points to le dingug.");
+            msg.channel.send("Subtracted " + parseInt(args[0]) + " points from la dumdum.");
         }
         else return;
+    }
+
+    if(cmd === 'reset'){
+        me = 0;
+        min = 0;
+        aak = 0;
+        dum = 0;
+        msg.channel.send("Reset Successful. 👍");
+        msg.react("✅");
     }
 });
 
