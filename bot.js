@@ -628,7 +628,7 @@ client.on('message', msg => {
         .addField('la senpai: ', min)
         .addField('la taek00kyolo: ', aak)
         .addField('la dumdum: ', dum)
-        .footer('why do i have to deal with the scores?')
+        .setFooter('why do i have to deal with the scores?')
         msg.channel.send(point);
     }
 })
