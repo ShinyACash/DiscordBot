@@ -29,6 +29,11 @@ const waifu1 = new Set();
 const waifu2 = new Set();
 const waifu3 = new Set();
 
+var me = 0;
+var min = 0;
+var aak = 0;
+var dum = 0;
+
 let promo = false;
 
 
@@ -459,6 +464,76 @@ client.on('message', async(msg) => {
     if(cmd === "help"){
         msg.channel.send("YEA SUCK YOUR MOM");
     }
+
+    if(cmd === 'dingug+'){
+        if (!args[0]) return message.reply('oi, state a number.')
+        if(parseInt(args[0]) > 1){
+            me = me + parseInt(args[0]);
+            msg.channel.send("Added " + parseInt(args[0]) + " points to le dingug.");
+        }
+        else return;
+    }
+
+    if(cmd === 'aak+'){
+        if (!args[0]) return message.reply('oi, state a number.')
+        if(parseInt(args[0]) > 1){
+            aak = aak + parseInt(args[0]);
+            msg.channel.send("Added " + parseInt(args[0]) + " points to la aak.");
+        }
+    }
+
+    if(cmd === 'min+'){
+        if (!args[0]) return message.reply('oi, state a number.')
+        if(parseInt(args[0]) > 1){
+            min = min + parseInt(args[0]);
+            msg.channel.send("Added " + parseInt(args[0]) + " points to la senpai.");
+        }
+        else return;
+    }
+
+    if(cmd === 'dum+'){
+        if (!args[0]) return message.reply('oi, state a number.')
+        if(parseInt(args[0]) > 1){
+            dum = dum + parseInt(args[0]);
+            msg.channel.send("Added " + parseInt(args[0]) + " points to la dumdum.");
+        }
+        else return;
+    }
+
+    if(cmd === 'dingug-'){
+        if (!args[0]) return message.reply('oi, state a number.')
+        if(parseInt(args[0]) > 1){
+            me = me - parseInt(args[0]);
+            msg.channel.send("Added " + parseInt(args[0]) + " points to le dingug.");
+        }
+        else return;
+    }
+
+    if(cmd === 'aak-'){
+        if (!args[0]) return message.reply('oi, state a number.')
+        if(parseInt(args[0]) > 1){
+            aak = aak - parseInt(args[0]);
+            msg.channel.send("Added " + parseInt(args[0]) + " points to le dingug.");
+        }
+    }
+
+    if(cmd === 'min-'){
+        if (!args[0]) return message.reply('oi, state a number.')
+        if(parseInt(args[0]) > 1){
+            min = min - parseInt(args[0]);
+            msg.channel.send("Added " + parseInt(args[0]) + " points to le dingug.");
+        }
+        else return;
+    }
+
+    if(cmd === 'dum-'){
+        if (!args[0]) return message.reply('oi, state a number.')
+        if(parseInt(args[0]) > 1){
+            dum = dum - parseInt(args[0]);
+            msg.channel.send("Added " + parseInt(args[0]) + " points to le dingug.");
+        }
+        else return;
+    }
 });
 
 
@@ -545,289 +620,16 @@ client.on('message', msg => {
 
 
 client.on('message', msg => {
-    if(msg.content === '.start'){
-        var s_embed = new Discord.MessageEmbed()
-        .setTitle('Good Luck')
-        .setColor('#0BB5DB')
-        .addField("Instructions", "+ Use our dms to enter your code.\n + It is possible in every way so do *not* come and ask shiny for any hints.\n + There are 10 codes in total.\n + After you get all 10 codes, use the cmd `.huntend` and you'll get your reward.\n + You have two total days to figure out the codes. [👍](https://cdn.discordapp.com/attachments/775944283039203359/858357823468601344/Fail_stamp.png)", false)
-        .addField('Hint', "You get to meet people who are not really people through me. The answer you seek is me whom you see quite often. Who am I?")
-        .setFooter('Good Luck')
-        msg.author.send(s_embed);
-    }
-
-    if(msg.content === "discordbotlist.com"){
-        if(code1.has(msg.author.id)){
-            msg.react('❌');
-            msg.channel.send("You used it already");
-        }
-        else{
-            msg.react('✅');
-            msg.channel.send("Good Job on figuring that out! +1 to your code list.");
-            msg.channel.send("Error. . .Bot restarting with exit code 0x00000133.");
-            client.user.setStatus("offline");
-            setTimeout(() => {
-                client.user.setStatus("online");
-            }, 5000);
-            code1.add(msg.author.id);
-        }
-    }
-
-    if(msg.content === "DPC_WATCHDOG_VIOLATION"){
-        if(code2.has(msg.author.id)){
-            msg.react('❌');
-            msg.channel.send("You used it already");
-        }
-        else{
-            msg.react('✅');
-            msg.channel.send("Good Job on figuring that out! +1 to your code list.");
-            msg.channel.send("https://cdn.discordapp.com/attachments/775944283039203359/858362811230453820/btb.zip");
-            msg.channel.send("Instructions: Download the folder and open the file `btb.html` where you'll be able to get your other code.");
-            code2.add(msg.author.id);
-        }
-    }
-
-    if(msg.content === "mushoku tensei" || msg.content === "mushoku_tensei" || msg.content === "mushoku-tensei"){
-        if(code3.has(msg.author.id)){
-            msg.react('❌');
-            msg.channel.send("You used it already");
-        }
-        else{
-            msg.react('✅');
-            msg.channel.send("Good Job on figuring that out! +1 to your code list.");
-            msg.channel.send("Your next hint: Ayanokoji-kun");
-            code3.add(msg.author.id);
-        }
-    }
-
-    if(msg.content === "toppat 4 lyfe" || msg.content === "toppat_4_lyfe" || msg.content === "toppat_4_lyfe.mp3"){
-        if(code4.has(msg.author.id)){
-            msg.react('❌');
-            msg.channel.send("You used it already");
-        }
-        else{
-            msg.react('✅');
-            msg.channel.send("Good Job on figuring that out! +1 to your code list.");
-            msg.channel.send("Your next hint is: Apparent Leader of the toppat clan.");
-            code4.add(msg.author.id);
-        }
-    }
-
-    if(msg.content === "Henry Stickmin" || msg.content === "henry stickmin" || msg.content === "Henry stickmin" || msg.content === "henry Stickmin"){
-        if(code5.has(msg.author.id)){
-            msg.react('❌');
-            msg.channel.send("You used it already");
-        }
-        else{
-            msg.react('✅');
-            msg.channel.send("Good Job on figuring that out! +1 to your code list.");
-            msg.channel.send("30 31 37 20 30 38 39 20 35 37 36 20 30 31 35 20 30 30 31 20 30 30 35 2e 20 59 6f 75 72 20 63 6f 64 65 20 69 73 20 74 68 65 20 74 68 69 72 64 20 6f 6e 65 20 66 72 6f 6d 20 74 68 65 20 72 69 67 68 74 2e");
-            code5.add(msg.author.id);
-        }
-    }
-
-    if(msg.content === "ichigo" || msg.content === "Ichigo"){
-        if(code6.has(msg.author.id)){
-            msg.react('❌');
-            msg.channel.send("You used it already");
-        }
-        else{
-            msg.react('✅');
-            msg.channel.send("Good Job on figuring that out! +1 to your code list.");
-            msg.channel.send("Something if you lose, you die internally. What according to you is that? It may be correct, but for the code, there is only one answer.");
-            code6.add(msg.author.id);
-        }
-    }
-
-    if(msg.content === "love" || msg.content === "Love"){
-        if(code7.has(msg.author.id)){
-            msg.react('❌');
-            msg.channel.send("You used it already");
-        }
-        else{
-            msg.react('✅');
-            msg.channel.send("Good Job on figuring that out! +1 to your code list.");
-            msg.channel.send("What is the best Game Launcher? pretty ez tbh.");
-            code7.add(msg.author.id);
-        }
-    }
-
-    if(msg.content === "classroom of the elite" || msg.content === "COTE" || msg.content === "cote" || msg.content === "Classroom Of The Elite"){
-        if(code8.has(msg.author.id)){
-            msg.react('❌');
-            msg.channel.send("You used it already");
-        }
-        else{
-            msg.react('✅');
-            msg.channel.send("Good Job on figuring that out! +1 to your code list.");
-            msg.channel.send("you know wut? imma give you the code this time. Here: `code`");
-            code8.add(msg.author.id);
-        }
-    }
-
-    if(msg.content === "steam" || msg.content === "Steam"){
-        if(code9.has(msg.author.id)){
-            msg.react('❌');
-            msg.channel.send("You used it already");
-        }
-        else{
-            msg.react('✅');
-            msg.channel.send("Good Job on figuring that out! +1 to your code list.");
-            code9.add(msg.author.id);
-        }
-    }
-
-    if(msg.content === "code"){
-        if(code10.has(msg.author.id)){
-            msg.react('❌');
-            msg.channel.send("You used it already");
-        }
-        else{
-            msg.react('✅');
-            msg.channel.send("Good Job on figuring that out! +1 to your code list.");
-            code10.add(msg.author.id);
-        }
-    }
-
-    if(msg.content === ".huntend"){
-        if(code1.has(msg.author.id) && code2.has(msg.author.id) && code3.has(msg.author.id) && code4.has(msg.author.id) && code5.has(msg.author.id) && code6.has(msg.author.id) && code7.has(msg.author.id) && code8.has(msg.author.id) && code9.has(msg.author.id) && code10.has(msg.author.id)){
-            if(msg.author.id === "683636590245183508"){
-                msg.author.send("Congratulations! You have received your prizes.");
-                msg.author.send("Your Product Key for claiming your free 2 months of admin is `CMHKJ-WI2UN-PRNTOP`");
-                msg.author.send("Your Product Key for claiming your free exclusive waifu slot is `218HF-OIKUP-MNJYHT`");
-            }
-            if(msg.author.id === "774874294999580672"){
-                msg.author.send("Your Product Key for claiming your free 2 months of admin is `OIKJE-98JEM-POI49D`");
-                msg.author.send("Your Product Key for claiming your free exclusive waifu slot is `01UJK-OIJ3N-WUEHBR`");
-            }
-            if(msg.author.id === "714021486243086388"){
-                msg.author.send("Your Product Key for claiming your free 2 months of admin is `ERUHI-93HBR-OEUBM4`");
-                msg.author.send("Your Product Key for claiming your free exclusive waifu slot is `8UY3F-OIKJN-WTYB3M`");
-            }
-            if(msg.author.id === "695513111414964225"){
-                msg.author.send("gucci desu.");
-            }
-        }
-    }
-
-    if(msg.content === ".CMHKJ-WI2UN-PRNTOP"){
-        if(msg.author.id === "683636590245183508"){
-            if(admin1.has(msg.author.id)){
-                msg.react("❌");
-                msg.channel.send("Product Key is either invalid or already used.");
-            }
-            else{
-                msg.react("✅");
-                client.users.cache.get("695513111414964225").send(`${msg.author} has claimed free admin!`);
-                admin1.add(msg.author.id);
-            }
-        }
-        else{
-            msg.react("❌");
-            msg.channel.send("Product Key is invalid or already used.");
-        }
-    }
-
-    if(msg.content === ".218HF-OIKUP-MNJYHT"){
-        if(msg.author.id === "683636590245183508"){
-            if(waifu1.has(msg.author.id)){
-                msg.react("❌");
-                msg.channel.send("Product Key is either invalid or already used.");
-            }
-            else{
-                msg.react("✅");
-                client.users.cache.get("695513111414964225").send(`${msg.author} has claimed free slot!`);
-                waifu1.add(msg.author.id);
-            }
-        }
-        else{
-            msg.react("❌");
-            msg.channel.send("Product Key is invalid or already used.");
-        }
-    }
-
-    if(msg.content === ".OIKJE-98JEM-POI49D"){
-        if(msg.author.id === "774874294999580672"){
-            if(admin2.has(msg.author.id)){
-                msg.react("❌");
-                msg.channel.send("Product Key is either invalid or already used.");
-            }
-            else{
-                msg.react("✅");
-                client.users.cache.get("695513111414964225").send(`${msg.author} has claimed free admin!`);
-                admin2.add(msg.author.id);
-            }
-        }
-        else{
-            msg.react("❌");
-            msg.channel.send("Product Key is invalid or already used.");
-        }
-    }
-
-    if(msg.content === ".01UJK-OIJ3N-WUEHBR"){
-        if(msg.author.id === "774874294999580672"){
-            if(waifu2.has(msg.author.id)){
-                msg.react("❌");
-                msg.channel.send("Product Key is either invalid or already used.");
-            }
-            else{
-                msg.react("✅");
-                client.users.cache.get("695513111414964225").send(`${msg.author} has claimed free slot!`);
-                waifu2.add(msg.author.id);
-            }
-        }
-        else{
-            msg.react("❌");
-            msg.channel.send("Product Key is invalid or already used.");
-        }
-    }
-
-    if(msg.content === ".ERUHI-93HBR-OEUBM4"){
-        if(msg.author.id === "7714021486243086388"){
-            if(admin3.has(msg.author.id)){
-                msg.react("❌");
-                msg.channel.send("Product Key is either invalid or already used.");
-            }
-            else{
-                msg.react("✅");
-                client.users.cache.get("695513111414964225").send(`${msg.author} has claimed free admin!`);
-                admin3.add(msg.author.id);
-            }
-        }
-        else{
-            msg.react("❌");
-            msg.channel.send("Product Key is invalid or already used.");
-        }
-    }
-
-    if(msg.content === ".8UY3F-OIKJN-WTYB3M"){
-        if(msg.author.id === "7714021486243086388"){
-            if(waifu3.has(msg.author.id)){
-                msg.react("❌");
-                msg.channel.send("Product Key is either invalid or already used.");
-            }
-            else{
-                msg.react("✅");
-                client.users.cache.get("695513111414964225").send(`${msg.author} has claimed free slot!`);
-                waifu3.add(msg.author.id);
-            }
-        }
-        else{
-            msg.react("❌");
-            msg.channel.send("Product Key is invalid or already used.");
-        }
-    }
-
-    if(msg.content === ".NGHWW-82FNR-I2O3NM"){
-        if(promo === true){
-            msg.react('❌');
-            msg.channel.send("Product Key is either no longer valid or already used.");
-        }
-
-        else{
-            msg.react("✅");
-            client.users.cache.get("695513111414964225").send(`${msg.author} has claimed the nsfw promo pass.`);
-            promo = true;
-        }
+    if(msg.content === ".points"){
+        var point = new Discord.MessageEmbed()
+            .setTitle('Le Points')
+            .setColor('#0BB5DB')
+            .addField('le Shiny-sama: ', me)
+            .addField('la senpai: ', min)
+            .addField('la taek00kyolo: ', aak)
+            .addField('la dumdum: ', dum)
+            .footer('why do i have to deal with the scores?')
+            msg.channel.send(point);
     }
 })
 
