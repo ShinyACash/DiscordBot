@@ -1,13 +1,12 @@
 const Discord = require("discord.js");
 const client = new Discord.Client;
+require('discord-buttons')(client);
 const isMuted = new Set();
 const usedCodeRem = new Set();
 const claimed = new Set();
 //const hunt = new Set();
 
-
-
-
+const disbut = require("discord-buttons");
 
 
 const code1 = new Set();
@@ -543,13 +542,153 @@ client.on('message', async(msg) => {
         msg.channel.send("Reset Successful. 👍");
         msg.react("✅");
     }
+
+    if(cmd === 'shop'){
+        let img = new disbut.MessageButton()
+            .setStyle('blurple')
+            .setLabel('Invinciblemonehgrabber')
+            .setID('1500')
+
+        let truth = new disbut.MessageButton()
+            .setStyle('blurple')
+            .setLabel('Truth')
+            .setID('50')
+
+        let pass = new disbut.MessageButton()
+            .setStyle('blurple')
+            .setLabel('Pass')
+            .setID('500');
+
+        let row = new MessageActionRow()
+            .addComponents(img, truth, pass);
+
+        var shop = new Discord.MessageEmbed()
+        .setTitle('Le Shop')
+        .setColor('#0BB5DB')
+        .addField('Invinciblemonehgrabber', 'Price: 1500 points', false)
+        .addField('Truth', 'Price: 50 points', false)
+        .addField('Pass', 'Price: 500 points', false)
+        msg.channel.send(shop, row);
+    }
 });
 
 
-client.on('message', mg => {
-
-   
-
+client.on('clickButton', async (button) => {
+    if(button.id === '1500'){
+        if(button.clicker.id === '695513111414964225'){
+            if(me < 1500){
+                button.channel.send("You don't have enough points to buy that f00l.");
+            }
+            if(me >= 1500){
+                me = me - 1500;
+                button.channel.send("Purchase sucessful!");
+            }
+        }
+        if(button.clicker.id === '819853557149990962'){
+            if(min < 1500){
+                button.channel.send("You don't have enough points to buy that f00l.");
+            }
+            if(min >= 1500){
+                min = min - 1500;
+                button.channel.send("Purchase sucessful!");
+            }
+        }
+        if(button.clicker.id === '849557271768072202'){
+            if(aak < 1500){
+                button.channel.send("You don't have enough points to buy that f00l.");
+            }
+            if(aak >= 1500){
+                aak = aak - 1500;
+                button.channel.send("Purchase sucessful!");
+            }
+        }
+        if(button.clicker.id === '794180288715685898'){
+            if(dum < 1500){
+                button.channel.send("You don't have enough points to buy that f00l.");
+            }
+            if(dum >= 1500){
+                dum = dum - 1500;
+                button.channel.send("Purchase sucessful!");
+            }
+        }
+    }
+    if(button.id === '500'){
+        if(button.clicker.id === '695513111414964225'){
+            if(me < 500){
+                button.channel.send("You don't have enough points to buy that f00l.");
+            }
+            if(me >= 500){
+                me = me - 500;
+                button.channel.send("Purchase sucessful!");
+            }
+        }
+        if(button.clicker.id === '819853557149990962'){
+            if(min < 500){
+                button.channel.send("You don't have enough points to buy that f00l.");
+            }
+            if(min >= 500){
+                min = min - 500;
+                button.channel.send("Purchase sucessful!");
+            }
+        }
+        if(button.clicker.id === '849557271768072202'){
+            if(aak < 500){
+                button.channel.send("You don't have enough points to buy that f00l.");
+            }
+            if(aak >= 500){
+                aak = aak - 500;
+                button.channel.send("Purchase sucessful!");
+            }
+        }
+        if(button.clicker.id === '794180288715685898'){
+            if(dum < 500){
+                button.channel.send("You don't have enough points to buy that f00l.");
+            }
+            if(dum >= 1500){
+                dum = dum - 500;
+                button.channel.send("Purchase sucessful!");
+            }
+        }
+    }
+    if(button.id === '50'){
+        if(button.clicker.id === '695513111414964225'){
+            if(me < 50){
+                button.channel.send("You don't have enough points to buy that f00l.");
+            }
+            if(me >= 50){
+                me = me - 50;
+                button.channel.send("Purchase sucessful!");
+            }
+        }
+        if(button.clicker.id === '819853557149990962'){
+            if(min < 50){
+                button.channel.send("You don't have enough points to buy that f00l.");
+            }
+            if(min >= 50){
+                min = min - 50;
+                button.channel.send("Purchase sucessful!");
+            }
+        }
+        if(button.clicker.id === '849557271768072202'){
+            if(aak < 50){
+                button.channel.send("You don't have enough points to buy that f00l.");
+            }
+            if(aak >= 50){
+                aak = aak - 50;
+                button.channel.send("Purchase sucessful!");
+            }
+        }
+        if(button.clicker.id === '794180288715685898'){
+            if(dum < 50){
+                button.channel.send("You don't have enough points to buy that f00l.");
+            }
+            if(dum >= 50){
+                dum = dum - 50;
+                button.channel.send("Purchase sucessful!");
+            }
+        }
+        button.defer();
+    }
 })
 
 client.on('message', msg => {
