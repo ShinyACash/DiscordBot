@@ -559,7 +559,7 @@ client.on('message', async(msg) => {
             .setLabel('Pass')
             .setID('500');
 
-        let row = new MessageActionRow()
+        let row = new disbut.MessageActionRow()
             .addComponents(img, truth, pass);
 
         var shop = new Discord.MessageEmbed()
