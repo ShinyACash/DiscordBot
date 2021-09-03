@@ -638,7 +638,7 @@ client.on('message', async(msg) => {
     }
 
     if(cmd === 'use'){
-        var use = args.splice(1).join(' ');
+        var use = args.splice(0).join(' ');
         if(!use) return ;
 
         if(msg.author.id === '695513111414964225'){
