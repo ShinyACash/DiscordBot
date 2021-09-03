@@ -601,7 +601,7 @@ client.on('message', async(msg) => {
     if(cmd === 'useable'){
         if(msg.author.id === '695513111414964225'){
             var useable1 = new Discord.MessageEmbed()
-            .setTitle(`${msg.author.id}'s useables`)
+            .setTitle(`${msg.author}'s useables`)
             .addField("Invinciblemonehgrabber: ", me_i, false)
             .addField("Pass: ", me_p, false)
             .addField("Truth: ", me_t, false)
@@ -610,7 +610,7 @@ client.on('message', async(msg) => {
         }
         if(msg.author.id === '819853557149990962'){
             var useable2 = new Discord.MessageEmbed()
-            .setTitle(`${msg.author.id}'s useables`)
+            .setTitle(`${msg.author}'s useables`)
             .addField("Invinciblemonehgrabber: ", min_i, false)
             .addField("Pass: ", min_p, false)
             .addField("Truth: ", min_t, false)
@@ -619,7 +619,7 @@ client.on('message', async(msg) => {
         }
         if(msg.author.id === '849557271768072202'){
             var useable3 = new Discord.MessageEmbed()
-            .setTitle(`${msg.author.id}'s useables`)
+            .setTitle(`${msg.author}'s useables`)
             .addField("Invinciblemonehgrabber: ", aak_i, false)
             .addField("Pass: ", aak_p, false)
             .addField("Truth: ", aak_t, false)
@@ -628,7 +628,7 @@ client.on('message', async(msg) => {
         }
         if(msg.author.id === '794180288715685898'){
             var useable4 = new Discord.MessageEmbed()
-            .setTitle(`${msg.author.id}'s useables`)
+            .setTitle(`${msg.author}'s useables`)
             .addField("Invinciblemonehgrabber: ", dum_i, false)
             .addField("Pass: ", dum_p, false)
             .addField("Truth: ", dum_t, false)
@@ -638,21 +638,21 @@ client.on('message', async(msg) => {
     }
 
     if(cmd --- 'use'){
-        var use = args.splice(0).join(' ');
+        var use = args.splice(1).join(' ');
         if(!use) return ;
 
         if(msg.author.id === '695513111414964225'){
             if(use === "img"){
                 if(me_i > 0){
                     me_i = me_i - 1;
-                    msg.channel.send(`${msg.author.id} used le ***IMG***`);
+                    msg.channel.send(`${msg.author} used le ***IMG***`);
                 }
                 else{msg.channel.send("you don own any bruhhh");}
             }
             if(use === 'truth'){
                 if(me_t > 0){
                     me_t = me_t - 1;
-                    msg.channel.send(`${msg.author.id} used le truth`);
+                    msg.channel.send(`${msg.author} used le truth`);
                 }
                 else{msg.channel.send("you don own any bruhhh");}
             }
@@ -660,7 +660,7 @@ client.on('message', async(msg) => {
             if(use === 'pass'){
                 if(me_p > 0){
                     me_p = me_p - 1;
-                    msg.channel.send(`${msg.author.id} used le pass`);
+                    msg.channel.send(`${msg.author} used le pass`);
                 }
                 else{msg.channel.send("you don own any bruhhh");}
             }
@@ -670,21 +670,21 @@ client.on('message', async(msg) => {
             if(use === "img"){
                 if(min_i > 0){
                     min_i = min_i - 1;
-                    msg.channel.send(`${msg.author.id} used le ***IMG***`);
+                    msg.channel.send(`${msg.author} used le ***IMG***`);
                 }
                 else{msg.channel.send("you don own any bruhhh");}
             }
             if(use === 'truth'){
                 if(min_t > 0){
                     min_t = min_t - 1;
-                    msg.channel.send(`${msg.author.id} used le truth`);
+                    msg.channel.send(`${msg.author} used le truth`);
                 }
                 else{msg.channel.send("you don own any bruhhh");}
             }
             if(use === 'pass'){
                 if(min_p > 0){
                     min_p = min_p - 1;
-                    msg.channel.send(`${msg.author.id} used le pass`);
+                    msg.channel.send(`${msg.author} used le pass`);
                 }
                 else{msg.channel.send("you don own any bruhhh");}
             }
@@ -693,21 +693,21 @@ client.on('message', async(msg) => {
             if(use === "img"){
                 if(aak_i > 0){
                     aak_i = aak_i - 1;
-                    msg.channel.send(`${msg.author.id} used le ***IMG***`);
+                    msg.channel.send(`${msg.author} used le ***IMG***`);
                 }
                 else{msg.channel.send("you don own any bruhhh");}
             }
             if(use === 'truth'){
                 if(aak_t > 0){
                     aak_t = aak_t - 1;
-                    msg.channel.send(`${msg.author.id} used le truth`);
+                    msg.channel.send(`${msg.author} used le truth`);
                 }
                 else{msg.channel.send("you don own any bruhhh");}
             }
             if(use === 'pass'){
                 if(aak_p > 0){
                     aak_p = aak_p - 1;
-                    msg.channel.send(`${msg.author.id} used le pass`);
+                    msg.channel.send(`${msg.author} used le pass`);
                 }
                 else{msg.channel.send("you don own any bruhhh");}
             }
@@ -716,21 +716,21 @@ client.on('message', async(msg) => {
             if(use === "img"){
                 if(dum_i > 0){
                     dum_i = dum_i - 1;
-                    msg.channel.send(`${msg.author.id} used le ***IMG***`);
+                    msg.channel.send(`${msg.author} used le ***IMG***`);
                 }
                 else{msg.channel.send("you don own any bruhhh");}
             }
             if(use === 'truth'){
                 if(dum_t > 0){
                     dum_t = dum_t - 1;
-                    msg.channel.send(`${msg.author.id} used le truth`);
+                    msg.channel.send(`${msg.author} used le truth`);
                 }
                 else{msg.channel.send("you don own any bruhhh");}
             }
             if(use === 'pass'){
                 if(dum_p > 0){
                     dum_p = dum_p - 1;
-                    msg.channel.send(`${msg.author.id} used le pass`);
+                    msg.channel.send(`${msg.author} used le pass`);
                 }
                 else{msg.channel.send("you don own any bruhhh");}
             }
@@ -744,126 +744,126 @@ client.on('clickButton', async (button) => {
     if(button.id === '1500'){
         if(button.clicker.id === '695513111414964225'){
             if(me < 1500){
-                button.channel.send(`You don't have enough points to buy that f00l, ${button.clicker.id}`);
+                button.channel.send(`You don't have enough points to buy that f00l, ${button.clicker.user.tag}`);
             }
             if(me >= 1500){
                 me = me - 1500;
                 me_i = me_i + 1;
-                button.channel.send(`Purchase sucessful!, ${button.clicker.id} just purchased invin- too long bro!`);
+                button.channel.send(`Purchase sucessful!, ${button.clicker.user.tag} just purchased invin- too long bro!`);
             }
         }
         if(button.clicker.id === '819853557149990962'){
             if(min < 1500){
-                button.channel.send(`You don't have enough points to buy that f00l, ${button.clicker.id}`);
+                button.channel.send(`You don't have enough points to buy that f00l, ${button.clicker.user.tag}`);
             }
             if(min >= 1500){
                 min = min - 1500;
                 min_i = min_i + 1;
-                button.channel.send("`Purchase sucessful!, ${button.clicker.id} just purchased invin- too long bro!`");
+                button.channel.send(`Purchase sucessful!, ${button.clicker.user.tag} just purchased invin- too long bro!`);
             }
         }
         if(button.clicker.id === '849557271768072202'){
             if(aak < 1500){
-                button.channel.send(`You don't have enough points to buy that f00l, ${button.clicker.id}`);
+                button.channel.send(`You don't have enough points to buy that f00l, ${button.clicker.user.tag}`);
             }
             if(aak >= 1500){
                 aak = aak - 1500;
                 aak_i = aak_i + 1;
-                button.channel.send(`Purchase sucessful!, ${button.clicker.id} just purchased invin- too long bro!`);
+                button.channel.send(`Purchase sucessful!, ${button.clicker.user.tag} just purchased invin- too long bro!`);
             }
         }
         if(button.clicker.id === '794180288715685898'){
             if(dum < 1500){
-                button.channel.send(`You don't have enough points to buy that f00l, ${button.clicker.id}`);
+                button.channel.send(`You don't have enough points to buy that f00l, ${button.clicker.user.tag}`);
             }
             if(dum >= 1500){
                 dum = dum - 1500;
                 dum_i = dum_i + 1;
-                button.channel.send(`Purchase sucessful!, ${button.clicker.id} just purchased invin- too long bro!`);
+                button.channel.send(`Purchase sucessful!, ${button.clicker.user.tag} just purchased invin- too long bro!`);
             }
         }
     }
     if(button.id === '500'){
         if(button.clicker.id === '695513111414964225'){
             if(me < 500){
-                button.channel.send(`You don't have enough points to buy that f00l, ${button.clicker.id}`);
+                button.channel.send(`You don't have enough points to buy that f00l, ${button.clicker.user.tag}`);
             }
             if(me >= 500){
                 me = me - 500;
                 me_p = me_p + 1;
-                button.channel.send(`Purchase sucessful!, ${button.clicker.id} just purchased pass!`);
+                button.channel.send(`Purchase sucessful!, ${button.clicker.user.tag} just purchased pass!`);
             }
         }
         if(button.clicker.id === '819853557149990962'){
             if(min < 500){
-                button.channel.send(`You don't have enough points to buy that f00l, ${button.clicker.id}`);
+                button.channel.send(`You don't have enough points to buy that f00l, ${button.clicker.user.tag}`);
             }
             if(min >= 500){
                 min = min - 500;
                 min_p = min_p + 1;
-                button.channel.send(`Purchase sucessful!, ${button.clicker.id} just purchased pass!`);
+                button.channel.send(`Purchase sucessful!, ${button.clicker.user.tag} just purchased pass!`);
             }
         }
         if(button.clicker.id === '849557271768072202'){
             if(aak < 500){
-                button.channel.send(`You don't have enough points to buy that f00l, ${button.clicker.id}`);
+                button.channel.send(`You don't have enough points to buy that f00l, ${button.clicker.user.tags}`);
             }
             if(aak >= 500){
                 aak = aak - 500;
                 aak_p = aak_p + 1;
-                button.channel.send(`Purchase sucessful!, ${button.clicker.id} just purchased pass!`);
+                button.channel.send(`Purchase sucessful!, ${button.clicker.user.tags} just purchased pass!`);
             }
         }
         if(button.clicker.id === '794180288715685898'){
             if(dum < 500){
-                button.channel.send(`You don't have enough points to buy that f00l, ${button.clicker.id}`);
+                button.channel.send(`You don't have enough points to buy that f00l, ${button.clicker.user.tags}`);
             }
             if(dum >= 1500){
                 dum = dum - 500;
                 dum_p = dum_p + 1;
-                button.channel.send(`Purchase sucessful!, ${button.clicker.id} just purchased pass!`);
+                button.channel.send(`Purchase sucessful!, ${button.clicker.user.tags} just purchased pass!`);
             }
         }
     }
     if(button.id === '50'){
         if(button.clicker.id === '695513111414964225'){
             if(me < 50){
-                button.channel.send(`You don't have enough points to buy that f00l, ${button.clicker.id}`);
+                button.channel.send(`You don't have enough points to buy that f00l, ${button.clicker.user.tags}`);
             }
             if(me >= 50){
                 me = me - 50;
                 me_t = me_t + 1;
-                button.channel.send(`Purchase sucessful!, ${button.clicker.id} just purchased truth!`);
+                button.channel.send(`Purchase sucessful!, ${button.clicker.user.tags} just purchased truth!`);
             }
         }
         if(button.clicker.id === '819853557149990962'){
             if(min < 50){
-                button.channel.send(`You don't have enough points to buy that f00l, ${button.clicker.id}`);
+                button.channel.send(`You don't have enough points to buy that f00l, ${button.clicker.user.tags}`);
             }
             if(min >= 50){
                 min = min - 50;
                 min_t = min_t + 1;
-                button.channel.send(`Purchase sucessful!, ${button.clicker.id} just purchased truth!`);
+                button.channel.send(`Purchase sucessful!, ${button.clicker.user.tags} just purchased truth!`);
             }
         }
         if(button.clicker.id === '849557271768072202'){
             if(aak < 50){
-                button.channel.send(`You don't have enough points to buy that f00l, ${button.clicker.id}`);
+                button.channel.send(`You don't have enough points to buy that f00l, ${button.clicker.user.tags}`);
             }
             if(aak >= 50){
                 aak = aak - 50;
                 aak_t = aak_t + 1;
-                button.channel.send(`Purchase sucessful!, ${button.clicker.id} just purchased truth!`);
+                button.channel.send(`Purchase sucessful!, ${button.clicker.user.tags} just purchased truth!`);
             }
         }
         if(button.clicker.id === '794180288715685898'){
             if(dum < 50){
-                button.channel.send(`You don't have enough points to buy that f00l, ${button.clicker.id}`);
+                button.channel.send(`You don't have enough points to buy that f00l, ${button.clicker.user.tags}`);
             }
             if(dum >= 50){
                 dum = dum - 50;
                 aak_t = aak_t + 1;
-                button.channel.send(`Purchase sucessful!, ${button.clicker.id} just purchased truth!`);
+                button.channel.send(`Purchase sucessful!, ${button.clicker.user.tags} just purchased truth!`);
             }
         }
         button.defer();
