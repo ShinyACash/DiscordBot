@@ -479,6 +479,10 @@ client.on('message', async(msg) => {
         msg.channel.send("YEA SUCK YOUR MOM");
     }
 
+    if(cmd === "ital"){
+        msg.channel.send("*why do i even read all this shit?*");
+    }
+
     if(cmd === 'dingug+'){
         if (!args[0]) return message.reply('oi, state a number.')
         if(parseInt(args[0]) > 1){
