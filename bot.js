@@ -909,43 +909,6 @@ client.on('message', msg => {
     if(msg.content.includes('nigga') || msg.content.includes('NIGGA')){
         msg.channel.send('yeah THAT, NiGgA');
     }
-    
-    if(msg.content === 'SHINYGOTREM'){
-        if(usedCodeRem.has(msg.author.id)){
-            msg.react('❌');
-            msg.channel.send(`bro, ${msg.author}, you already used your coupon u dumb-peep-`);
-        }
-        else{
-
-            var date = new Date();
-
-            let dateofClaim = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
-            let expiry = date.getDate() + '/' + (date.getMonth() + 2) + '/' + date.getFullYear();
-
-            var codeembed = new Discord.MessageEmbed()
-            .setTitle('Congratulations!')
-            .setColor('#0BB5DB')
-            .setThumbnail('https://cdn.discordapp.com/attachments/775944283039203359/850978662702120960/images.png')
-            .addField('You have now claimed your coupon of 40% off on any pass or sub in the server!', 'nice!', true)
-            .addField('Expiry: ', expiry, true)
-            .addField('Use it wisely!', "Don't try using this cmd again pls...", false)
-            .setFooter('Finally! | 🥰')
-            msg.channel.send(codeembed);
-
-            var dateofclaim = new Discord.MessageEmbed()
-            .setTitle('A memeber claimed a coupon!')
-            .setColor('#0BB5DB')
-            .addField('Who was it?: ', msg.author, true)
-            .addField('Date and Time of claim: ', dateofClaim, true)
-            .addField('Expiry :', expiry, true)
-            client.users.cache.get("695513111414964225").send(dateofclaim);
-
-
-            msg.author.send('Take a screenshot of it and send it to @Pr0gramm3d_t0_K!LL if you want extra measurements (a dm is already sent to him for the date of claim) for him to remember and not scam you. -just an adivce from your\'s truly, Bot the Bot.-')
-            usedCodeRem.add(msg.author.id);
-        }
-        
-    }
 
 })
 
