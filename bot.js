@@ -251,7 +251,7 @@ client.on('message', async(msg) => {
             .addField('Admin Commands:', "`mute` \n `unmute` \n `bdelete`", false)
             .addField("Useless Commands:", "`ping` \n `slots` \n `help` \n `msgshiny` \n `nigga` \n `bruh`", false)
             .addField("Coupon Commands:", "uhh...depends on when a coupon is active. Shiny will inform you if any.", false)
-            channel.send(help_e);
+            msg.channel.send(help_e);
             break;
         case "nigga":
             msg.channel.send("nigga. really nigga? you just gon use a cmd for NIGGA? are you really sure nigga? ok fine since this doesn't really do anything, imma give nigga. https://www.youtube.com/watch?v=YG4iTGjuoKw");
