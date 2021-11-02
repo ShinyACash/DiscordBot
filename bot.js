@@ -261,11 +261,12 @@ client.on('message', async(msg) => {
             });
             break;
         case "bruh":
+            let msg_b = "Bruh.";
             let bruh_b = new disbut.MessageButton()
             .setStyle("blurple")
             .setLabel("Bruh")
             .setID('mybruh')
-            msg.channel.send(bruh_b);
+            msg.channel.send(msg_b, bruh_b);
             break;
     }
     
