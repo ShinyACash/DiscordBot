@@ -258,7 +258,7 @@ client.on('message', async(msg) => {
             break;
         case "bruh":
             let bruh_b = new disbut.MessageButton()
-            .setStyle("purple")
+            .setStyle("blurple")
             .setLabel("Bruh")
             .setID('mybruh')
             msg.channel.send(bruh_b);
