@@ -112,6 +112,8 @@ client.once('ready', () => {
 
 
 
+
+
 const usersMap = new Map();
 const LIMIT = 5;
 const TIME = 300000;
@@ -241,6 +243,27 @@ client.on('message', async(msg) => {
 
     //const userID = msg.guild.members.find(m => m.id === "695513111414964225");
 
+    switch(cmd){
+        case "help":
+            let help_e = new Discord.MessageEmbed()
+            .setColor('#02FE97')
+            .setTitle('List of Commands')
+            .addField('Admin Commands:', "`mute` \n `unmute` \n `bdelete`", false)
+            .addField("Useless Commands:", "`ping` \n `slots` \n `help` \n `msgshiny` \n `nigga` \n `bruh`", false)
+            .addField("Coupon Commands:", "uhh...depends on when a coupon is active. Shiny will inform you if any.", false)
+            channel.send(help_e);
+            break;
+        case "nigga":
+            msg.channel.send("nigga. really nigga? you just gon use a cmd for NIGGA? are you really sure nigga? ok fine since this doesn't really do anything, imma give nigga. https://www.youtube.com/watch?v=YG4iTGjuoKw");
+            break;
+        case "bruh":
+            let bruh_b = new disbut.MessageButton()
+            .setStyle("purple")
+            .setLabel("Bruh")
+            .setID('mybruh')
+            msg.channel.send(bruh_b);
+            break;
+    }
     
 
     if(cmd === "mute"){
@@ -870,6 +893,10 @@ client.on('clickButton', async (button) => {
                 button.channel.send(`Purchase sucessful!, ${button.clicker.user.tag} just purchased truth!`);
             }
         }
+
+        if(button.id === 'mybruh'){
+            open("https://www.youtube.com/watch?v=9MJ-RuNYILo");
+        }
         button.defer();
     }
 })
@@ -902,13 +929,7 @@ client.on('message', msg => {
         }, 600000)
 
     }
-    if(msg.content.includes('entertain me') || msg.content.includes('intertain me')){
-        msg.reply('git entertained. :Pepega:');
-    }
-
-    if(msg.content.includes('nigga') || msg.content.includes('NIGGA')){
-        msg.channel.send('yeah THAT, NiGgA');
-    }
+    
 
 })
 
