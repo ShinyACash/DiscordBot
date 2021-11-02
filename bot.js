@@ -254,7 +254,11 @@ client.on('message', async(msg) => {
             msg.channel.send(help_e);
             break;
         case "nigga":
-            msg.channel.send("nigga. really nigga? you just gon use a cmd for NIGGA? are you really sure nigga? ok fine since this doesn't really do anything, imma give nigga. https://www.youtube.com/watch?v=YG4iTGjuoKw");
+            msg.channel.send("nigga. really nigga? you just gon use a cmd for NIGGA? are you really sure nigga?").then((msg) => {
+                setTimeout(async() => {
+                    msg.edit("ok fine since this doesn't really do anything, imma give nigga. https://www.youtube.com/watch?v=YG4iTGjuoKw");
+                }, 5000)
+            });
             break;
         case "bruh":
             let bruh_b = new disbut.MessageButton()
