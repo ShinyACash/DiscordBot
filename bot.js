@@ -503,9 +503,7 @@ client.on('message', async(msg) => {
         }
     }
 
-    if(cmd === "help"){
-        msg.channel.send("YEA SUCK YOUR MOM");
-    }
+   
 
     if(cmd === "ital"){
         msg.channel.send("*why do i even read all this shit?*");
