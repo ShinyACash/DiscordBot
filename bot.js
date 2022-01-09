@@ -163,10 +163,10 @@ client.on('message', async(msg) => {
             msg.channel.send(msg_b, bruh_b);
             break;
         case "log":
-            msg.react("✅");
             logno = logno + 1;
             var l_msg = args.splice(0).join(' ');
             if(!l_msg) return msg.reply('u wasted my time building an embed for nothin\'? Not cool fam.');
+            msg.react("✅");
             let log_e= new Discord.MessageEmbed()
             .setColor('#02FE97')
             .setTitle(`log #${logno} of the day!`)
