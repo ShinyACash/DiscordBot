@@ -49,6 +49,7 @@ var aak_p = 0;
 var dum_p = 0;
 
 let promo = false;
+var logno = 0;
 
 
 
@@ -112,106 +113,6 @@ client.once('ready', () => {
 
 
 
-
-
-const usersMap = new Map();
-const LIMIT = 5;
-const TIME = 300000;
-const DIFF = 3000;
-
-client.on('message', async(message) => {
-    if(message.author.bot) return;
-    if(usersMap.has(message.author.id)) {
-        const userData = usersMap.get(message.author.id);
-        const { lastMessage, timer } = userData;
-        const difference = message.createdTimestamp - lastMessage.createdTimestamp;
-        let msgCount = userData.msgCount;
-        console.log(difference);
-
-        if(difference > DIFF) {
-            clearTimeout(timer);
-            console.log('Cleared Timeout');
-            userData.msgCount = 1;
-            userData.lastMessage = message;
-            userData.timer = setTimeout(() => {
-                usersMap.delete(message.author.id);
-                console.log('Removed from map.')
-            }, TIME);
-            usersMap.set(message.author.id, userData)
-        }
-        else {
-
-            if(message.member.hasPermission('MANAGE_MESSAGES')){
-                return;
-            }
-            else{
-                ++msgCount;
-                if(parseInt(msgCount) === LIMIT) {
-                    let muterole = message.guild.roles.cache.find(role => role.name === 'Muted');
-                    if(!muterole) {
-                        try{
-                            muterole = await message.guild.roles.create({
-                                name : "Muted",
-                                permissions: []
-                            })
-                            message.guild.channels.cache.forEach(async (channel, id) => {
-                                await channel.createOverwrite(muterole, {
-                                    SEND_MESSAGES: false,
-                                    ADD_REACTIONS : false
-                                })
-                            })
-                        }catch (e) {
-                            console.log(e)
-                        }
-                    }
-                    message.member.roles.add(muterole);
-                    //if(message.member.hasPermission('MANAGE_MESSAGES')) return message.member.roles.remove(muterole);
-                    isMuted.add(message.author.id);
-                    //message.channel.send('You have been muted!');
-                    var channel = message.guild.channels.cache.get("778889714001510400");
-
-                    var logAuto = new Discord.MessageEmbed()
-                    .setColor('#02FE97')
-                    .setTitle('User Muted (Spam Detected)')
-                    .setThumbnail(message.author.displayAvatarURL())
-                    .addField('User:', message.author.username, true)
-                    .addField('Time muted for: ', '5 min', true)
-                    channel.send(logAuto);
-
-                    isMuted.add(`${member}`);
-                    setTimeout(() => {
-                        message.member.roles.remove(muterole);
-                        //message.channel.send('You have been unmuted!')
-                        var logAutounmute = new Discord.MessageEmbed()
-                        .setColor('#02FE97')
-                        .setTitle('User Unmuted')
-                        .setThumbnail(message.author.displayAvatarURL())
-                        .addField('User:', message.author.username, true)
-                        channel.send(logAutounmute);
-
-                        isMuted.delete(`${member}`);
-                    }, 30000);
-                }else {
-                    userData.msgCount = msgCount;
-                    usersMap.set(message.author.id, userData);
-                }
-            }
-        }
-    }
-    else {
-        let fn = setTimeout(() => {
-            usersMap.delete(message.author.id);
-            console.log('Removed from map.')
-        }, TIME);
-        usersMap.set(message.author.id, {
-            msgCount: 1,
-            lastMessage : message,
-            timer : fn
-        });
-    }
-    //const userId = message.guild.members.find(m => m.id === "695513111414964225");
-})
-
 client.on('messageDelete', async msg =>{
     let deletelog = new Discord.MessageEmbed()
     .setTitle('Yo a msg was deleted!')
@@ -248,17 +149,10 @@ client.on('message', async(msg) => {
             let help_e = new Discord.MessageEmbed()
             .setColor('#02FE97')
             .setTitle('List of Commands')
-            .addField('Admin Commands:', "`mute` \n `unmute` \n `bdelete`", false)
-            .addField("Useless Commands:", "`ping` \n `slots` \n `help` \n `msgshiny` \n `nigga` \n `bruh`", false)
+            .addField('Admin Commands:', "`bdelete`", false)
+            .addField("Useless Commands:", "`ping` \n `slots` \n `help` \n `msgshiny` \n `bruh`", false)
             .addField("Coupon Commands:", "uhh...depends on when a coupon is active. Shiny will inform you if any.", false)
             msg.channel.send(help_e);
-            break;
-        case "nigga":
-            msg.channel.send("nigga. really nigga? you just gon use a cmd for NIGGA? are you really sure nigga?").then((msg) => {
-                setTimeout(async() => {
-                    msg.edit("ok fine since this doesn't really do anything, imma give nigga. https://www.youtube.com/watch?v=YG4iTGjuoKw");
-                }, 5000)
-            });
             break;
         case "bruh":
             let msg_b = "Bruh.";
@@ -268,66 +162,19 @@ client.on('message', async(msg) => {
             .setID('mybruh')
             msg.channel.send(msg_b, bruh_b);
             break;
+        case "log":
+            msg.react("✅");
+            logno = logno + 1;
+            var l_msg = args.splice(0).join(' ');
+            if(!l_msg) return msg.reply('u wasted my time building an embed for nothin\'? Not cool fam.');
+            let log_e= new Discord.MessageEmbed()
+            .setColor('#02FE97')
+            .setTitle(`log #${logno} of the day!`)
+            .addField('By: ', `${msg.author}`, false)
+            .addField('Msg: ', l_msg, false)
+            client.channels.cache.get("929751053979746324").send(log_e);
     }
     
-
-    if(cmd === "mute"){
-        if(!msg.member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You can\'t even use that, maybe try when u actually HAVE mod abilities...');
-
-        var user = msg.mentions.users.first();
-        if(!user) return msg.reply('You didn\'t mention anyone!');
-
-        var member;
-
-        try {
-            member = await msg.guild.members.fetch(user);
-        } catch(err) {
-            member = null;
-        }
-
-        if(!member) return msg.reply('Stop messing with me boi!');
-        if(member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You cannot mute that person!, so yea...stop trying');
-
-        
-
-        var reason = args.splice(2).join(' ');
-        if(!reason) return msg.reply('You need to give a reason!');
-
-        var channel = msg.guild.channels.cache.get("778889714001510400");
-        var logchannel = msg.guild.channels.cache.get("775608981451702302");
-
-        var log = new Discord.MessageEmbed()
-        .setColor('#02FE97')
-        .setTitle('User Muted')
-        .addField('User:', user, true)
-        .addField('By:', msg.author, true)
-        .addField('Reason:', reason)
-        channel.send(log);
-
-        var adminlog = new Discord.MessageEmbed()
-        .setColor('#ff0000')
-        .setTitle('Mute Case')
-        .addField('User:', user, true)
-        .addField('By:', msg.author, true)
-        .setFooter('↑ that person is a scum, beware...')
-        logchannel.send(adminlog);
-
-        var embed = new Discord.MessageEmbed()
-        .setTitle('You were muted!')
-        .addField('Reason:', reason, true);
-
-        try {
-            user.send(embed);
-        } catch(err) {
-        console.warn(err);
-        }
-
-        var role = msg.guild.roles.cache.find(r => r.name === 'Muted');
-        isMuted.add(`${member}`);
-        member.roles.add(role);
-        //blah blah
-
-    }
 
     if(cmd === "msgshiny"){
         if(dnd == true){
@@ -376,108 +223,7 @@ client.on('message', async(msg) => {
         }
     }
 
-    if(cmd === "unmute"){
-        if(!msg.member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You can\'t use that!');
 
-        var user = msg.mentions.users.first();
-
-
-        var member;
-        try {
-            member = await msg.guild.members.fetch(user);
-        } catch(err) {
-            member = null;
-        }
-
-        if(!isMuted.has(`${member}`)) return msg.reply('Yo they are not even muted, stfu.');
-        if(!isMuted.has(msg.author.id)) return msg.reply('Yo they are not even muted, stfu.');
-
-        if(!member) return msg.reply('They aren\'t even in the server!, stop messing with me boi!');
-        if(member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You cannot unmute that person!, so yea...stop trying');
-
-        var role = msg.guild.roles.cache.find(r => r.name === 'Muted');
-        member.roles.remove(role);
-
-        var channel = msg.guild.channels.cache.get("778889714001510400");
-        var logchannel = msg.guild.channels.cache.get("775608981451702302");
-
-        var log = new Discord.MessageEmbed()
-        .setColor('#02FE97')
-        .setTitle('User Unmuted')
-        .addField('User:', user, true)
-        .addField('By (Mod):', msg.author, true)
-        channel.send(log);
-
-        var adminlog = new Discord.MessageEmbed()
-        .setColor('#00ff00')
-        .setTitle('Unmute Case')
-        .addField('User:', user, true)
-        .addField('By:', msg.author, true)
-        .setFooter('↑ that person is a nigga, beware...')
-        logchannel.send(adminlog);
-
-        isMuted.remove(`${member}`);
-
-
-    }
-
-    if(cmd === "ping"){
-
-        var ping = client.ws.ping;
-
-        var log = new Discord.MessageEmbed()
-        .setColor('#02FE97')
-        .setTitle('Ping Check')
-        .addField('Yo ping!! ', ping + 'ms', true)
-        msg.channel.send(log);
-
-        //msg.channel.send(`Yo ping!! ${client.ws.ping}ms`);
-    }
-
-    if(cmd === "kick"){
-        if(!msg.member.hasPermission('KICK_MEMBERS')) return msg.reply('You can\'t use that!');
-
-        var user = msg.mentions.users.first();
-        if(!user) return msg.reply('You didn\'t mention anyone!');
-    
-        var member;
-    
-        try {
-            member = await msg.guild.members.fetch(user);
-        } catch(err) {
-            member = null;
-        }
-    
-        if(!member) return msg.reply('They aren\'t in the server!');
-        if(member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You cannot kick this person!');
-    
-        var reason = args.splice(1).join(' ');
-        if(!reason) return msg.reply('You need to give a reason!');
-    
-        var channel = msg.guild.channels.cache.get('778889714001510400');
-    
-        var log = new Discord.MessageEmbed()
-        .setColor('#02FE97')
-        .setTitle('User Kicked')
-        .addField('User:', user, true)
-        .addField('By:', msg.author, true)
-        .addField('Reason:', reason)
-        channel.send(log);
-    
-        var embed = new Discord.MessageEmbed()
-        .setTitle('You were kicked!')
-        .setDescription(reason);
-    
-        try {
-            await user.send(embed);
-        } catch(err) {
-            console.warn(err);
-        }
-    
-        member.kick(reason);
-    
-        msg.channel.send(`**${user}** has been kicked by **${msg.author}**!`);
-    }
     
     if(cmd === "bdelete"){
         if(!msg.member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You can\'t use that! only mods can when they have to...');
