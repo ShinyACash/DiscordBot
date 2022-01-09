@@ -679,6 +679,17 @@ client.on('message', msg => {
 
     }
     
+    if(msg.content.includes('fuck')){
+        msg.reply("not cool fam, not cool. you might wanna stop.");
+    }
+
+    if(msg.content.includes('joe')){
+        msg.reply("gg.");
+    }
+
+    if(msg.content.includes('your mom')){
+        msg.reply("and here i was busy with yours ;))");
+    }
 
 })
 
