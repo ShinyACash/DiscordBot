@@ -1182,6 +1182,22 @@ client.on('clickButton', async (button) => {
 })
 
 client.on('message', msg => {
+    if(msg.content === "THH.dc(/win/sys)"){
+        msg.author.send("Bot the Bot presents...").then((msg) => {
+            setTimeout(async() => {
+                msg.edit("The Hidden Hunt 📼").then((msg) => {
+                    setTimeout(async() => {
+                        msg.author.send("Under Development.");
+                        
+                    }, 2000)
+                });
+                
+            }, 3000)
+        });
+    }
+})
+
+client.on('message', msg => {
     if(msg.content.includes('https://discord.gg/')){
         msg.delete({ timeout : 0 })
 
@@ -1241,6 +1257,15 @@ client.on('message', msg => {
 
     if(msg.content.includes('your mom')){
         msg.reply("and here i was busy with yours ;))");
+    }
+
+    if(msg.content.includes(" ;))")){
+        msg.author.send(".chamber;))").then((msg) => {
+            setTimeout(async() => {
+                msg.delete();
+                
+            }, 500)
+        });
     }
 
 })
