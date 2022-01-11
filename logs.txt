@@ -16,6 +16,8 @@ $logs.txt.log(logid);
 
 $p3rh4psth15m1ghTw0rK.dcode.log(`${m_enc}`)=>async(arr("m_enc"));
 
+$usecmd(".decode")
+
 $m_enc={695513111414964225 yp;f 774874294999580672 yp djiy-yjr-givl-i[> niy jr-s-mohhs/ovsmydjpedjomuyjsyojsbrs,omfpg,upem/[rjs[dyjodnoypgrmvpfomh,ohjyeptl/}
 $m_enc2={jxdgndvkfxgvk d}\line:11:var{<number::>}
 
