@@ -70,7 +70,7 @@ let dnd = false;
 //let dndtrigger = false;
 //const userId = message.guild.members.find(m => m.id === "695513111414964225");
 
-let enc2 = "myass";
+                                                                                                                                                                                                                                                                                                                                                                                                        let enc2 = "entcoding";
 
 
 
@@ -193,7 +193,7 @@ client.on('messageDelete', async msg =>{
 
 
 
-let enc = "p3rh4psth15m1ghTw0rK";
+                                                                                                                                                                                                                                                                                                                                                                                                                                let enc = "p3rh4psth15m1ghTw0rK";
 /*
 
 @ -459,6 +464,76 @@ client.on('message', async(msg) => {
