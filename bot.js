@@ -626,7 +626,7 @@ client.on('message', async(msg) => {
             let m_list = new Discord.MessageEmbed()
             .setColor("#02FE97")
             .setTitle("List of the cmds using 10A here:")
-            .addField("this is under dev currently...check bacc when it's complete")
+            .addField("this is under dev currently...check bacc when it's complete", "null", false)
             msg.author.send(m_list);
             break;
         case "chamber":
