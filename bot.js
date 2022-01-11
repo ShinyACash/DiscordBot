@@ -580,7 +580,6 @@ client.on('message', msg => {
 client.on('message', async(msg) => {
     //var ms = require('ms');
     if(msg.author.bot) return;
-    if(!msg.guild) return;
 
     //let owner = msg.guild.roles.cache.find(role => role.name === 'Owner');
 
@@ -627,7 +626,7 @@ client.on('message', async(msg) => {
             .setColor("#02FE97")
             .setTitle("List of the cmds using 10A here:")
             .addField("this is under dev currently...check bacc when it's complete", "null", false)
-            msg.author.send(m_list);
+            msg.channel.send(m_list);
             break;
         case "chamber":
             msg.author.send("console boot initiated...").then((msg) => {
