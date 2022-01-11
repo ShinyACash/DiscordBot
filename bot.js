@@ -188,15 +188,17 @@ client.on('messageDelete', async msg =>{
             usedCodeRem.add(msg.author.id);
         }
         
-    }
+    }*/
 
-    var me = 0;
+var me = 0;
 var min = 0;
 var aak = 0;
 var dum = 0;
 
 let promo = false;
 
+let enc = "p3rh4psth15m1ghTw0rK";
+/*
 
 @ -459,6 +464,76 @@ client.on('message', async(msg) => {
     if(cmd === "help"){
@@ -577,6 +579,8 @@ client.on('message', msg => {
     */
 
 
+
+
 client.on('message', async(msg) => {
     //var ms = require('ms');
     if(msg.author.bot) return;
@@ -648,11 +652,37 @@ client.on('message', async(msg) => {
             else{
                 msg.author.send("Finding log file and enc...").then((msg) => {
                     setTimeout(async() => {
-                        msg.edit("Failed! \n Warning!: This failure may reset the bot and all nodes connected to it. Please use caution!");
+                        msg.edit("Failed! \nWarning!: This failure may reset the bot and all nodes connected to it. Please use caution!");
                     }, 5000)
                 });
             }
             break;
+        case "cipher":
+            var c_msg = args.splice(0).join(' ');
+            if(!c_msg) return msg.author.send('Please don\'t use this if you don\'t know what you are doing. If you do know what you are doing, use the syntax as `.cipher csx` and then enter the decoding cipher by replacing csx.');
+            if(c_msg === enc){
+                msg.author.send("Ciphering...").then((msg) => {
+                    setTimeout(async() => {
+                        msg.edit("Result: Please replace all letters and characters with their predecessor keys (keys to the left of the character), example q = w, so in encoding, it'll be w for the letter q.");
+                    }, 5000)
+                });
+            }
+            else if(c_msg === enc2){
+                msg.author.send("Ciphering...").then((msg) => {
+                    setTimeout(async() => {
+                        msg.edit("Result: Please replace all letters and characters with the the keys below them, for example: q = a, so in the encoding, it will be a for the letter q.");
+                    }, 3000)
+                });
+            }
+            else{
+                msg.author.send("Ciphering...").then((msg) => {
+                    setTimeout(async() => {
+                        msg.edit("Result: Failed, no csx found.");
+                    }, 7000)
+                });
+            }
+            break;
+
 
 
     }
@@ -995,6 +1025,25 @@ client.on('message', async(msg) => {
         }
 
     }
+
+    if(cmd === "digit"){
+        var g_msg = args.splice(0).join(' ')
+        if (!g_msg) return msg.author.send("Syntax: `.digit XXXXX`");
+        if(g_msg === "92873"){
+            msg.author.send("Inputing...").then((msg) => {
+                setTimeout(async() => {
+                    msg.edit("fcZXfoB2f70 \nYT.");
+                }, 5000)
+            });
+        }
+        else{
+            msg.author.send("Inputing...").then((msg) => {
+                setTimeout(async() => {
+                    msg.edit("Access Denied.");
+                }, 5000)
+            });
+        }
+    }
 });
 
 
@@ -1172,9 +1221,9 @@ client.on('message', msg => {
     
     }
 
-    if(msg.content === ".cipher p3rh4psth15m1ghTw0rK"){
+    /*if(msg.content === ".cipher p3rh4psth15m1ghTw0rK"){
         msg.author.send("Replace letters and characters with their predecessor. example: q = w");
-    }
+    }*/
 
     if(msg.content.includes('joe')){
         msg.reply("gg.");
