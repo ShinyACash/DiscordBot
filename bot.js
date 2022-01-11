@@ -70,7 +70,7 @@ let dnd = false;
 //let dndtrigger = false;
 //const userId = message.guild.members.find(m => m.id === "695513111414964225");
 
-let enc2 = myass;
+let enc2 = "myass";
 
 
 
