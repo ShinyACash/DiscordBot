@@ -1253,32 +1253,11 @@ client.on('message', msg => {
 
     }
     
-    if(msg.content.includes('fuck')){
-        if(msg.guild.id === "775564514820227122"){
-            return;
-        }
-        else{
-            msg.reply("not cool fam, not cool. you might wanna stop with the f bomb.");
-
-        }
-    
-    }
 
 
 
-    if(msg.content.includes('joe')){
-        msg.reply("gg.");
-    }
 
-    if(msg.content.includes('bitch')){
-        if(msg.guild.id === "775564514820227122"){
-            return;
-        }
-        else{
-            msg.reply("naaaaaah jit goin crazyyyyyy. but really delete that.");
-        }
-        
-    }
+ 
 
     if(msg.content.includes('your mom')){
         msg.reply("and here i was busy with yours ;))");
