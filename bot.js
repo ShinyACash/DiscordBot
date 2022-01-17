@@ -1145,7 +1145,7 @@ client.on('clickButton', async (button) => {
                 me_t = me_t + 1;
                 button.channel.send(`Purchase sucessful!, ${button.clicker.user.tag} just purchased truth!`);
             }
-        }
+        }                                                                                                                                                                                                                                                                                                                                                                                                                           //code.git?
         if(button.clicker.id === '819853557149990962'){
             if(min < 50){
                 button.channel.send(`You don't have enough points to buy that f00l, ${button.clicker.user.tag}`);
