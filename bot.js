@@ -1238,7 +1238,7 @@ client.on('message', msg => {
 
 
 
-
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        //help me maybe cores can be destroyed using env.
  
 
     if(msg.content.includes('your mom')){
