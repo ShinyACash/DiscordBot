@@ -100,7 +100,7 @@ const emoji = client.emojis.cache.get("782957768545665074")
 
 client.once('ready', () => {
     console.log('Bot online!');
-    client.user.setActivity('.help', { type: 'PLAYING' });
+    client.user.setActivity('you', { type: 'WATCHING' });
 
     
     //ShinyNcounter += 1;
@@ -1233,33 +1233,7 @@ client.on('message', msg => {
 })
 
 client.on('message', msg => {
-    if(msg.content.includes('https://discord.gg/')){
-        msg.delete({ timeout : 0 })
-
-        var user = msg.author;
-
-        var role = msg.guild.roles.cache.find(r => r.name === 'Muted');
-
-        var channel = msg.guild.channels.cache.get('778889714001510400');
-
-        if(msg.author.bot) return;
-
-        msg.member.roles.add(role);
-
-        var mutelog = new Discord.MessageEmbed()
-        .setTitle('Rules Violator')
-        .setColor('#02FE97')
-        .addField('User: ', user)
-        .addField('Reason: ', 'boi tried to send server invites')
-        .setFooter('pepega boi.')
-        channel.send(mutelog);
-
-        setTimeout(async() =>{
-            msg.member.roles.remove(role);
-            channel.send('he is now unmuted');
-        }, 600000)
-
-    }
+    
     
 
 
